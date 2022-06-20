@@ -10,7 +10,7 @@ public class WoOh
     public WoOh()
     {
         RestaurantsEinfuegen();
-        Ui.start();
+        //Ui.start();
         KoordsSetzen();
         mainScreen();
 
