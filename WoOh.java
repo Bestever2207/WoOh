@@ -10,9 +10,9 @@ public class WoOh
     public WoOh()
     {
         RestaurantsEinfuegen();
-        //Ui.start();
-        KoordsSetzen();
-        mainScreen();
+        Ui.start();
+        //KoordsSetzen();
+        //mainScreen();
 
     }
     public void mainScreen()

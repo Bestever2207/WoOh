@@ -3,20 +3,38 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 public class Ui {
-    JFrame frame;
+    static JFrame frame; 
     JPanel statusLine;
     JPanel pixelRaster;
-    JPanel buttonPanel;
+    static JPanel panel;
     JLabel statusLabel;
-    JButton button;
+    static JButton button;
     public static void start()
     {
-        
+        frame = new JFrame("WoOh");
+        frame.setSize(1422,900);
+        frame.setVisible(true);
+        //frame.setIconImage();
+        panel = new JPanel(null);
+        button = new JButton("Hallo");
+        button.setBounds(544, 311, 383, 69);
+        button.setBackground(Color.RED);
+        panel.add(button);
+        frame.add(panel);
     }
+    
+    
+    
+    
+    
+    
     public static String[] KoordsScreen()
     {
-        Scanner scanner = new Scanner(System.in);
+        
+        
+        /*Scanner scanner = new Scanner(System.in);
 
         System.out.println("Benutze keine Sonderzeichen (z.B. %, !, ., /, \")");
         System.out.println("Gib deine Straße ein: ");
@@ -35,7 +53,8 @@ public class Ui {
         System.out.println("Gib deinen Namen ein: ");
         String name = scanner.nextLine();
         //System.out.println("Deine Eingaben: " + street + ",  " + nummer);
-        return new String[] {street,nummer,plz,stadt,name};
+        return new String[] {street,nummer,plz,stadt,name};*/
+        return null;
     }
 
     public static void koordsScreenFalsch()
