@@ -5,7 +5,6 @@ Erzählen Sie dem Leser (jemand, der nichts über dieses Projekt weiss),
 alles, was er/sie wissen muss. Üblicherweise sollte der Kommentar 
 zumindest die folgenden Angaben umfassen:
 ------------------------------------------------------------------------
-
 PROJEKTBEZEICHNUNG: Wo-Oh
 PROJEKTZWECK: learning data-structures
 VERSION oder DATUM:
