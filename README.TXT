@@ -5,7 +5,7 @@ Erzählen Sie dem Leser (jemand, der nichts über dieses Projekt weiss),
 alles, was er/sie wissen muss. Üblicherweise sollte der Kommentar 
 zumindest die folgenden Angaben umfassen:
 ------------------------------------------------------------------------
-
+important: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 PROJEKTBEZEICHNUNG: Wo-Oh
 PROJEKTZWECK: learning data-structures
 VERSION oder DATUM:
