@@ -6,9 +6,9 @@ alles, was er/sie wissen muss. Üblicherweise sollte der Kommentar
 zumindest die folgenden Angaben umfassen:
 ------------------------------------------------------------------------
 
-PROJEKTBEZEICHNUNG:
-PROJEKTZWECK:
+PROJEKTBEZEICHNUNG: Wo-Oh
+PROJEKTZWECK: learning data-structures
 VERSION oder DATUM:
-WIE IST DAS PROJEKT ZU STARTEN:
-AUTOR(EN):
-BENUTZERHINWEISE:
+WIE IST DAS PROJEKT ZU STARTEN: calling main() method of main-class
+AUTOR(EN): Lucas
+BENUTZERHINWEISE: 
