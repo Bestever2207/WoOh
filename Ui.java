@@ -17,12 +17,6 @@ public class Ui {
         frame.setSize(1422,900);
         frame.setVisible(true);
         //frame.setIconImage();
-        panel = new JPanel(null);
-        button = new JButton("Hallo");
-        button.setBounds(544, 311, 383, 69);
-        button.setBackground(Color.RED);
-        panel.add(button);
-        frame.add(panel);
     }
     
     
@@ -32,7 +26,12 @@ public class Ui {
     
     public static String[] KoordsScreen()
     {
-        
+        panel = new JPanel(null);
+        button = new JButton("Adresse");
+        button.setBounds(544, 311, 383, 69);
+        button.setBackground(Color.RED);
+        panel.add(button);
+        frame.add(panel);
         
         /*Scanner scanner = new Scanner(System.in);
 
