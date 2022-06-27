@@ -11,6 +11,7 @@ public class WoOh
     {
         RestaurantsEinfuegen();
         Ui.start();
+        Ui.KoordsScreen();
         //KoordsSetzen();
         //mainScreen();
 
