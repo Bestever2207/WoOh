@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 public class WoOh
@@ -12,9 +14,9 @@ public class WoOh
     {
         RestaurantsEinfuegen();
         Ui.start();
-        KoordsScreen();
 
-        //KoordsSetzen();
+        KoordsSetzen();
+
         //mainScreen();
 
     }
@@ -26,58 +28,47 @@ public class WoOh
 
     public void KoordsSetzen()
     {
-        double[] koordinaten;
         JComponent[] userDaten_in = Ui.KoordsScreen();
+
         JButton suchen_btn = (JButton) userDaten_in[5];
+
         String[] userDaten = new String[5];
-        for(int i = 0;i < 5;i++)
-        {
-            userDaten[i] = ((JTextField)userDaten_in[i]).getText();
-        }
+        suchen_btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for(int i = 0;i < 5;i++)
+                {
+                    userDaten[i] = ((JTextField)userDaten_in[i]).getText();
+                }
 
-        /*String adresse = userDaten[0] + " " + userDaten[1] + " " + userDaten[2] + " " + userDaten[3];
+                String adresse = userDaten[0] + " " + userDaten[1] + " " + userDaten[2] + " " + userDaten[3];
 
-        koordinaten = Entfernung.KoordsErmitteln(adresse);
-        if(koordinaten == null || userDaten[1].isBlank()) //Was wenn Hausnummer = Buchstaben
-        {
-            Ui.koordsScreenFalsch();
-            KoordsSetzen();
-        }
-        else
-        {
-            System.out.println(koordinaten[0] + " " + koordinaten[1]);
-            user = new User(adresse, koordinaten, userDaten[4]);
-        }
+                double[] koordinaten;
 
-         */
+                koordinaten = Entfernung.KoordsErmitteln(adresse);
+                if(koordinaten == null || userDaten[1].isBlank())
+                {
+                    Ui.koordsScreenFalsch();
+                    KoordsSetzen();
+                }
+                else
+                {
+                    System.out.println(koordinaten[0] + " " + koordinaten[1]);
+                    user = new User(adresse, koordinaten, userDaten[4]);
+                    mai
+                }
+            }
+        });
+
     }
 
-    /*
+
     public void mainScreen()
     {
-        String input = Ui.mainScreen().toLowerCase();
-        if(input.equals("suchen"))
-        {
-            suchenScreen();
-        }
-        else if (input.equals("bestellverlauf"))
-        {
-            Bestellhistorie();
-        }
-        else if (input.equals("warenkorb"))
-        {
-            Warenkorb();
-        }
-        else if (input.equals("geld"))
-        {
-            Guthaben();
-        }
-        else
-        {
-            System.out.println("Achte darauf einen der oben genannten Begriffe einzugeben!");
-            mainScreen();
-        }
+        Ui.mainScreen();
+
     }
+    /*
     public void suchenScreen()
     {
         String[] suche = Ui.suchenScreen();

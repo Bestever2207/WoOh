@@ -142,16 +142,7 @@ public class Ui {
 
     public static String mainScreen()
     {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Gebe eine der Folgenden Aktionen ein, um sie auszuführen");
-        System.out.println("suchen - Gericht/Restaurant/Genre suchen");
-        System.out.println("Bestellverlauf - zeigt bereits getätigte Bestellungen an");
-        System.out.println("Warenkorb - zeigt alle Gerichte, welche bereits hinzugefügt wurden");
-        System.out.println("Geld - zeigt dein aufgeladenes Geld + du kannst weiteres Geld aufladen");
-
-        String input = scanner.nextLine();
-        return input;
     }
     public static String[] suchenScreen()
     {
