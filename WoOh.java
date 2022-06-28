@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.File;
 
 public class WoOh
@@ -11,11 +12,47 @@ public class WoOh
     {
         RestaurantsEinfuegen();
         Ui.start();
-        Ui.KoordsScreen();
+        KoordsScreen();
+
         //KoordsSetzen();
         //mainScreen();
 
     }
+    public void RestaurantsEinfuegen()
+    {
+        restaurants = CsvReader.RestaurantsGeben(new File("Restaurants.csv"));
+    }
+
+
+    public void KoordsSetzen()
+    {
+        double[] koordinaten;
+        JComponent[] userDaten_in = Ui.KoordsScreen();
+        JButton suchen_btn = (JButton) userDaten_in[5];
+        String[] userDaten = new String[5];
+        for(int i = 0;i < 5;i++)
+        {
+            userDaten[i] = ((JTextField)userDaten_in[i]).getText();
+        }
+
+        /*String adresse = userDaten[0] + " " + userDaten[1] + " " + userDaten[2] + " " + userDaten[3];
+
+        koordinaten = Entfernung.KoordsErmitteln(adresse);
+        if(koordinaten == null || userDaten[1].isBlank()) //Was wenn Hausnummer = Buchstaben
+        {
+            Ui.koordsScreenFalsch();
+            KoordsSetzen();
+        }
+        else
+        {
+            System.out.println(koordinaten[0] + " " + koordinaten[1]);
+            user = new User(adresse, koordinaten, userDaten[4]);
+        }
+
+         */
+    }
+
+    /*
     public void mainScreen()
     {
         String input = Ui.mainScreen().toLowerCase();
@@ -41,30 +78,6 @@ public class WoOh
             mainScreen();
         }
     }
-
-    public void RestaurantsEinfuegen()
-    {
-        restaurants = CsvReader.RestaurantsGeben(new File("Restaurants.csv"));
-    }
-    public void KoordsSetzen()
-    {
-        double[] koordinaten;
-        String[] userDaten = Ui.KoordsScreen();
-        String adresse = userDaten[0] + " " + userDaten[1] + " " + userDaten[2] + " " + userDaten[3];
-
-        koordinaten = Entfernung.KoordsErmitteln(adresse);
-        if(koordinaten == null || userDaten[1].isBlank()) //Was wenn Hausnummer = Buchstaben
-        {
-            Ui.koordsScreenFalsch();
-            KoordsSetzen();
-        }
-        else
-        {
-            System.out.println(koordinaten[0] + " " + koordinaten[1]);
-            user = new User(adresse, koordinaten, userDaten[4]);
-        }
-    }
-
     public void suchenScreen()
     {
         String[] suche = Ui.suchenScreen();
@@ -143,5 +156,5 @@ public class WoOh
     {
 
     }
-
+   */
 }
