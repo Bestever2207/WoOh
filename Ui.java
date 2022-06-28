@@ -13,6 +13,8 @@ public class Ui {
     static JButton button;
     static Font font1 = new Font("Open Sans",Font.PLAIN, 26);
     static Font font2 = new Font("Open Sans",Font.PLAIN, 24);
+    static ImageIcon logo_img = new ImageIcon("img/logo4.png");
+    
     public static void start()
     {
         frame = new JFrame("WoOh");
@@ -142,7 +144,25 @@ public class Ui {
 
     public static String mainScreen()
     {
+        JLabel obere_Leiste = new JLabel("");
+        obere_Leiste.setBounds(0,0,1422,210);
 
+        logo_img.setImage(logo_img.getImage().getScaledInstance(160,160,Image.SCALE_SMOOTH));
+        JLabel logo = new JLabel(logo_img);
+        logo.setBounds(25,25,160,160);
+        panel.add(logo);
+
+        JTextField gerichte_in = new JTextField();
+        gerichte_in.setBounds(236,25,595,65);
+        gerichte_in.setFont(font1);
+        gerichte_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
+
+        JTextField restaurants_in = new JTextField();
+        restaurants_in.setBounds(236,120,595,65);
+        restaurants_in.setFont(font1);
+        restaurants_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
+
+        return null;
     }
     public static String[] suchenScreen()
     {
