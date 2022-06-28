@@ -17,7 +17,7 @@ public class WoOh
 
         KoordsSetzen();
 
-        //mainScreen();
+        mainScreen();
 
     }
     public void RestaurantsEinfuegen()
@@ -55,7 +55,7 @@ public class WoOh
                 {
                     System.out.println(koordinaten[0] + " " + koordinaten[1]);
                     user = new User(adresse, koordinaten, userDaten[4]);
-                    //mainScreen();
+                    mainScreen();
                 }
             }
         });

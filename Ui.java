@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 
 public class Ui {
@@ -23,6 +24,7 @@ public class Ui {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground( Color.decode("#ffffff") );
         panel = new JLayeredPane();
+        panel.setLayout(null);
         panel.setBackground(Color.WHITE);
         frame.add(panel);
         frame.setVisible(true);
@@ -142,27 +144,94 @@ public class Ui {
         System.out.println("Adresse nicht eindeutig! Achte darauf, dass alles richtig geschrieben und eine Hausnummer eingegeben wurde. Wiederholen sie den Vorgang.");
     }
 
-    public static String mainScreen()
+    public static void mainScreen()
     {
-        JLabel obere_Leiste = new JLabel("");
+        panel.removeAll();
+
+        JLabel obere_Leiste = new JLabel();
+        obere_Leiste.setBackground(Color.decode("#D4AF37"));
         obere_Leiste.setBounds(0,0,1422,210);
+        obere_Leiste.setOpaque(true);
+        panel.add(obere_Leiste,1);
 
         logo_img.setImage(logo_img.getImage().getScaledInstance(160,160,Image.SCALE_SMOOTH));
         JLabel logo = new JLabel(logo_img);
+        logo.setBackground(Color.decode("#D4AF37"));
         logo.setBounds(25,25,160,160);
-        panel.add(logo);
+        logo.setOpaque(true);
+        panel.add(logo,0);
 
         JTextField gerichte_in = new JTextField();
         gerichte_in.setBounds(236,25,595,65);
         gerichte_in.setFont(font1);
         gerichte_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
+        panel.add(gerichte_in,1);
 
         JTextField restaurants_in = new JTextField();
         restaurants_in.setBounds(236,120,595,65);
         restaurants_in.setFont(font1);
         restaurants_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
+        panel.add(restaurants_in,1);
 
-        return null;
+        ImageIcon search_icon = new ImageIcon("img/search-icon.png");
+        search_icon.setImage(search_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
+
+        JButton suchen_btn = new JButton(search_icon);
+        suchen_btn.setBackground(Color.decode("#ffffff"));
+        suchen_btn.setBorder(null);
+        suchen_btn.setBounds(831,25,65,65);
+        panel.add(suchen_btn,1);
+
+        JButton suchen_btn2 = new JButton(search_icon);
+        suchen_btn2.setBackground(Color.decode("#ffffff"));
+        suchen_btn2.setBorder(null);
+        suchen_btn2.setBounds(831,120,65,65);
+        panel.add(suchen_btn2,1);
+
+        ImageIcon geld_icon = new ImageIcon("img/Dollarzeichen.png");
+        geld_icon.setImage(geld_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
+
+        JButton geld = new JButton(geld_icon);
+        geld.setBackground(Color.decode("#D4AF37"));
+        geld.setBorder(null);
+        geld.setBounds(998,73,65,65);
+        panel.add(geld,0);
+
+        ImageIcon bestellhistorie_icon = new ImageIcon("img/Bestellhistorie.png");
+        bestellhistorie_icon.setImage(bestellhistorie_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
+
+        JButton bestellhistorie = new JButton(bestellhistorie_icon);
+        bestellhistorie.setBackground(Color.decode("#D4AF37"));
+        bestellhistorie.setBorder(null);
+        bestellhistorie.setBounds(1134,73,65,65);
+        panel.add(bestellhistorie,0);
+
+        ImageIcon warenkorb_icon = new ImageIcon("img/Warenkorb.png");
+        warenkorb_icon.setImage(warenkorb_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
+
+        JButton warenkorb = new JButton(warenkorb_icon);
+        warenkorb.setBackground(Color.decode("#D4AF37"));
+        warenkorb.setBorder(null);
+        warenkorb.setBounds(1270,73,65,65);
+        panel.add(warenkorb,0);
+
+        JLabel sortieren = new JLabel("Sortieren nach");
+        sortieren.setFont(new Font("Open Sans",Font.PLAIN, 24));
+        sortieren.setBounds(1031,238,187,40);
+        panel.add(sortieren,0);
+
+        String[] optionen = {"Preis","Dauer",""};
+        JComboBox<String> jComboBox = new JComboBox<>(optionen);
+        jComboBox.setFont(new Font("Open Sans",Font.PLAIN, 24));
+        jComboBox.setForeground(Color.black);
+        jComboBox.setBackground(Color.white);
+        jComboBox.setBounds(1229, 234, 148, 47);
+        panel.add(jComboBox,1);
+
+        panel.validate();
+        panel.repaint();
+        panel.revalidate();
+        //return null;
     }
     public static String[] suchenScreen()
     {
