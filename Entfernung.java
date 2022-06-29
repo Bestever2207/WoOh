@@ -18,6 +18,10 @@ public class Entfernung {
         Adresse = Adresse.replace("ä","ae");
         Adresse = Adresse.replace("ß","ss");
         String koordinaten = "";
+        if(Adresse.isBlank())
+        {
+            return null;
+        }
         try {
             URL url = new URL("https://api.myptv.com/geocoding/v1/locations/by-text?searchText=" + Adresse.replace(" ", "%20") + "&apiKey=NzQwNWE4YmUwMTg3NDM0ZWI4NGE4ZWE4OTEzZTQ0ZmQ6NzllMzRiMDAtYzcxMS00NDVhLTkzNjItNWMwODdjYjc0Y2Mz");
             System.out.println(url);
