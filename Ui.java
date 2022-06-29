@@ -144,9 +144,11 @@ public class Ui {
         System.out.println("Adresse nicht eindeutig! Achte darauf, dass alles richtig geschrieben und eine Hausnummer eingegeben wurde. Wiederholen sie den Vorgang.");
     }
 
-    public static void mainScreen()
+    public static JComponent[] mainScreen()
     {
         panel.removeAll();
+
+        JComponent[] jComponent = new JComponent[8];
 
         JLabel obere_Leiste = new JLabel();
         obere_Leiste.setBackground(Color.decode("#D4AF37"));
@@ -167,26 +169,35 @@ public class Ui {
         gerichte_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
         panel.add(gerichte_in,1);
 
+        jComponent[0] = gerichte_in;
+
         JTextField restaurants_in = new JTextField();
         restaurants_in.setBounds(236,120,595,65);
         restaurants_in.setFont(font1);
         restaurants_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
         panel.add(restaurants_in,1);
 
+        jComponent[1] = restaurants_in;
+
         ImageIcon search_icon = new ImageIcon("img/search-icon.png");
         search_icon.setImage(search_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
 
-        JButton suchen_btn = new JButton(search_icon);
-        suchen_btn.setBackground(Color.decode("#ffffff"));
-        suchen_btn.setBorder(null);
-        suchen_btn.setBounds(831,25,65,65);
-        panel.add(suchen_btn,1);
+        JButton suchen_btn_gericht = new JButton(search_icon);
+        suchen_btn_gericht.setBackground(Color.decode("#ffffff"));
+        suchen_btn_gericht.setBorder(null);
+        suchen_btn_gericht.setBounds(831,25,65,65);
+        panel.add(suchen_btn_gericht,1);
 
-        JButton suchen_btn2 = new JButton(search_icon);
-        suchen_btn2.setBackground(Color.decode("#ffffff"));
-        suchen_btn2.setBorder(null);
-        suchen_btn2.setBounds(831,120,65,65);
-        panel.add(suchen_btn2,1);
+        jComponent[2] = suchen_btn_gericht;
+
+        JButton suchen_btn_restaurant = new JButton(search_icon);
+        suchen_btn_restaurant.setBackground(Color.decode("#ffffff"));
+        suchen_btn_restaurant.setBorder(null);
+        suchen_btn_restaurant.setBounds(831,120,65,65);
+        panel.add(suchen_btn_restaurant,1);
+
+        jComponent[3] = suchen_btn_restaurant;
+
 
         ImageIcon geld_icon = new ImageIcon("img/Dollarzeichen.png");
         geld_icon.setImage(geld_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
@@ -197,6 +208,8 @@ public class Ui {
         geld.setBounds(998,73,65,65);
         panel.add(geld,0);
 
+        jComponent[4] = geld;
+
         ImageIcon bestellhistorie_icon = new ImageIcon("img/Bestellhistorie.png");
         bestellhistorie_icon.setImage(bestellhistorie_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
 
@@ -205,6 +218,9 @@ public class Ui {
         bestellhistorie.setBorder(null);
         bestellhistorie.setBounds(1134,73,65,65);
         panel.add(bestellhistorie,0);
+
+        jComponent[5] = bestellhistorie;
+
 
         ImageIcon warenkorb_icon = new ImageIcon("img/Warenkorb.png");
         warenkorb_icon.setImage(warenkorb_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
@@ -215,9 +231,12 @@ public class Ui {
         warenkorb.setBounds(1270,73,65,65);
         panel.add(warenkorb,0);
 
+        jComponent[6] = warenkorb;
+
+
         JLabel sortieren = new JLabel("Sortieren nach");
         sortieren.setFont(new Font("Open Sans",Font.PLAIN, 24));
-        sortieren.setBounds(1031,238,187,40);
+        sortieren.setBounds(1050,238,187,40);
         panel.add(sortieren,0);
 
         String[] optionen = {"Preis","Dauer",""};
@@ -228,28 +247,27 @@ public class Ui {
         jComboBox.setBounds(1229, 234, 148, 47);
         panel.add(jComboBox,1);
 
+        jComponent[7] = jComboBox;
+
+
+
         panel.validate();
         panel.repaint();
         panel.revalidate();
-        //return null;
+
+        return jComponent;
     }
-    public static String[] suchenScreen()
+    public static void scrollBox_erstellen()
     {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Fülle nur eins der beiden Felder aus!");
-        System.out.println("Gib deine gewünschte Essensrichtung oder ein Restaurant ein: ");
-        String restaurant = scanner.nextLine();
-
-        System.out.println("Gib dein gewünschtes Gericht ein: ");
-        String gericht = scanner.nextLine();
-
-        return new String[]{restaurant,gericht};
     }
+    /*
     public static void suchenScreenFalsch()
     {
-        System.out.println("Achte darauf in nur eins der beiden Felder etwas einzugeben");
+
     }
+
+     */
     public static void RestaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
     {
         for(int i = 0;i < suchergebnisse.length;i++)

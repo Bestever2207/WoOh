@@ -17,7 +17,7 @@ public class WoOh
 
         KoordsSetzen();
 
-        mainScreen();
+        //mainScreen();
 
     }
     public void RestaurantsEinfuegen()
@@ -65,17 +65,104 @@ public class WoOh
 
     public void mainScreen()
     {
-        Ui.mainScreen();
+        JComponent[] jComponent = Ui.mainScreen();
+        JTextField gerichte_in = (JTextField)jComponent[0];
+        JTextField restaurants_in = (JTextField)jComponent[1];
+        JButton suchen_btn_gericht = (JButton)jComponent[2];
+        JButton suchen_btn_restaurant = (JButton)jComponent[3];
+        JButton geld_btn = (JButton)jComponent[4];
+        JButton bestellhistorie_btn = (JButton)jComponent[5];
+        JButton warenkorb_btn = (JButton)jComponent[6];
+        JComboBox sortieren_nach = (JComboBox)jComponent[7];
 
+        suchen_btn_gericht.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String gesGericht = gerichte_in.getText();
+                if(gesGericht.isBlank())
+                {
+                    System.out.println("nichts eingegeben");
+                    //kein Gericht eingegeben
+                }
+                else
+                {
+                    System.out.println("Gericht wird gesucht");
+                    Datenelement[][][] suchergebnisse = restaurants.GerichtSuchen(gesGericht);
+                    ergebnisseAusgeben(suchergebnisse,null);
+                }
+            }
+        });
+
+        suchen_btn_restaurant.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String gesRestaurant = restaurants_in.getText();
+
+                if(gesRestaurant.isBlank())
+                {
+                    System.out.println("nichts eingegeben");
+                    //kein Restaurant eingegeben
+                }
+                else if (istEssensrichtung(gesRestaurant))
+                {
+                    System.out.println("Genre wird gesucht");
+                    Restaurant[] suchergebnisse_Genre = restaurants.GenreSuchen(gesRestaurant);
+
+                    ergebnisseAusgeben(null,suchergebnisse_Genre);
+                }
+                else
+                {
+                    System.out.println("Restaurant wird gesucht");
+                    Restaurant[] suchergebnis_restaurant = new Restaurant[]{(Restaurant) restaurants.RestaurantSuchen(gesRestaurant)};
+
+                    ergebnisseAusgeben(null,suchergebnis_restaurant);
+                }
+            }
+        });
+
+        geld_btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Guthaben();
+            }
+        });
+
+        warenkorb_btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Warenkorb();
+            }
+        });
+
+        bestellhistorie_btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Bestellhistorie();
+            }
+        });
     }
-    /*
-    public void suchenScreen()
+
+
+
+    public void ergebnisseAusgeben(Datenelement[][][] suchergebnisse_gerichte,Restaurant[] suchergebnisse_restaurants)
     {
+        if(suchergebnisse_gerichte == null) //Restaurants wurden gesucht
+        {
+            System.out.println(suchergebnisse_restaurants[0].getName());
+            System.out.println(suchergebnisse_restaurants[1].getName());
+        }
+        else //Gericht wurde gesucht
+        {
+            System.out.println(suchergebnisse_gerichte[0][1][0].getName());
+            System.out.println(suchergebnisse_gerichte[1][1][0].getName());
+        }
+
+        /*
         String[] suche = Ui.suchenScreen();
         if(!(suche[0].isBlank() ^ suche[1].isBlank()))
         {
             Ui.suchenScreenFalsch();
-            suchenScreen();
+            //suchenScreen();
         }
         else if (suche[0].isBlank()) //suche nach Gericht
         {
@@ -121,7 +208,12 @@ public class WoOh
                 }
             }
         }
+
+         */
     }
+
+
+
     public boolean istEssensrichtung(String input)
     {
         boolean istEssensr = false;
@@ -147,5 +239,5 @@ public class WoOh
     {
 
     }
-   */
+
 }
