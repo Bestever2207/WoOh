@@ -206,7 +206,7 @@ public class Ui {
         bestellhistorie.setBounds(1134,73,65,65);
         panel.add(bestellhistorie,0);
 
-        ImageIcon warenkorb_icon = new ImageIcon("img/Warenkorb.png");
+        ImageIcon warenkorb_icon = new ImageIcon("img/shoppingCart.png");
         warenkorb_icon.setImage(warenkorb_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
 
         JButton warenkorb = new JButton(warenkorb_icon);
