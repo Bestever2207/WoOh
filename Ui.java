@@ -10,11 +10,14 @@ public class Ui {
     JPanel statusLine;
     JPanel pixelRaster;
     static JLayeredPane panel;
-    JLabel statusLabel;
+
+    static JPanel panel_scrollArea;
     static JButton button;
     static Font font1 = new Font("Open Sans",Font.PLAIN, 26);
     static Font font2 = new Font("Open Sans",Font.PLAIN, 24);
     static ImageIcon logo_img = new ImageIcon("img/logo4.png");
+
+
     
     public static void start()
     {
@@ -31,7 +34,11 @@ public class Ui {
 
     }
     
-    
+    public static void scrollPanel()
+    {
+        panel_scrollArea = new JPanel();
+        frame.add(panel_scrollArea);
+    }
     
     
     
@@ -186,6 +193,7 @@ public class Ui {
         suchen_btn_gericht.setBackground(Color.decode("#ffffff"));
         suchen_btn_gericht.setBorder(null);
         suchen_btn_gericht.setBounds(831,25,65,65);
+
         panel.add(suchen_btn_gericht,1);
 
         jComponent[2] = suchen_btn_gericht;
@@ -249,13 +257,53 @@ public class Ui {
 
         jComponent[7] = jComboBox;
 
+        JPanel container = new JPanel();
+
+        JButton btn1 = new JButton("1");
+        btn1.setBackground(Color.decode("#D4AF37"));
+        btn1.setBorder(null);
+        btn1.setBounds(165,321,1092,187);
+        container.add(btn1);
+
+        JButton btn2 = new JButton("2");
+        btn2.setBackground(Color.decode("#D4AF37"));
+        btn2.setBorder(null);
+        btn2.setBounds(165,532,1092,187);
+        container.add(btn2);
+
+        Box box = Box.createVerticalBox();
+        box.add(btn1);
+        JScrollPane scrollArea = new JScrollPane(box,
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        scrollArea.setBounds(152,305,1118,500);
+        scrollArea.getViewport ().setView ( null );
+        scrollArea.getViewport().setBackground(Color.decode("#ffffff"));
+        scrollArea.setForeground(Color.decode("#ffffff"));
+        scrollArea.setBorder(null);
+        scrollArea.setVisible(true);
 
 
+
+        panel.add(scrollArea);
+
+
+
+
+        //JScrollPane scrollpane = new JScrollPane(container);
         panel.validate();
         panel.repaint();
         panel.revalidate();
 
         return jComponent;
+    }
+
+    private static void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException ignored) {
+        }
     }
     public static void scrollBox_erstellen()
     {
@@ -268,14 +316,14 @@ public class Ui {
     }
 
      */
-    public static void RestaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
+    public static void restaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
     {
         for(int i = 0;i < suchergebnisse.length;i++)
         {
             System.out.println(suchergebnisse[i].getName() + ": " + suchergebnisse[i].getGenre() + ", " + lieferzeiten[i] + ", " + suchergebnisse[i].getPreisspanne());
         }
     }
-    public static void GerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten)
+    public static void gerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten)
     {
         for(int r = 0;r < suchergebnisse.length;r++)
         {

@@ -66,6 +66,7 @@ public class WoOh
     public void mainScreen()
     {
         JComponent[] jComponent = Ui.mainScreen();
+
         JTextField gerichte_in = (JTextField)jComponent[0];
         JTextField restaurants_in = (JTextField)jComponent[1];
         JButton suchen_btn_gericht = (JButton)jComponent[2];
@@ -88,7 +89,7 @@ public class WoOh
                 {
                     System.out.println("Gericht wird gesucht");
                     Datenelement[][][] suchergebnisse = restaurants.GerichtSuchen(gesGericht);
-                    ergebnisseAusgeben(suchergebnisse,null);
+                    gerichteAusgeben(suchergebnisse);
                 }
             }
         });
@@ -108,14 +109,14 @@ public class WoOh
                     System.out.println("Genre wird gesucht");
                     Restaurant[] suchergebnisse_Genre = restaurants.GenreSuchen(gesRestaurant);
 
-                    ergebnisseAusgeben(null,suchergebnisse_Genre);
+                    //ergebnisseAusgeben(null,suchergebnisse_Genre);
                 }
                 else
                 {
                     System.out.println("Restaurant wird gesucht");
                     Restaurant[] suchergebnis_restaurant = new Restaurant[]{(Restaurant) restaurants.RestaurantSuchen(gesRestaurant)};
 
-                    ergebnisseAusgeben(null,suchergebnis_restaurant);
+                    //ergebnisseAusgeben(null,suchergebnis_restaurant);
                 }
             }
         });
@@ -144,18 +145,12 @@ public class WoOh
 
 
 
-    public void ergebnisseAusgeben(Datenelement[][][] suchergebnisse_gerichte,Restaurant[] suchergebnisse_restaurants)
+    public void gerichteAusgeben(Datenelement[][][] suchergebnisse_gerichte)
     {
-        if(suchergebnisse_gerichte == null) //Restaurants wurden gesucht
-        {
-            System.out.println(suchergebnisse_restaurants[0].getName());
-            System.out.println(suchergebnisse_restaurants[1].getName());
-        }
-        else //Gericht wurde gesucht
-        {
+
             System.out.println(suchergebnisse_gerichte[0][1][0].getName());
             System.out.println(suchergebnisse_gerichte[1][1][0].getName());
-        }
+
 
         /*
         String[] suche = Ui.suchenScreen();
@@ -210,6 +205,11 @@ public class WoOh
         }
 
          */
+    }
+
+    public void restaurantsAusgeben(Restaurant[] suchergebnisse_restaurants)
+    {
+
     }
 
 
