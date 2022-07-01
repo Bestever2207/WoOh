@@ -1,44 +1,34 @@
-import java.util.Scanner;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.Border;
 
 
 public class Ui {
-    static JFrame frame; 
-    JPanel statusLine;
-    JPanel pixelRaster;
-    static JLayeredPane panel;
+    static JFrame FRAME;
 
-    static JPanel panel_scrollArea;
-    static JButton button;
-    static Font font1 = new Font("Open Sans",Font.PLAIN, 26);
-    static Font font2 = new Font("Open Sans",Font.PLAIN, 24);
-    static ImageIcon logo_img = new ImageIcon("img/logo4.png");
+    static JLayeredPane PANEL;
 
-
+    static Font FONT1 = new Font("Open Sans",Font.PLAIN, 26);
+    static Font FONT2 = new Font("Open Sans",Font.PLAIN, 24);
+    static ImageIcon LOGO_IMG = new ImageIcon("img/logo4.png");
+    static JScrollPane SCROLLPANE;
+    static JPanel SCROLLPANE_INHALT;
     
     public static void start()
     {
-        frame = new JFrame("WoOh");
-        frame.setSize(1422,900);
+        FRAME = new JFrame("WoOh");
+        FRAME.setSize(1422,900);
         //frame.setIconImage();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground( Color.decode("#ffffff") );
-        panel = new JLayeredPane();
-        panel.setLayout(null);
-        panel.setBackground(Color.WHITE);
-        frame.add(panel);
-        frame.setVisible(true);
+        FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        FRAME.getContentPane().setBackground( Color.decode("#ffffff") );
+        PANEL = new JLayeredPane();
+        PANEL.setLayout(null);
+        PANEL.setBackground(Color.WHITE);
+        FRAME.add(PANEL);
+        FRAME.setVisible(true);
 
     }
     
-    public static void scrollPanel()
-    {
-        panel_scrollArea = new JPanel();
-        frame.add(panel_scrollArea);
-    }
+
     
     
     
@@ -52,81 +42,81 @@ public class Ui {
         logo_img.setImage(logo_img.getImage().getScaledInstance(169,169,Image.SCALE_SMOOTH));
         JLabel logo = new JLabel(logo_img);
         logo.setBounds(25,25,169,169);
-        panel.add(logo);
+        PANEL.add(logo);
 
         JTextField strasse_in = new JTextField();
         strasse_in.setBounds(458,228,381,69);
-        strasse_in.setFont(font1);
+        strasse_in.setFont(FONT1);
         strasse_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
-        panel.add(strasse_in);
+        PANEL.add(strasse_in);
         components[0] = strasse_in;
 
         JLabel strasse_tx = new JLabel("Straße");
-        strasse_tx.setFont(font2);
+        strasse_tx.setFont(FONT2);
         strasse_tx.setBounds(458,192,147,36);
 
-        panel.add(strasse_tx);
+        PANEL.add(strasse_tx);
 
 
         JTextField nummer_in = new JTextField();
         nummer_in.setBounds(862,228,101,69);
-        nummer_in.setFont(font1);
+        nummer_in.setFont(FONT1);
         nummer_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
-        panel.add(nummer_in);
+        PANEL.add(nummer_in);
         components[1] = nummer_in;
 
         JLabel nummer_tx = new JLabel("Nr.");
-        nummer_tx.setFont(font2);
+        nummer_tx.setFont(FONT2);
         nummer_tx.setBounds(862,192,101,36);
 
-        panel.add(nummer_tx);
+        PANEL.add(nummer_tx);
 
 
         JTextField stadt_in = new JTextField();
         stadt_in.setBounds(458,341,279,69);
-        stadt_in.setFont(font1);
+        stadt_in.setFont(FONT1);
         stadt_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
-        panel.add(stadt_in);
+        PANEL.add(stadt_in);
         components[2] = stadt_in;
 
         JLabel stadt_tx = new JLabel("Stadt");
-        stadt_tx.setFont(font2);
+        stadt_tx.setFont(FONT2);
         stadt_tx.setBounds(458,305,75,36);
 
-        panel.add(stadt_tx);
+        PANEL.add(stadt_tx);
 
 
         JTextField plz_in = new JTextField();
         plz_in.setBounds(795,341,168,69);
-        plz_in.setFont(font1);
+        plz_in.setFont(FONT1);
         plz_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
-        panel.add(plz_in);
+        PANEL.add(plz_in);
         components[3] = plz_in;
 
         JLabel plz_tx = new JLabel("PLZ");
-        plz_tx.setFont(font2);
+        plz_tx.setFont(FONT2);
         plz_tx.setBounds(795,305,75,36);
 
-        panel.add(plz_tx);
+        PANEL.add(plz_tx);
 
 
         JTextField name_in = new JTextField();
         name_in.setBounds(458,500,505,69);
-        name_in.setFont(font1);
+        name_in.setFont(FONT1);
         name_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
-        panel.add(name_in);
+        PANEL.add(name_in);
         components[4] = name_in;
 
         JLabel name_tx = new JLabel("Name");
-        name_tx.setFont(font2);
+        name_tx.setFont(FONT2);
         name_tx.setBounds(458,464,74,36);
 
-        panel.add(name_tx);
+        PANEL.add(name_tx);
 
 
         JButton suchen_btn = new JButton("Suchen");
@@ -134,13 +124,13 @@ public class Ui {
         suchen_btn.setBackground(Color.decode("#D4AF37"));
         suchen_btn.setBounds(571,624,279,83);
 
-        panel.add(suchen_btn);
+        PANEL.add(suchen_btn);
         components[5] = suchen_btn;
 
 
-        panel.validate();
-        panel.repaint();
-        panel.revalidate();
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
 
 
         return components;
@@ -153,7 +143,7 @@ public class Ui {
 
     public static JComponent[] mainScreen()
     {
-        panel.removeAll();
+        PANEL.removeAll();
 
         JComponent[] jComponent = new JComponent[8];
 
@@ -161,28 +151,28 @@ public class Ui {
         obere_Leiste.setBackground(Color.decode("#D4AF37"));
         obere_Leiste.setBounds(0,0,1422,210);
         obere_Leiste.setOpaque(true);
-        panel.add(obere_Leiste,1);
+        PANEL.add(obere_Leiste,1);
 
-        logo_img.setImage(logo_img.getImage().getScaledInstance(160,160,Image.SCALE_SMOOTH));
-        JLabel logo = new JLabel(logo_img);
+        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(160,160,Image.SCALE_SMOOTH));
+        JLabel logo = new JLabel(LOGO_IMG);
         logo.setBackground(Color.decode("#D4AF37"));
         logo.setBounds(25,25,160,160);
         logo.setOpaque(true);
-        panel.add(logo,0);
+        PANEL.add(logo,0);
 
         JTextField gerichte_in = new JTextField();
         gerichte_in.setBounds(236,25,595,65);
-        gerichte_in.setFont(font1);
+        gerichte_in.setFont(FONT1);
         gerichte_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
-        panel.add(gerichte_in,1);
+        PANEL.add(gerichte_in,1);
 
         jComponent[0] = gerichte_in;
 
         JTextField restaurants_in = new JTextField();
         restaurants_in.setBounds(236,120,595,65);
-        restaurants_in.setFont(font1);
+        restaurants_in.setFont(FONT1);
         restaurants_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
-        panel.add(restaurants_in,1);
+        PANEL.add(restaurants_in,1);
 
         jComponent[1] = restaurants_in;
 
@@ -194,7 +184,7 @@ public class Ui {
         suchen_btn_gericht.setBorder(null);
         suchen_btn_gericht.setBounds(831,25,65,65);
 
-        panel.add(suchen_btn_gericht,1);
+        PANEL.add(suchen_btn_gericht,1);
 
         jComponent[2] = suchen_btn_gericht;
 
@@ -202,7 +192,7 @@ public class Ui {
         suchen_btn_restaurant.setBackground(Color.decode("#ffffff"));
         suchen_btn_restaurant.setBorder(null);
         suchen_btn_restaurant.setBounds(831,120,65,65);
-        panel.add(suchen_btn_restaurant,1);
+        PANEL.add(suchen_btn_restaurant,1);
 
         jComponent[3] = suchen_btn_restaurant;
 
@@ -214,7 +204,7 @@ public class Ui {
         geld.setBackground(Color.decode("#D4AF37"));
         geld.setBorder(null);
         geld.setBounds(998,73,65,65);
-        panel.add(geld,0);
+        PANEL.add(geld,0);
 
         jComponent[4] = geld;
 
@@ -225,7 +215,7 @@ public class Ui {
         bestellhistorie.setBackground(Color.decode("#D4AF37"));
         bestellhistorie.setBorder(null);
         bestellhistorie.setBounds(1134,73,65,65);
-        panel.add(bestellhistorie,0);
+        PANEL.add(bestellhistorie,0);
 
         jComponent[5] = bestellhistorie;
 
@@ -237,7 +227,7 @@ public class Ui {
         warenkorb.setBackground(Color.decode("#D4AF37"));
         warenkorb.setBorder(null);
         warenkorb.setBounds(1270,73,65,65);
-        panel.add(warenkorb,0);
+        PANEL.add(warenkorb,0);
 
         jComponent[6] = warenkorb;
 
@@ -245,56 +235,30 @@ public class Ui {
         JLabel sortieren = new JLabel("Sortieren nach");
         sortieren.setFont(new Font("Open Sans",Font.PLAIN, 24));
         sortieren.setBounds(1050,238,187,40);
-        panel.add(sortieren,0);
+        PANEL.add(sortieren,0);
 
-        String[] optionen = {"Preis","Dauer",""};
+        String[] optionen = {"","Preis","Dauer"};
         JComboBox<String> jComboBox = new JComboBox<>(optionen);
         jComboBox.setFont(new Font("Open Sans",Font.PLAIN, 24));
         jComboBox.setForeground(Color.black);
         jComboBox.setBackground(Color.white);
         jComboBox.setBounds(1229, 234, 148, 47);
-        panel.add(jComboBox,1);
+        PANEL.add(jComboBox,1);
 
         jComponent[7] = jComboBox;
 
-        JPanel container = new JPanel();
-
-        JButton btn1 = new JButton("1");
-        btn1.setBackground(Color.decode("#D4AF37"));
-        btn1.setBorder(null);
-        btn1.setBounds(165,321,1092,187);
-        container.add(btn1);
-
-        JButton btn2 = new JButton("2");
-        btn2.setBackground(Color.decode("#D4AF37"));
-        btn2.setBorder(null);
-        btn2.setBounds(165,532,1092,187);
-        container.add(btn2);
-
-        Box box = Box.createVerticalBox();
-        box.add(btn1);
-        JScrollPane scrollArea = new JScrollPane(box,
-                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-        scrollArea.setBounds(152,305,1118,500);
-        scrollArea.getViewport ().setView ( null );
-        scrollArea.getViewport().setBackground(Color.decode("#ffffff"));
-        scrollArea.setForeground(Color.decode("#ffffff"));
-        scrollArea.setBorder(null);
-        scrollArea.setVisible(true);
 
 
 
-        panel.add(scrollArea);
+
 
 
 
 
         //JScrollPane scrollpane = new JScrollPane(container);
-        panel.validate();
-        panel.repaint();
-        panel.revalidate();
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
 
         return jComponent;
     }
@@ -305,22 +269,120 @@ public class Ui {
         } catch (InterruptedException ignored) {
         }
     }
-    public static void scrollBox_erstellen()
+
+    public static void scrollpane_erstellen(int ergebnisse_anzahl)
     {
+        int height = 15 + ergebnisse_anzahl * (15 + 187);
 
+
+        SCROLLPANE_INHALT = new JPanel();
+
+        SCROLLPANE = new JScrollPane(SCROLLPANE_INHALT,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        if(height > 500) {
+            SCROLLPANE.setBounds(152, 305, 1133, 500);
+        }
+        else
+        {
+            SCROLLPANE.setBounds(152, 305, 1133, height);
+        }
+        SCROLLPANE.getViewport().setBackground(Color.decode("#ffffff"));
+        SCROLLPANE.setForeground(Color.decode("#ffffff"));
+        SCROLLPANE.setBorder(null);
+        SCROLLPANE.setVisible(true);
+        SCROLLPANE.getVerticalScrollBar().setUnitIncrement(10);
+        SCROLLPANE.getVerticalScrollBar().setBackground(Color.WHITE);
+
+
+        PANEL.add(SCROLLPANE);
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
     }
-    /*
-    public static void suchenScreenFalsch()
-    {
 
-    }
 
-     */
+
+
     public static void restaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
     {
+        int anzahl_suchergebnisse = suchergebnisse.length;
+        scrollpane_erstellen(suchergebnisse.length);
+
+        System.out.println("restaurantsAusgeben ausgeführt");
+        int height = 15 + anzahl_suchergebnisse * (15 + 187);
+
+        BoxLayout bl = new BoxLayout(SCROLLPANE_INHALT, BoxLayout.Y_AXIS);
+        SCROLLPANE_INHALT.setPreferredSize(new Dimension(1133,height));
+        SCROLLPANE_INHALT.setLayout(bl);
+        SCROLLPANE_INHALT.setBackground(Color.decode("#ffffff"));
+        SCROLLPANE_INHALT.setVisible(true);
+
         for(int i = 0;i < suchergebnisse.length;i++)
         {
-            System.out.println(suchergebnisse[i].getName() + ": " + suchergebnisse[i].getGenre() + ", " + lieferzeiten[i] + ", " + suchergebnisse[i].getPreisspanne());
+            JLayeredPane btn_panel = new JLayeredPane();
+
+            JButton btn = new JButton();
+
+            btn.setBackground(Color.decode("#ffffff"));
+            btn.setBounds(15,15,1088,187);
+            btn.setAlignmentX(JButton.CENTER_ALIGNMENT);
+            btn.setVisible(true);
+            btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+
+            JLabel name = new JLabel(suchergebnisse[i].getName());
+            name.setFont(new Font("Open Sans",Font.PLAIN, 32));
+            name.setBounds(35,35,901,41);
+
+            JLabel essensrichtung = new JLabel(suchergebnisse[i].getGenre());
+            essensrichtung.setFont(new Font("Open Sans",Font.PLAIN, 24));
+            essensrichtung.setBounds(35,94,901,18);
+
+            ImageIcon einkaufstasche_icon = new ImageIcon("img/Einkaufstasche.png");
+            einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41,41,Image.SCALE_SMOOTH));
+
+            JLabel einkaufstasche = new JLabel(einkaufstasche_icon);
+            einkaufstasche.setBounds(893,35,41,41);
+            einkaufstasche.setBackground(Color.decode("#D4AF37"));
+
+            JLabel preis = new JLabel("" + suchergebnisse[i].getPreisspanne() + "€");
+            preis.setBounds(963,35,129,41);
+            preis.setFont(new Font("Open Sans",Font.PLAIN, 32));
+            preis.setBackground(Color.decode("#ffffff"));
+
+            ImageIcon zeit_icon = new ImageIcon("img/zeit.png");
+            zeit_icon.setImage(zeit_icon.getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH));
+
+            JLabel zeit = new JLabel(zeit_icon);
+            zeit.setBounds(27,131,40,40);
+            zeit.setBackground(Color.decode("#ffffff"));
+
+
+            JLabel durchschnittszeit = new JLabel("ca." + Math.round(suchergebnisse[i].getDurchschnittdauer()) + " min");
+            durchschnittszeit.setBounds(82,139,901,24);
+            durchschnittszeit.setBackground(Color.decode("#ffffff"));
+            durchschnittszeit.setFont(new Font("Open Sans",Font.PLAIN, 24));
+
+
+            btn_panel.add(name,JLayeredPane.PALETTE_LAYER);
+            btn_panel.add(essensrichtung,JLayeredPane.PALETTE_LAYER);
+
+            btn_panel.add(einkaufstasche,JLayeredPane.PALETTE_LAYER);
+            btn_panel.add(preis,JLayeredPane.PALETTE_LAYER);
+
+            btn_panel.add(zeit,JLayeredPane.PALETTE_LAYER);
+            btn_panel.add(durchschnittszeit,JLayeredPane.PALETTE_LAYER);
+
+            btn_panel.add(btn,JLayeredPane.DEFAULT_LAYER);
+            btn_panel.setVisible(true);
+
+            SCROLLPANE_INHALT.add(btn_panel);
+
+
+
+            PANEL.validate();
+            PANEL.repaint();
+            PANEL.revalidate();
         }
     }
     public static void gerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten)

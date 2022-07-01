@@ -109,14 +109,27 @@ public class WoOh
                     System.out.println("Genre wird gesucht");
                     Restaurant[] suchergebnisse_Genre = restaurants.GenreSuchen(gesRestaurant);
 
-                    //ergebnisseAusgeben(null,suchergebnisse_Genre);
+                    if(suchergebnisse_Genre != null)
+                    {
+                        restaurantsAusgeben(suchergebnisse_Genre);
+                    }
+                    else
+                    {
+                        System.out.println("keine Ergebnisse");
+                    }
                 }
                 else
                 {
                     System.out.println("Restaurant wird gesucht");
                     Restaurant[] suchergebnis_restaurant = new Restaurant[]{(Restaurant) restaurants.RestaurantSuchen(gesRestaurant)};
-
-                    //ergebnisseAusgeben(null,suchergebnis_restaurant);
+                    if(suchergebnis_restaurant != null)
+                    {
+                        restaurantsAusgeben(suchergebnis_restaurant);
+                    }
+                    else
+                    {
+                        System.out.println("keine Ergebnisse");
+                    }
                 }
             }
         });
@@ -209,7 +222,13 @@ public class WoOh
 
     public void restaurantsAusgeben(Restaurant[] suchergebnisse_restaurants)
     {
+        double[] lieferzeiten = new double[suchergebnisse_restaurants.length];
 
+        for(int i = 0;i < suchergebnisse_restaurants.length;i++)
+        {
+            lieferzeiten[i] = Lieferdaten.LieferzeitBerechnen(suchergebnisse_restaurants[i].dauerGeben(),user.getKoordinaten(),suchergebnisse_restaurants[i].getKoordinaten());
+        }
+        Ui.restaurantsAusgeben(suchergebnisse_restaurants,lieferzeiten);
     }
 
 
