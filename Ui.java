@@ -220,7 +220,7 @@ public class Ui {
         jComponent[5] = bestellhistorie;
 
 
-        ImageIcon warenkorb_icon = new ImageIcon("img/Warenkorb.png");
+        ImageIcon warenkorb_icon = new ImageIcon("img/shoppingCart.png");
         warenkorb_icon.setImage(warenkorb_icon.getImage().getScaledInstance(65,65,Image.SCALE_SMOOTH));
 
         JButton warenkorb = new JButton(warenkorb_icon);
