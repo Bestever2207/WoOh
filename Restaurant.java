@@ -51,7 +51,10 @@ public class Restaurant extends Datenelement
         return durchschnittdauer;
     }
 
-
+    public String[] getBeilagen()
+    {
+        return null;
+    }
 
     public Baum getSpeisekarte()
     {

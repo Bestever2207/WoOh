@@ -249,12 +249,6 @@ public class Ui {
 
 
 
-
-
-
-
-
-
         //JScrollPane scrollpane = new JScrollPane(container);
         PANEL.validate();
         PANEL.repaint();
@@ -263,19 +257,34 @@ public class Ui {
         return jComponent;
     }
 
-    private static void sleep(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException ignored) {
-        }
-    }
 
-    public static void scrollpane_erstellen(int ergebnisse_anzahl)
+
+    public static void scrollpane_erstellen(int height)
     {
-        int height = 15 + ergebnisse_anzahl * (15 + 187);
-
+        if(SCROLLPANE_INHALT != null) {
+            SCROLLPANE_INHALT.removeAll();
+            SCROLLPANE_INHALT.revalidate();
+            SCROLLPANE_INHALT.repaint();
+        }
+        if(SCROLLPANE != null)
+        {
+            SCROLLPANE.removeAll();
+            SCROLLPANE.revalidate();
+            SCROLLPANE.repaint();
+        }
 
         SCROLLPANE_INHALT = new JPanel();
+
+
+        BoxLayout bl = new BoxLayout(SCROLLPANE_INHALT, BoxLayout.Y_AXIS);
+        SCROLLPANE_INHALT.setPreferredSize(new Dimension(1133,height));
+        SCROLLPANE_INHALT.setLayout(bl);
+        SCROLLPANE_INHALT.setBackground(Color.decode("#ffffff"));
+        SCROLLPANE_INHALT.setVisible(true);
+
+        SCROLLPANE_INHALT.validate();
+        SCROLLPANE_INHALT.repaint();
+        SCROLLPANE_INHALT.revalidate();
 
         SCROLLPANE = new JScrollPane(SCROLLPANE_INHALT,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -293,6 +302,9 @@ public class Ui {
         SCROLLPANE.getVerticalScrollBar().setUnitIncrement(10);
         SCROLLPANE.getVerticalScrollBar().setBackground(Color.WHITE);
 
+        SCROLLPANE.validate();
+        SCROLLPANE.repaint();
+        SCROLLPANE.revalidate();
 
         PANEL.add(SCROLLPANE);
 
@@ -312,11 +324,6 @@ public class Ui {
         System.out.println("restaurantsAusgeben ausgeführt");
         int height = 15 + anzahl_suchergebnisse * (15 + 187);
 
-        BoxLayout bl = new BoxLayout(SCROLLPANE_INHALT, BoxLayout.Y_AXIS);
-        SCROLLPANE_INHALT.setPreferredSize(new Dimension(1133,height));
-        SCROLLPANE_INHALT.setLayout(bl);
-        SCROLLPANE_INHALT.setBackground(Color.decode("#ffffff"));
-        SCROLLPANE_INHALT.setVisible(true);
 
         for(int i = 0;i < suchergebnisse.length;i++)
         {
@@ -378,6 +385,9 @@ public class Ui {
 
             SCROLLPANE_INHALT.add(btn_panel);
 
+            SCROLLPANE_INHALT.validate();
+            SCROLLPANE_INHALT.repaint();
+            SCROLLPANE_INHALT.revalidate();
 
 
             PANEL.validate();
@@ -385,13 +395,93 @@ public class Ui {
             PANEL.revalidate();
         }
     }
+
     public static void gerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten)
     {
+        int anzahl_suchergebnisse = lieferzeiten.length;
+
+        int height = 15 + anzahl_suchergebnisse * (15 + 187);
+
+        scrollpane_erstellen(height);
+
+        System.out.println("restaurantsAusgeben ausgeführt");
+
+
+
         for(int r = 0;r < suchergebnisse.length;r++)
         {
             for(int s = 0;s < suchergebnisse[r][0].length;s++)
             {
-                System.out.println(suchergebnisse[r][1][0].getName() + ": " + suchergebnisse[r][0][s].getName());
+                JLayeredPane btn_panel = new JLayeredPane();
+
+                JButton btn = new JButton();
+
+                btn.setBackground(Color.decode("#ffffff"));
+                btn.setBounds(15,15,1088,187);
+                btn.setAlignmentX(JButton.CENTER_ALIGNMENT);
+                btn.setVisible(true);
+                btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+
+                JLabel name = new JLabel(suchergebnisse[r][0][s].getName());
+                name.setFont(new Font("Open Sans",Font.PLAIN, 32));
+                name.setBounds(35,35,901,41);
+
+                String[] beilagen = suchergebnisse[r][0][s].getBeilagen();
+                String alle_beilagen = "Beilagen: " + beilagen[0];
+
+                for(int i = 0;i < beilagen.length;i++)
+                {
+                    alle_beilagen = alle_beilagen + ", " + beilagen[i];
+                }
+                JLabel beilagen_label = new JLabel(alle_beilagen);
+                beilagen_label.setFont(new Font("Open Sans",Font.PLAIN, 24));
+                beilagen_label.setBounds(35,88,901,30);
+
+                ImageIcon einkaufstasche_icon = new ImageIcon("img/Einkaufstasche.png");
+                einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41,41,Image.SCALE_SMOOTH));
+
+                JLabel einkaufstasche = new JLabel(einkaufstasche_icon);
+                einkaufstasche.setBounds(893,35,41,41);
+                einkaufstasche.setBackground(Color.decode("#D4AF37"));
+
+                JLabel preis = new JLabel("" + suchergebnisse[r][0][s].preisGeben() + "€");
+                preis.setBounds(963,35,129,41);
+                preis.setFont(new Font("Open Sans",Font.PLAIN, 32));
+                preis.setBackground(Color.decode("#ffffff"));
+
+                ImageIcon zeit_icon = new ImageIcon("img/zeit.png");
+                zeit_icon.setImage(zeit_icon.getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH));
+
+                JLabel zeit = new JLabel(zeit_icon);
+                zeit.setBounds(27,131,40,40);
+                zeit.setBackground(Color.decode("#ffffff"));
+
+
+                JLabel durchschnittszeit = new JLabel("ca." + Math.round(suchergebnisse[r][0][s].dauerGeben()) + " min");
+                durchschnittszeit.setBounds(82,139,901,24);
+                durchschnittszeit.setBackground(Color.decode("#ffffff"));
+                durchschnittszeit.setFont(new Font("Open Sans",Font.PLAIN, 24));
+
+
+                btn_panel.add(name,JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(beilagen_label,JLayeredPane.PALETTE_LAYER);
+
+                btn_panel.add(einkaufstasche,JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(preis,JLayeredPane.PALETTE_LAYER);
+
+                btn_panel.add(zeit,JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(durchschnittszeit,JLayeredPane.PALETTE_LAYER);
+
+                btn_panel.add(btn,JLayeredPane.DEFAULT_LAYER);
+                btn_panel.setVisible(true);
+
+                SCROLLPANE_INHALT.add(btn_panel);
+
+
+
+                PANEL.validate();
+                PANEL.repaint();
+                PANEL.revalidate();
             }
         }
     }

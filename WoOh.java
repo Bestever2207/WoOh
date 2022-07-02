@@ -160,9 +160,26 @@ public class WoOh
 
     public void gerichteAusgeben(Datenelement[][][] suchergebnisse_gerichte)
     {
+        int anzahl_ergebnisse = 0;
+        for(int i = 0;i < suchergebnisse_gerichte.length;i++)
+        {
+            anzahl_ergebnisse += suchergebnisse_gerichte[i][0].length;
+            //for(int e = 0; e < suchergebnisse_gerichte[r][0])
+        }
+        double[] lieferzeiten = new double[anzahl_ergebnisse];
 
-            System.out.println(suchergebnisse_gerichte[0][1][0].getName());
-            System.out.println(suchergebnisse_gerichte[1][1][0].getName());
+        int index = 0;
+        for(int r = 0;r < anzahl_ergebnisse;r++)
+        {
+            for(int s = 0; s < suchergebnisse_gerichte[r][0].length;s++)
+            {
+                lieferzeiten[index] = Lieferdaten.LieferzeitBerechnen(suchergebnisse_gerichte[r][0][s].dauerGeben(), user.getKoordinaten(), suchergebnisse_gerichte[r][1][0].getKoordinaten());
+                index++;
+            }
+        }
+        System.out.println(suchergebnisse_gerichte[0][1][0].getName());
+        System.out.println(suchergebnisse_gerichte[1][1][0].getName());
+        Ui.gerichteAusgeben(suchergebnisse_gerichte,lieferzeiten);
 
 
         /*

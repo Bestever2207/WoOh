@@ -50,6 +50,10 @@ public class Gericht extends Datenelement
     {
         return null;
     }
+    public double[] getKoordinaten()
+    {
+        return null;
+    }
 
     public double preisGeben()
     {

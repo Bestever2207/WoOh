@@ -8,6 +8,8 @@ public abstract class Datenelement
     public abstract double preisGeben();
     public abstract double dauerGeben();
     public abstract String getName();
+    public abstract String[] getBeilagen();
     public abstract Gericht[] GerichtinspeisekarteSuchen(String gesGericht);
+    public abstract double[] getKoordinaten();
 
 }
