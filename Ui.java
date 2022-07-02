@@ -262,16 +262,9 @@ public class Ui {
     public static void scrollpane_erstellen(int height)
     {
         if(SCROLLPANE_INHALT != null) {
-            SCROLLPANE_INHALT.removeAll();
-            SCROLLPANE_INHALT.revalidate();
-            SCROLLPANE_INHALT.repaint();
+            //SCROLLPANE_INHALT.removeAll();
         }
-        if(SCROLLPANE != null)
-        {
-            SCROLLPANE.removeAll();
-            SCROLLPANE.revalidate();
-            SCROLLPANE.repaint();
-        }
+
 
         SCROLLPANE_INHALT = new JPanel();
 
@@ -282,10 +275,13 @@ public class Ui {
         SCROLLPANE_INHALT.setBackground(Color.decode("#ffffff"));
         SCROLLPANE_INHALT.setVisible(true);
 
-        SCROLLPANE_INHALT.validate();
-        SCROLLPANE_INHALT.repaint();
-        SCROLLPANE_INHALT.revalidate();
+/*
+        if(SCROLLPANE != null)
+        {
 
+        }
+
+ */
         SCROLLPANE = new JScrollPane(SCROLLPANE_INHALT,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         if(height > 500) {
@@ -302,15 +298,11 @@ public class Ui {
         SCROLLPANE.getVerticalScrollBar().setUnitIncrement(10);
         SCROLLPANE.getVerticalScrollBar().setBackground(Color.WHITE);
 
-        SCROLLPANE.validate();
-        SCROLLPANE.repaint();
-        SCROLLPANE.revalidate();
+
 
         PANEL.add(SCROLLPANE);
 
-        PANEL.validate();
-        PANEL.repaint();
-        PANEL.revalidate();
+
     }
 
 
@@ -385,15 +377,19 @@ public class Ui {
 
             SCROLLPANE_INHALT.add(btn_panel);
 
-            SCROLLPANE_INHALT.validate();
-            SCROLLPANE_INHALT.repaint();
-            SCROLLPANE_INHALT.revalidate();
 
-
-            PANEL.validate();
-            PANEL.repaint();
-            PANEL.revalidate();
         }
+        SCROLLPANE_INHALT.validate();
+        SCROLLPANE_INHALT.repaint();
+        SCROLLPANE_INHALT.revalidate();
+
+        SCROLLPANE.validate();
+        SCROLLPANE.repaint();
+        SCROLLPANE.revalidate();
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
     }
 
     public static void gerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten)
@@ -475,15 +471,27 @@ public class Ui {
                 btn_panel.add(btn,JLayeredPane.DEFAULT_LAYER);
                 btn_panel.setVisible(true);
 
+                System.out.println("Gericht wird erstellt");
                 SCROLLPANE_INHALT.add(btn_panel);
 
 
-
-                PANEL.validate();
-                PANEL.repaint();
-                PANEL.revalidate();
             }
         }
+        SCROLLPANE_INHALT.validate();
+        SCROLLPANE_INHALT.repaint();
+        SCROLLPANE_INHALT.revalidate();
+
+        SCROLLPANE.validate();
+        SCROLLPANE.repaint();
+        SCROLLPANE.revalidate();
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
+
+        FRAME.validate();
+        FRAME.repaint();
+        FRAME.revalidate();
     }
 
     public static void KeineSuchergebnisse()
