@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="restaurants ausgeben">
-      <change afterPath="$PROJECT_DIR$/img/plus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datenelement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datenelement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gericht.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gericht.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Restaurant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Restaurants.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Restaurants.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
-    </list>
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="gerichte ausgeben" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +126,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656719754326</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="restaurants ausgeben">
+      <created>1656772732624</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1656772732624</updated>
+    </task>
+    <task id="LOCAL-00009" summary="gerichte ausgeben">
+      <created>1656772807320</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656772807320</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -158,7 +164,8 @@
     <MESSAGE value="mainScreen" />
     <MESSAGE value="scrollpanel" />
     <MESSAGE value="restaurants ausgeben" />
-    <option name="LAST_COMMIT_MESSAGE" value="restaurants ausgeben" />
+    <MESSAGE value="gerichte ausgeben" />
+    <option name="LAST_COMMIT_MESSAGE" value="gerichte ausgeben" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
