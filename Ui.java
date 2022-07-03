@@ -264,9 +264,7 @@ public class Ui {
 
         if(SCROLLPANE != null) {
             System.out.println(SCROLLPANE_INHALT.getComponents().length);
-            //SCROLLPANE.removeAll();
             SCROLLPANE_INHALT.removeAll();
-            SCROLLPANE_INHALT.updateUI();
             System.out.println(SCROLLPANE_INHALT.getComponents().length);
         }
 
@@ -274,50 +272,32 @@ public class Ui {
         SCROLLPANE_INHALT = new JPanel();
         System.out.println(SCROLLPANE_INHALT.getComponents().length);
 
-
-
-
-
-
         BoxLayout bl = new BoxLayout(SCROLLPANE_INHALT, BoxLayout.Y_AXIS);
-        SCROLLPANE_INHALT.setPreferredSize(new Dimension(1133,height));
+        SCROLLPANE_INHALT.setPreferredSize(new Dimension(1133, height));
         SCROLLPANE_INHALT.setLayout(bl);
         SCROLLPANE_INHALT.setBackground(Color.decode("#010101"));
         SCROLLPANE_INHALT.setVisible(true);
 
-/*
-        if(SCROLLPANE != null)
+
+        if(SCROLLPANE == null)
         {
+            SCROLLPANE = new JScrollPane(SCROLLPANE_INHALT, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
+            SCROLLPANE.setBounds(152, 305, 1133, Math.min(height, 500));
+            SCROLLPANE.getViewport().setBackground(Color.decode("#ffffff"));
+            SCROLLPANE.setForeground(Color.decode("#ffffff"));
+            SCROLLPANE.setBorder(null);
+            SCROLLPANE.setVisible(true);
+            SCROLLPANE.getVerticalScrollBar().setUnitIncrement(10);
+            SCROLLPANE.getVerticalScrollBar().setBackground(Color.WHITE);
+
+            System.out.println(SCROLLPANE_INHALT);
+
+            PANEL.add(SCROLLPANE);
+            return;
         }
-
- */
-        SCROLLPANE = new JScrollPane(SCROLLPANE_INHALT,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-
-        if(height > 500) {
-            SCROLLPANE.setBounds(152, 305, 1133, 500);
-        }
-        else
-        {
-            SCROLLPANE.setBounds(152, 305, 1133, height);
-        }
-        SCROLLPANE.getViewport().setBackground(Color.decode("#ffffff"));
-        SCROLLPANE.setForeground(Color.decode("#ffffff"));
-        SCROLLPANE.setBorder(null);
-        SCROLLPANE.setVisible(true);
-        SCROLLPANE.getVerticalScrollBar().setUnitIncrement(10);
-        SCROLLPANE.getVerticalScrollBar().setBackground(Color.WHITE);
-
-        System.out.println(SCROLLPANE_INHALT);
-
-        PANEL.add(SCROLLPANE);
-
-
+        SCROLLPANE.setViewportView(SCROLLPANE_INHALT);
     }
-
-
-
 
     public static JComponent[] restaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
     {
