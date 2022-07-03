@@ -188,6 +188,7 @@ public class WoOh
                 index++;
             }
         }
+
         System.out.println(suchergebnisse_gerichte[0][1][0].getName());
         System.out.println(suchergebnisse_gerichte[1][1][0].getName());
 
