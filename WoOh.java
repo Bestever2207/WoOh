@@ -12,8 +12,9 @@ public class WoOh
 
     public WoOh()
     {
-        RestaurantsEinfuegen();
         Ui.start();
+        RestaurantsEinfuegen();
+
 
         KoordsSetzen();
 
@@ -199,17 +200,18 @@ public class WoOh
             for(int s = 0;s < suchergebnisse_gerichte[r][0].length;s++)
             {
                 JButton main_btn = (JButton) components[index];
+                Datenelement restaurant = suchergebnisse_gerichte[r][1][0];
                 main_btn.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        speisekarteAusgeben();
+                        speisekarteAusgeben(restaurant);
                     }
                 });
 
                 index++;
 
                 JButton btn_plus = (JButton) components[index];
-                Datenelement[] gerichtDaten = new Datenelement[]{suchergebnisse_gerichte[r][0][s],suchergebnisse_gerichte[r][1][0]};
+                Datenelement[] gerichtDaten = new Datenelement[]{suchergebnisse_gerichte[r][0][s],restaurant};
 
                 btn_plus.addActionListener(new ActionListener() {
                     @Override
@@ -236,9 +238,13 @@ public class WoOh
 
 
 
-    public static void speisekarteAusgeben()
+    public static void speisekarteAusgeben(Datenelement restaurant)
     {
-
+        Gericht[] speisekarte = restaurant.GerichtinspeisekarteSuchen("");
+        for(int i = 0; i < speisekarte.length;i++)
+        {
+            System.out.println(speisekarte[i].getName());
+        }
     }
 
     public static void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)

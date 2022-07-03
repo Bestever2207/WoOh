@@ -138,7 +138,7 @@ public class Ui {
 
     public static void koordsScreenFalsch()
     {
-        System.out.println("Adresse nicht eindeutig! Achte darauf, dass alles richtig geschrieben und eine Hausnummer eingegeben wurde. Wiederholen sie den Vorgang.");
+
     }
 
     public static JComponent[] mainScreen()
@@ -270,12 +270,11 @@ public class Ui {
 
 
         SCROLLPANE_INHALT = new JPanel();
-        System.out.println(SCROLLPANE_INHALT.getComponents().length);
 
         BoxLayout bl = new BoxLayout(SCROLLPANE_INHALT, BoxLayout.Y_AXIS);
         SCROLLPANE_INHALT.setPreferredSize(new Dimension(1133, height));
         SCROLLPANE_INHALT.setLayout(bl);
-        SCROLLPANE_INHALT.setBackground(Color.decode("#010101"));
+        SCROLLPANE_INHALT.setBackground(Color.decode("#ffffff"));
         SCROLLPANE_INHALT.setVisible(true);
 
 
@@ -291,7 +290,6 @@ public class Ui {
             SCROLLPANE.getVerticalScrollBar().setUnitIncrement(10);
             SCROLLPANE.getVerticalScrollBar().setBackground(Color.WHITE);
 
-            System.out.println(SCROLLPANE_INHALT);
 
             PANEL.add(SCROLLPANE);
             return;
@@ -376,7 +374,7 @@ public class Ui {
 
             System.out.println(SCROLLPANE_INHALT);
         }
-        SCROLLPANE_INHALT.setVisible(true);
+        /*SCROLLPANE_INHALT.setVisible(true);
         SCROLLPANE_INHALT.validate();
         SCROLLPANE_INHALT.repaint();
         SCROLLPANE_INHALT.revalidate();
@@ -390,7 +388,7 @@ public class Ui {
 
         PANEL.validate();
         PANEL.repaint();
-        PANEL.revalidate();
+        PANEL.revalidate();*/
         return components;
     }
 
@@ -422,7 +420,7 @@ public class Ui {
 
                 if(activ_btn) {
                     JButton btn = new JButton();
-                    btn.setBackground(Color.decode("#ff0000"));
+                    btn.setBackground(Color.decode("#ffffff"));
                     btn.setBounds(15,15,1088,187);
                     btn.setAlignmentX(JButton.CENTER_ALIGNMENT);
                     btn.setVisible(true);
@@ -435,7 +433,7 @@ public class Ui {
                 else {
 
                     JLabel btn = new JLabel();
-                    btn.setBackground(Color.decode("#ff0000"));
+                    btn.setBackground(Color.decode("#ffffff"));
                     btn.setBounds(15, 15, 1088, 187);
                     btn.setAlignmentX(JLabel.CENTER_ALIGNMENT);
                     btn.setVisible(true);
@@ -514,15 +512,15 @@ public class Ui {
                 index++;
             }
         }
-        SCROLLPANE_INHALT.validate();
+        /*SCROLLPANE_INHALT.validate();
         SCROLLPANE_INHALT.repaint();
-        SCROLLPANE_INHALT.revalidate();
+        SCROLLPANE_INHALT.revalidate();*/
 
         //System.out.println(SCROLLPANE_INHALT.getComponent(0));
         //System.out.println(SCROLLPANE_INHALT.getComponent(1));
         //System.out.println(SCROLLPANE_INHALT.getComponent(2));
 
-        SCROLLPANE.validate();
+        /*SCROLLPANE.validate();
         SCROLLPANE.repaint();
         SCROLLPANE.revalidate();
 
@@ -532,7 +530,7 @@ public class Ui {
 
         FRAME.validate();
         FRAME.repaint();
-        FRAME.revalidate();
+        FRAME.revalidate();*/
 
         return components;
     }
