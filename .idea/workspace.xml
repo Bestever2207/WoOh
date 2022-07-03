@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="gerichte 2tes mal ausgeben fehler">
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="gerichte 2tes mal ausgeben fehler v2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Ui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656776891480</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="gerichte 2tes mal ausgeben fehler v2">
+      <created>1656808031074</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1656808031074</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -184,7 +191,8 @@
     <MESSAGE value="restaurants ausgeben" />
     <MESSAGE value="gerichte ausgeben" />
     <MESSAGE value="gerichte 2tes mal ausgeben fehler" />
-    <option name="LAST_COMMIT_MESSAGE" value="gerichte 2tes mal ausgeben fehler" />
+    <MESSAGE value="gerichte 2tes mal ausgeben fehler v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="gerichte 2tes mal ausgeben fehler v2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

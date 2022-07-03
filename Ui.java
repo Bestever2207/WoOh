@@ -319,10 +319,12 @@ public class Ui {
 
 
 
-    public static void restaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
+    public static JComponent[] restaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
     {
         int anzahl_suchergebnisse = suchergebnisse.length;
         int height = 15 + anzahl_suchergebnisse * (15 + 187);
+
+        JComponent[] components = new JComponent[anzahl_suchergebnisse];
 
         scrollpane_erstellen(height);
 
@@ -388,6 +390,8 @@ public class Ui {
             btn_panel.add(btn,JLayeredPane.DEFAULT_LAYER);
             btn_panel.setVisible(true);
 
+            components[i] = btn;
+
             SCROLLPANE_INHALT.add(btn_panel);
 
             System.out.println(SCROLLPANE_INHALT);
@@ -407,9 +411,10 @@ public class Ui {
         PANEL.validate();
         PANEL.repaint();
         PANEL.revalidate();
+        return components;
     }
 
-    public static void gerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten)
+    public static JComponent[] gerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten,boolean activ_btn)
     {
         int anzahl_suchergebnisse = lieferzeiten.length;
 
@@ -417,9 +422,11 @@ public class Ui {
 
         scrollpane_erstellen(height);
 
+        JComponent[] components = new JComponent[anzahl_suchergebnisse];
+
         System.out.println("restaurantsAusgeben ausgeführt");
 
-
+        int index = 0;
 
         for(int r = 0;r < suchergebnisse.length;r++)
         {
@@ -427,13 +434,28 @@ public class Ui {
             {
                 JLayeredPane btn_panel = new JLayeredPane();
 
-                JButton btn = new JButton();
+                if(activ_btn) {
+                    JButton btn = new JButton();
+                    btn.setBackground(Color.decode("#ff0000"));
+                    btn.setBounds(15,15,1088,187);
+                    btn.setAlignmentX(JButton.CENTER_ALIGNMENT);
+                    btn.setVisible(true);
+                    btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+                    btn_panel.add(btn,JLayeredPane.DEFAULT_LAYER);
 
-                btn.setBackground(Color.decode("#ff0000"));
-                btn.setBounds(15,15,1088,187);
-                btn.setAlignmentX(JButton.CENTER_ALIGNMENT);
-                btn.setVisible(true);
-                btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+                    components[index] = btn;
+                    index++;
+                }
+                else {
+
+                    JLabel btn = new JLabel();
+                    btn.setBackground(Color.decode("#ff0000"));
+                    btn.setBounds(15, 15, 1088, 187);
+                    btn.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+                    btn.setVisible(true);
+                    btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+                    btn_panel.add(btn,JLayeredPane.DEFAULT_LAYER);
+                }
 
                 JLabel name = new JLabel(suchergebnisse[r][0][s].getName());
                 name.setFont(new Font("Open Sans",Font.PLAIN, 32));
@@ -470,22 +492,29 @@ public class Ui {
                 zeit.setBackground(Color.decode("#ffffff"));
 
 
-                JLabel durchschnittszeit = new JLabel("ca." + Math.round(suchergebnisse[r][0][s].dauerGeben()) + " min");
-                durchschnittszeit.setBounds(82,139,901,24);
+                JLabel durchschnittszeit = new JLabel("ca." + Math.round(suchergebnisse[r][0][s].dauerGeben()) + " min" + "     " + "\t" + suchergebnisse[r][1][0].getName());
+                durchschnittszeit.setBounds(82,131,1000,40);
                 durchschnittszeit.setBackground(Color.decode("#ffffff"));
                 durchschnittszeit.setFont(new Font("Open Sans",Font.PLAIN, 24));
 
+                ImageIcon plus_icon = new ImageIcon("img/plus.png");
+                plus_icon.setImage(plus_icon.getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH));
+
+                JButton plus = new JButton(plus_icon);
+                plus.setBounds(1068,10,40,40);
+                plus.setBackground(Color.decode("#ffffff"));
+
+                components[index] = plus;
 
                 btn_panel.add(name,JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(beilagen_label,JLayeredPane.PALETTE_LAYER);
-
                 btn_panel.add(einkaufstasche,JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(preis,JLayeredPane.PALETTE_LAYER);
 
                 btn_panel.add(zeit,JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(durchschnittszeit,JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(plus,JLayeredPane.PALETTE_LAYER);
 
-                btn_panel.add(btn,JLayeredPane.DEFAULT_LAYER);
                 btn_panel.setVisible(true);
 
                 System.out.println("Gericht wird erstellt");
@@ -496,6 +525,7 @@ public class Ui {
                 SCROLLPANE_INHALT.validate();
                 SCROLLPANE_INHALT.repaint();
                 SCROLLPANE_INHALT.revalidate();
+                index++;
             }
         }
         SCROLLPANE_INHALT.validate();
@@ -517,6 +547,8 @@ public class Ui {
         FRAME.validate();
         FRAME.repaint();
         FRAME.revalidate();
+
+        return components;
     }
 
     public static void KeineSuchergebnisse()

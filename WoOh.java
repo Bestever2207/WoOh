@@ -155,7 +155,18 @@ public class WoOh
             }
         });
     }
-
+    public boolean istEssensrichtung(String input)
+    {
+        boolean istEssensr = false;
+        for(int i = 0; i < essensrichtungen.length; i++)
+        {
+            if(essensrichtungen[i].equals(input))
+            {
+                istEssensr = true;
+            }
+        }
+        return istEssensr;
+    }
 
 
     public void gerichteAusgeben(Datenelement[][][] suchergebnisse_gerichte)
@@ -179,62 +190,36 @@ public class WoOh
         }
         System.out.println(suchergebnisse_gerichte[0][1][0].getName());
         System.out.println(suchergebnisse_gerichte[1][1][0].getName());
-        Ui.gerichteAusgeben(suchergebnisse_gerichte,lieferzeiten);
 
-
-        /*
-        String[] suche = Ui.suchenScreen();
-        if(!(suche[0].isBlank() ^ suche[1].isBlank()))
+        JComponent[] components = Ui.gerichteAusgeben(suchergebnisse_gerichte,lieferzeiten,true);
+        index = 0;
+        for(int r = 0; r < suchergebnisse_gerichte.length;r++)
         {
-            Ui.suchenScreenFalsch();
-            //suchenScreen();
-        }
-        else if (suche[0].isBlank()) //suche nach Gericht
-        {
-            Datenelement[][][] suchergebnisse = restaurants.GerichtSuchen(suche[1]);
-            if(suchergebnisse.length > 0)
+            for(int s = 0;s < suchergebnisse_gerichte[r][0].length;s++)
             {
-                double[] lieferzeiten = {1.55,8.4};
-                Ui.GerichteAusgeben(suchergebnisse,lieferzeiten);
-            }
-            else
-            {
-                Ui.KeineSuchergebnisse();
-            }
-        }
-        else //Suche nach Essensrichtung oder Restaurant
-        {
-            if(istEssensrichtung(suche[0])) // Suche nach Essensrichtung
-            {
-                Restaurant[] suchergebnisse = restaurants.GenreSuchen(suche[0]);
-                if(suchergebnisse.length > 0) {
-                    double[] lieferzeiten = new double[suchergebnisse.length];
-                    for (int i = 0; i < suchergebnisse.length; i++) {
-                        lieferzeiten[i] = Lieferdaten.LieferzeitBerechnen(suchergebnisse[i].getDurchschnittdauer(), user.getKoordinaten(), suchergebnisse[i].getKoordinaten());
+                JButton main_btn = (JButton) components[index];
+                main_btn.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        speisekarteAusgeben();
                     }
-                    Ui.RestaurantsAusgeben(suchergebnisse, lieferzeiten);
-                }
-                else
-                {
-                    Ui.KeineSuchergebnisse();
-                }
-            }
-            else // Suche nach Restaurant
-            {
-                Restaurant[] suchergebnis = new Restaurant[]{(Restaurant) restaurants.RestaurantSuchen(suche[0])};
-                if(suchergebnis[0] != null)
-                {
-                    double[] lieferzeit = new double[]{Lieferdaten.LieferzeitBerechnen(suchergebnis[0].dauerGeben(), user.getKoordinaten(), suchergebnis[0].getKoordinaten())};
-                    Ui.RestaurantsAusgeben(suchergebnis,lieferzeit);
-                }
-                else
-                {
-                    Ui.KeineSuchergebnisse();
-                }
+                });
+
+                index++;
+
+                JButton btn_plus = (JButton) components[index];
+                Datenelement[] gerichtDaten = new Datenelement[]{suchergebnisse_gerichte[r][0][s],suchergebnisse_gerichte[r][1][0]};
+
+                btn_plus.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+
+                        gericht_warenkorbhinzufügen(gerichtDaten);
+                    }
+                });
+                index++;
             }
         }
-
-         */
     }
 
     public void restaurantsAusgeben(Restaurant[] suchergebnisse_restaurants)
@@ -245,22 +230,19 @@ public class WoOh
         {
             lieferzeiten[i] = Lieferdaten.LieferzeitBerechnen(suchergebnisse_restaurants[i].dauerGeben(),user.getKoordinaten(),suchergebnisse_restaurants[i].getKoordinaten());
         }
-        Ui.restaurantsAusgeben(suchergebnisse_restaurants,lieferzeiten);
+        JComponent[] components = Ui.restaurantsAusgeben(suchergebnisse_restaurants,lieferzeiten);
     }
 
 
 
-    public boolean istEssensrichtung(String input)
+    public static void speisekarteAusgeben()
     {
-        boolean istEssensr = false;
-        for(int i = 0; i < essensrichtungen.length; i++)
-        {
-            if(essensrichtungen[i].equals(input))
-            {
-                istEssensr = true;
-            }
-        }
-        return istEssensr;
+
+    }
+
+    public static void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)
+    {
+
     }
 
     public static void Warenkorb()
