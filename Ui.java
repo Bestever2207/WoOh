@@ -261,18 +261,28 @@ public class Ui {
 
     public static void scrollpane_erstellen(int height)
     {
-        if(SCROLLPANE_INHALT != null) {
-            //SCROLLPANE_INHALT.removeAll();
+
+        if(SCROLLPANE != null) {
+            System.out.println(SCROLLPANE_INHALT.getComponents().length);
+            //SCROLLPANE.removeAll();
+            SCROLLPANE_INHALT.removeAll();
+            SCROLLPANE_INHALT.updateUI();
+            System.out.println(SCROLLPANE_INHALT.getComponents().length);
         }
 
 
         SCROLLPANE_INHALT = new JPanel();
+        System.out.println(SCROLLPANE_INHALT.getComponents().length);
+
+
+
+
 
 
         BoxLayout bl = new BoxLayout(SCROLLPANE_INHALT, BoxLayout.Y_AXIS);
         SCROLLPANE_INHALT.setPreferredSize(new Dimension(1133,height));
         SCROLLPANE_INHALT.setLayout(bl);
-        SCROLLPANE_INHALT.setBackground(Color.decode("#ffffff"));
+        SCROLLPANE_INHALT.setBackground(Color.decode("#010101"));
         SCROLLPANE_INHALT.setVisible(true);
 
 /*
@@ -283,6 +293,7 @@ public class Ui {
 
  */
         SCROLLPANE = new JScrollPane(SCROLLPANE_INHALT,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
 
         if(height > 500) {
             SCROLLPANE.setBounds(152, 305, 1133, 500);
@@ -298,7 +309,7 @@ public class Ui {
         SCROLLPANE.getVerticalScrollBar().setUnitIncrement(10);
         SCROLLPANE.getVerticalScrollBar().setBackground(Color.WHITE);
 
-
+        System.out.println(SCROLLPANE_INHALT);
 
         PANEL.add(SCROLLPANE);
 
@@ -311,10 +322,12 @@ public class Ui {
     public static void restaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
     {
         int anzahl_suchergebnisse = suchergebnisse.length;
-        scrollpane_erstellen(suchergebnisse.length);
+        int height = 15 + anzahl_suchergebnisse * (15 + 187);
+
+        scrollpane_erstellen(height);
 
         System.out.println("restaurantsAusgeben ausgeführt");
-        int height = 15 + anzahl_suchergebnisse * (15 + 187);
+
 
 
         for(int i = 0;i < suchergebnisse.length;i++)
@@ -377,12 +390,16 @@ public class Ui {
 
             SCROLLPANE_INHALT.add(btn_panel);
 
-
+            System.out.println(SCROLLPANE_INHALT);
         }
+        SCROLLPANE_INHALT.setVisible(true);
         SCROLLPANE_INHALT.validate();
         SCROLLPANE_INHALT.repaint();
         SCROLLPANE_INHALT.revalidate();
 
+        System.out.println(SCROLLPANE_INHALT);
+
+        SCROLLPANE.setVisible(true);
         SCROLLPANE.validate();
         SCROLLPANE.repaint();
         SCROLLPANE.revalidate();
@@ -412,7 +429,7 @@ public class Ui {
 
                 JButton btn = new JButton();
 
-                btn.setBackground(Color.decode("#ffffff"));
+                btn.setBackground(Color.decode("#ff0000"));
                 btn.setBounds(15,15,1088,187);
                 btn.setAlignmentX(JButton.CENTER_ALIGNMENT);
                 btn.setVisible(true);
@@ -474,12 +491,20 @@ public class Ui {
                 System.out.println("Gericht wird erstellt");
                 SCROLLPANE_INHALT.add(btn_panel);
 
+                //System.out.println(SCROLLPANE_INHALT.getComponent(0));
 
+                SCROLLPANE_INHALT.validate();
+                SCROLLPANE_INHALT.repaint();
+                SCROLLPANE_INHALT.revalidate();
             }
         }
         SCROLLPANE_INHALT.validate();
         SCROLLPANE_INHALT.repaint();
         SCROLLPANE_INHALT.revalidate();
+
+        //System.out.println(SCROLLPANE_INHALT.getComponent(0));
+        //System.out.println(SCROLLPANE_INHALT.getComponent(1));
+        //System.out.println(SCROLLPANE_INHALT.getComponent(2));
 
         SCROLLPANE.validate();
         SCROLLPANE.repaint();
