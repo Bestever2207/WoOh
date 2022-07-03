@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="gerichte 2tes mal ausgeben fehler v2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="gerichte 2tes mal ausgeben fehler v2 + Gericht_warenkorbhinzufügen + speiseKarteAusgeben">
       <change beforePath="$PROJECT_DIR$/Ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Ui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656808031074</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="gerichte 2tes mal ausgeben fehler v2 + Gericht_warenkorbhinzufügen + speiseKarteAusgeben">
+      <created>1656849201758</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656849201758</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -192,7 +200,8 @@
     <MESSAGE value="gerichte ausgeben" />
     <MESSAGE value="gerichte 2tes mal ausgeben fehler" />
     <MESSAGE value="gerichte 2tes mal ausgeben fehler v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="gerichte 2tes mal ausgeben fehler v2" />
+    <MESSAGE value="gerichte 2tes mal ausgeben fehler v2 + Gericht_warenkorbhinzufügen + speiseKarteAusgeben" />
+    <option name="LAST_COMMIT_MESSAGE" value="gerichte 2tes mal ausgeben fehler v2 + Gericht_warenkorbhinzufügen + speiseKarteAusgeben" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

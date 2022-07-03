@@ -421,8 +421,14 @@ public class Ui {
         int height = 15 + anzahl_suchergebnisse * (15 + 187);
 
         scrollpane_erstellen(height);
+        JComponent[] components;
 
-        JComponent[] components = new JComponent[anzahl_suchergebnisse];
+        if(activ_btn) {
+            components = new JComponent[anzahl_suchergebnisse * 2];
+        }
+        else {
+            components = new JComponent[anzahl_suchergebnisse];
+        }
 
         System.out.println("restaurantsAusgeben ausgeführt");
 
