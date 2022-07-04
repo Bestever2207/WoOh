@@ -30,18 +30,36 @@ public class WoOh
     public void KoordsSetzen()
     {
         JComponent[] userDaten_in = Ui.KoordsScreen();
-
+        JComponent[] userDaten_false = new JComponent[4];
         JButton suchen_btn = (JButton) userDaten_in[5];
-
+        for(int i = 0;i < 5;i++)
+        {
+            
+        }
         String[] userDaten = new String[5];
+        
         suchen_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                boolean ist_falsch = false;
                 for(int i = 0;i < 5;i++)
                 {
+                    if(((JTextField)userDaten_in[i]).getText().isBlank())
+                    {
+                        userDaten_false[i] = userDaten_in[i];
+                        ist_falsch = true;
+                    }
+                    
                     userDaten[i] = ((JTextField)userDaten_in[i]).getText();
                 }
-
+                
+                
+                if(ist_falsch)
+                {
+                    Ui.koordsScreenFalsch(userDaten_false);    
+                }
+                
+                
                 String adresse = userDaten[0] + " " + userDaten[1] + " " + userDaten[2] + " " + userDaten[3];
 
                 double[] koordinaten;
@@ -49,8 +67,7 @@ public class WoOh
                 koordinaten = Entfernung.KoordsErmitteln(adresse);
                 if(koordinaten == null || userDaten[1].isBlank())
                 {
-                    Ui.koordsScreenFalsch();
-                    KoordsSetzen();
+                    
                 }
                 else
                 {

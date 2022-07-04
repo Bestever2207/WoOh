@@ -136,9 +136,36 @@ public class Ui {
         return components;
     }
 
-    public static void koordsScreenFalsch()
+    public static void koordsScreenFalsch(JComponent[] userDaten_falsch)
     {
-
+        for(int i = 0;i < 4;i++)
+        {
+            userDaten_falsch[i].setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
+        }
+        JPanel panel_falsch = new JPanel();
+        
+        panel_falsch.setLayout(null);
+        panel_falsch.setBackground(Color.WHITE);
+        
+        JLabel label_falsch = new JLabel("<html>Achte darauf dass<br>die Adresse eindeutig <br>und jedes Feld ausgefüllt ist<html>");
+        label_falsch.setBounds(800,400,200,200);
+        label_falsch.setFont(FONT1);
+        label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+        label_falsch.setVisible(true);
+        
+        panel_falsch.add(label_falsch);
+        panel_falsch.setVisible(true);
+        
+        panel_falsch.validate();
+        panel_falsch.repaint();
+        panel_falsch.revalidate();
+        
+        PANEL.add(panel_falsch,5);
+        
+        
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
     }
 
     public static JComponent[] mainScreen()
