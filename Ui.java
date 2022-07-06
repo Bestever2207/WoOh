@@ -28,11 +28,6 @@ public class Ui {
 
     }
     
-
-    
-    
-    
-    
     public static JComponent[] KoordsScreen()
     {
         JComponent[] components = new JComponent[6];
@@ -44,7 +39,7 @@ public class Ui {
         logo.setBounds(25,25,169,169);
         PANEL.add(logo);
 
-        JTextField strasse_in = new JTextField();
+        JTextField strasse_in = new JTextField("Düsseldorfer Str");
         strasse_in.setBounds(458,228,381,69);
         strasse_in.setFont(FONT1);
         strasse_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -59,7 +54,7 @@ public class Ui {
         PANEL.add(strasse_tx);
 
 
-        JTextField nummer_in = new JTextField();
+        JTextField nummer_in = new JTextField("17");
         nummer_in.setBounds(862,228,101,69);
         nummer_in.setFont(FONT1);
         nummer_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -74,7 +69,7 @@ public class Ui {
         PANEL.add(nummer_tx);
 
 
-        JTextField stadt_in = new JTextField();
+        JTextField stadt_in = new JTextField("Nürnberg");
         stadt_in.setBounds(458,341,279,69);
         stadt_in.setFont(FONT1);
         stadt_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -89,7 +84,7 @@ public class Ui {
         PANEL.add(stadt_tx);
 
 
-        JTextField plz_in = new JTextField();
+        JTextField plz_in = new JTextField("90425");
         plz_in.setBounds(795,341,168,69);
         plz_in.setFont(FONT1);
         plz_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -104,7 +99,7 @@ public class Ui {
         PANEL.add(plz_tx);
 
 
-        JTextField name_in = new JTextField();
+        JTextField name_in = new JTextField("Lucas Horn");
         name_in.setBounds(458,500,505,69);
         name_in.setFont(FONT1);
         name_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -400,7 +395,7 @@ public class Ui {
             zeit.setBackground(Color.decode("#ffffff"));
 
 
-            JLabel durchschnittszeit = new JLabel("ca." + Math.round(suchergebnisse[i].getDurchschnittdauer() +  + lieferzeiten[i]) + " min");
+            JLabel durchschnittszeit = new JLabel("ca." + Math.round(lieferzeiten[i]) + " min");
             durchschnittszeit.setBounds(82,139,901,24);
             durchschnittszeit.setBackground(Color.decode("#ffffff"));
             durchschnittszeit.setFont(new Font("Open Sans",Font.PLAIN, 24));
@@ -442,7 +437,7 @@ public class Ui {
         return components;
     }
 
-    public static JComponent[] gerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten,boolean activ_btn)
+    public static JComponent[] gerichteAusgeben(Datenelement[][][] suchergebnisse,int[] lieferzeiten,boolean activ_btn)
     {
         int anzahl_suchergebnisse = lieferzeiten.length;
 
@@ -526,7 +521,7 @@ public class Ui {
                 zeit.setBackground(Color.decode("#ffffff"));
 
 
-                JLabel durchschnittszeit = new JLabel("ca." + Math.round(suchergebnisse[r][0][s].dauerGeben()) + " min" + "     " + "\t" + suchergebnisse[r][1][0].getName());
+                JLabel durchschnittszeit = new JLabel("ca." + 10 + " min" + "     " + "\t" + suchergebnisse[r][1][0].getName());
                 durchschnittszeit.setBounds(82,131,1000,40);
                 durchschnittszeit.setBackground(Color.decode("#ffffff"));
                 durchschnittszeit.setFont(new Font("Open Sans",Font.PLAIN, 24));

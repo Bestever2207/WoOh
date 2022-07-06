@@ -102,6 +102,7 @@ public class WoOh
                 {
                     System.out.println("nichts eingegeben");
                     //kein Gericht eingegeben
+                    
                 }
                 else
                 {
@@ -173,6 +174,7 @@ public class WoOh
             }
         });
     }
+
     public boolean istEssensrichtung(String input)
     {
         boolean istEssensr = false;
@@ -186,7 +188,7 @@ public class WoOh
         return istEssensr;
     }
 
-
+        
     public void gerichteAusgeben(Datenelement[][][] suchergebnisse_gerichte)
     {
         int anzahl_ergebnisse = 0;
@@ -195,7 +197,7 @@ public class WoOh
             anzahl_ergebnisse += suchergebnisse_gerichte[i][0].length;
             //for(int e = 0; e < suchergebnisse_gerichte[r][0])
         }
-        double[] lieferzeiten = new double[anzahl_ergebnisse];
+        int[] lieferzeiten = new int[anzahl_ergebnisse];
 
         int index = 0;
         for(int r = 0;r < anzahl_ergebnisse;r++)

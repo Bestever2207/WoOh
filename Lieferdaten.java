@@ -3,11 +3,15 @@ import java.util.Random;
 
 
 public class Lieferdaten {
-    public static double LieferzeitBerechnen(double zubereitdauer,double[] koordsUser,double[] koordsRestaurant)
+    public static int LieferzeitBerechnen(double zubereitdauer,double[] koordsUser,double[] koordsRestaurant)
     {
         double entfernung = Entfernung.EntfernungBerechnen(koordsUser,koordsRestaurant);
-        Random random = new Random();
-        double lieferzeit = zubereitdauer + random.nextInt(25 + 15) / entfernung;;
-        return lieferzeit;
+        System.out.println(zubereitdauer);
+        System.out.println(entfernung);
+        
+        double lieferzeit = zubereitdauer + (entfernung / 20) * 60;
+        System.out.println(lieferzeit);
+        
+        return (int) lieferzeit;
     }
 }

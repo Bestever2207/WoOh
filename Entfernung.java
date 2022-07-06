@@ -60,11 +60,15 @@ public class Entfernung {
             return null;
         }
     }
-    public static double EntfernungBerechnen(double[]koordsUser,double[] koordsRestaurant)
+    public static double EntfernungBerechnen(double[] koordsUser,double[] koordsRestaurant)
     {
         double entfernung = 0;
-        entfernung = Math.sqrt(Math.pow(koordsUser[0]-koordsRestaurant[0],2.0) + (Math.pow(koordsUser[1]-koordsRestaurant[1],2.0)) );
+        double dx = 71.5 * (koordsUser[1] - koordsRestaurant[1]);
+        double dy = 111.3 * (koordsUser[0] - koordsRestaurant[0]);
+        entfernung = Math.sqrt(dx * dx + dy * dy);
+        System.out.println(entfernung);
         return entfernung;
+
     }
 
 
