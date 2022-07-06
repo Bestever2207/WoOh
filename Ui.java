@@ -400,7 +400,7 @@ public class Ui {
             zeit.setBackground(Color.decode("#ffffff"));
 
 
-            JLabel durchschnittszeit = new JLabel("ca." + Math.round(suchergebnisse[i].getDurchschnittdauer()) + " min");
+            JLabel durchschnittszeit = new JLabel("ca." + Math.round(suchergebnisse[i].getDurchschnittdauer() +  + lieferzeiten[i]) + " min");
             durchschnittszeit.setBounds(82,139,901,24);
             durchschnittszeit.setBackground(Color.decode("#ffffff"));
             durchschnittszeit.setFont(new Font("Open Sans",Font.PLAIN, 24));
