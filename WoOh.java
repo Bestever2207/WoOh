@@ -260,15 +260,12 @@ public class WoOh
     public static void speisekarteAusgeben(Datenelement restaurant)
     {
         Gericht[] speisekarte = restaurant.GerichtinspeisekarteSuchen("");
-        for(int i = 0; i < speisekarte.length;i++)
-        {
-            System.out.println(speisekarte[i].getName());
-        }
+
     }
 
     public static void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)
     {
-
+        Bestellung bestellung = new Bestellung(gerichtDaten[0],gerichtDaten[1]);
     }
 
     public static void Warenkorb()
