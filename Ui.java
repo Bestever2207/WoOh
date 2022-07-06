@@ -142,7 +142,29 @@ public class Ui {
         {
             userDaten_falsch[i].setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
         }
-        JPanel panel_falsch = new JPanel();
+
+        JLabel label_falsch = new JLabel("Achte darauf dass die Adresse eindeutig und jedes Feld ausgefüllt ist!",SwingConstants.CENTER);
+        label_falsch.setBounds(298,784,826,53);
+        label_falsch.setFont(FONT1);
+        label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+        label_falsch.setVisible(true);
+        label_falsch.setHorizontalAlignment(SwingConstants.CENTER);
+
+        JLayeredPane panel_falsch = new JLayeredPane();
+
+        panel_falsch.setLayout(null);
+        panel_falsch.setBackground(Color.BLACK);
+
+        panel_falsch.add(label_falsch);
+        panel_falsch.setVisible(true);
+        //panel_falsch.setPreferredSize(new Dimension(826,53));
+
+        FRAME.add(panel_falsch);
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
+       /* JPanel panel_falsch = new JPanel();
         
         panel_falsch.setLayout(null);
         panel_falsch.setBackground(Color.WHITE);
@@ -152,20 +174,21 @@ public class Ui {
         label_falsch.setFont(FONT1);
         label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
         label_falsch.setVisible(true);
-        
-        panel_falsch.add(label_falsch);
+
+        panel_falsch.setLayout(new BorderLayout());
+        panel_falsch.add(label_falsch,BorderLayout.EAST);
         panel_falsch.setVisible(true);
         
         panel_falsch.validate();
         panel_falsch.repaint();
         panel_falsch.revalidate();
         
-        PANEL.add(panel_falsch,5);
+        PANEL.add(panel_falsch);
         
         
         PANEL.validate();
         PANEL.repaint();
-        PANEL.revalidate();
+        PANEL.revalidate();*/
     }
 
     public static JComponent[] mainScreen()
