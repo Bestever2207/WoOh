@@ -13,14 +13,14 @@ public class Bestellung
         gerichte = new Gericht[0];
     }
 
-    public void gerichthinzufuegen()
+    public void gerichthinzufuegen(Gericht neuesGericht)
     {
         Gericht[] neuesArray = new Gericht[gerichte.length + 1];
         for(int i = 0; i < gerichte.length; i++)
         {
             neuesArray[i] = gerichte[i];
         }
-
+        neuesArray[gerichte.length] = neuesGericht;
         gerichte = neuesArray;
     }
 }

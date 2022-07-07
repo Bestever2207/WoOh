@@ -269,21 +269,21 @@ public class WoOh
         int[] lieferzeiten = new int[anzahl_ergebnisse];
 
         int index = 0;
-        for(int r = 0;r < anzahl_ergebnisse;r++)
+
+
+        for(int s = 0; s < suchergebnis[0][0].length;s++)
         {
-            for(int s = 0; s < suchergebnis[r][0].length;s++)
-            {
-                lieferzeiten[index] = Lieferdaten.LieferzeitBerechnen(suchergebnis[r][0][s].dauerGeben(), user.getKoordinaten(), suchergebnis[r][1][0].getKoordinaten());
-                index++;
-            }
+            lieferzeiten[index] = Lieferdaten.LieferzeitBerechnen(suchergebnis[0][0][s].dauerGeben(), user.getKoordinaten(), suchergebnis[0][1][0].getKoordinaten());
+            index++;
         }
+
 
         JComponent[] components = Ui.gerichteAusgeben(suchergebnis,lieferzeiten,false);
     }
 
     public void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)
     {
-        warenkorb.gerichthinzufuegen();
+        warenkorb.gerichthinzufuegen((Gericht) gerichtDaten[0]);
     }
 
     public void Warenkorb_erstellen()
