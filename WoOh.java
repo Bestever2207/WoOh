@@ -8,13 +8,15 @@ public class WoOh
     private User user;
 
     private Baum restaurants;
+    private Bestellung warenkorb;
+    private Bestellung[] bestellhistorie;
     private String[] essensrichtungen = {"asiatisch","italienisch","kroatisch"};
 
     public WoOh()
     {
         Ui.start();
         RestaurantsEinfuegen();
-
+        Warenkorb_erstellen();
 
         KoordsSetzen();
 
@@ -163,7 +165,7 @@ public class WoOh
         warenkorb_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Warenkorb();
+                Warenkorb_anzeigen();
             }
         });
 
@@ -257,26 +259,46 @@ public class WoOh
 
 
 
-    public static void speisekarteAusgeben(Datenelement restaurant)
+    public void speisekarteAusgeben(Datenelement restaurant)
     {
         Gericht[] speisekarte = restaurant.GerichtinspeisekarteSuchen("");
+        Datenelement[][][] suchergebnis = new Datenelement[][][]{new Datenelement[][]{speisekarte,new Restaurant[]{(Restaurant) restaurant}}};
 
+        int anzahl_ergebnisse = speisekarte.length;
+
+        int[] lieferzeiten = new int[anzahl_ergebnisse];
+
+        int index = 0;
+        for(int r = 0;r < anzahl_ergebnisse;r++)
+        {
+            for(int s = 0; s < suchergebnis[r][0].length;s++)
+            {
+                lieferzeiten[index] = Lieferdaten.LieferzeitBerechnen(suchergebnis[r][0][s].dauerGeben(), user.getKoordinaten(), suchergebnis[r][1][0].getKoordinaten());
+                index++;
+            }
+        }
+
+        JComponent[] components = Ui.gerichteAusgeben(suchergebnis,lieferzeiten,false);
     }
 
-    public static void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)
+    public void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)
     {
-        //Bestellung bestellung = new Bestellung(gerichtDaten[0],gerichtDaten[1]);
+        warenkorb.gerichthinzufuegen();
     }
 
-    public static void Warenkorb()
+    public void Warenkorb_erstellen()
+    {
+        warenkorb = new Bestellung();
+    }
+    public void Warenkorb_anzeigen()
     {
 
     }
-    public static void Bestellhistorie()
+    public void Bestellhistorie()
     {
 
     }
-    public static void Guthaben()
+    public void Guthaben()
     {
 
     }

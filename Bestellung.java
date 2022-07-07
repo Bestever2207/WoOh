@@ -1,23 +1,26 @@
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class Bestellung
 {
-    Gericht gericht;
+    Gericht gerichte[];
     Restaurant restaurant;
     String adresse;
     double koords[];
     Date uhrzeit;
     Date datum;
-    public Bestellung(Gericht gericht,Restaurant restaurant)
+    public Bestellung()
     {
-        this.gericht = gericht;
-        this.restaurant = restaurant;
-        adresse = restaurant.getAdresse();
-        koords = restaurant.getKoordinaten();
-        uhrzeit = Calendar.getInstance().getTime();
+        gerichte = new Gericht[0];
+    }
 
-        //datum = Calendar.getInstance();
+    public void gerichthinzufuegen()
+    {
+        Gericht[] neuesArray = new Gericht[gerichte.length + 1];
+        for(int i = 0; i < gerichte.length; i++)
+        {
+            neuesArray[i] = gerichte[i];
+        }
+
+        gerichte = neuesArray;
     }
 }

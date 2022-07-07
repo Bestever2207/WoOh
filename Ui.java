@@ -491,12 +491,14 @@ public class Ui {
                 name.setBounds(35,35,901,41);
 
                 String[] beilagen = suchergebnisse[r][0][s].getBeilagen();
-                String alle_beilagen = "Beilagen: " + beilagen[0];
+                String alle_beilagen = "Beilagen: ";
 
-                for(int i = 0;i < beilagen.length;i++)
+                for(int i = 0;i < beilagen.length - 1;i++)
                 {
-                    alle_beilagen = alle_beilagen + ", " + beilagen[i];
+                    alle_beilagen = alle_beilagen + beilagen[i] + ", ";
                 }
+                alle_beilagen = alle_beilagen + beilagen[beilagen.length - 1];
+
                 JLabel beilagen_label = new JLabel(alle_beilagen);
                 beilagen_label.setFont(new Font("Open Sans",Font.PLAIN, 24));
                 beilagen_label.setBounds(35,88,901,30);
@@ -520,8 +522,17 @@ public class Ui {
                 zeit.setBounds(27,131,40,40);
                 zeit.setBackground(Color.decode("#ffffff"));
 
+                int lieferzeit_index;
+                if(activ_btn)
+                {
+                    lieferzeit_index = Math.round(index/2);
+                }
+                else
+                {
+                    lieferzeit_index = index;
+                }
 
-                JLabel durchschnittszeit = new JLabel("ca." + Math.round(lieferzeiten[Math.round(index/2)]) + " min" + "     " + "\t" + suchergebnisse[r][1][0].getName());
+                JLabel durchschnittszeit = new JLabel("ca." + Math.round(lieferzeiten[lieferzeit_index]) + " min" + "     " + "\t" + suchergebnisse[r][1][0].getName());
                 durchschnittszeit.setBounds(82,131,1000,40);
                 durchschnittszeit.setBackground(Color.decode("#ffffff"));
                 durchschnittszeit.setFont(new Font("Open Sans",Font.PLAIN, 24));

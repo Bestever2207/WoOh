@@ -21,8 +21,14 @@ public class CsvReader
                 Baum speisekarte = new Baum();
                 for(int i = 3;i < token.length;i++)
                 {
+                    String[] beilagen;
                     String[] speise = token[i].split(",");
-                    String[] beilagen = speise[3].split("/");
+                    if(speise.length == 4) {
+                        beilagen = speise[3].split("/");
+                    }
+                    else {
+                        beilagen = new String[]{"keine"};
+                    }
                     speisekarte.sortiertEinfuegen(new Gericht(speise[0],Double.parseDouble(speise[1]),Double.parseDouble(speise[2]),beilagen));
                 }
                 restaurants.sortiertEinfuegen(new Restaurant(token[0],speisekarte,token[1],token[2]));
