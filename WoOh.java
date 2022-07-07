@@ -10,11 +10,12 @@ public class WoOh
     private Baum restaurants;
     private Bestellung warenkorb;
     private Bestellung[] bestellhistorie;
-    private String[] essensrichtungen = {"asiatisch","italienisch","kroatisch"};
+    private final String[] essensrichtungen = {"asiatisch","italienisch","kroatisch"};
 
     public WoOh()
     {
         Ui.start();
+        Ui.loading_screen();
         RestaurantsEinfuegen();
         Warenkorb_erstellen();
 
@@ -34,10 +35,7 @@ public class WoOh
         JComponent[] userDaten_in = Ui.KoordsScreen();
         JComponent[] userDaten_false = new JComponent[4];
         JButton suchen_btn = (JButton) userDaten_in[5];
-        for(int i = 0;i < 5;i++)
-        {
-            
-        }
+
         String[] userDaten = new String[5];
         
         suchen_btn.addActionListener(new ActionListener() {
@@ -67,9 +65,9 @@ public class WoOh
                 double[] koordinaten;
 
                 koordinaten = Entfernung.KoordsErmitteln(adresse);
-                if(koordinaten == null || userDaten[1].isBlank())
+                if(koordinaten == null)
                 {
-                    
+
                 }
                 else
                 {
@@ -102,15 +100,20 @@ public class WoOh
                 String gesGericht = gerichte_in.getText();
                 if(gesGericht.isBlank())
                 {
-                    System.out.println("nichts eingegeben");
-                    //kein Gericht eingegeben
+                    Ui.KeineSuchergebnisse();
                     
                 }
                 else
                 {
                     System.out.println("Gericht wird gesucht");
                     Datenelement[][][] suchergebnisse = restaurants.GerichtSuchen(gesGericht);
-                    gerichteAusgeben(suchergebnisse);
+                    if(suchergebnisse.length == 0)
+                    {
+                        Ui.KeineSuchergebnisse();
+                    }
+                    else {
+                        gerichteAusgeben(suchergebnisse);
+                    }
                 }
             }
         });
@@ -122,34 +125,33 @@ public class WoOh
 
                 if(gesRestaurant.isBlank())
                 {
-                    System.out.println("nichts eingegeben");
-                    //kein Restaurant eingegeben
+                    Ui.KeineSuchergebnisse();
                 }
                 else if (istEssensrichtung(gesRestaurant))
                 {
                     System.out.println("Genre wird gesucht");
                     Restaurant[] suchergebnisse_Genre = restaurants.GenreSuchen(gesRestaurant);
 
-                    if(suchergebnisse_Genre != null)
+                    if(suchergebnisse_Genre.length == 0)
                     {
-                        restaurantsAusgeben(suchergebnisse_Genre);
+                        Ui.KeineSuchergebnisse();
                     }
                     else
                     {
-                        System.out.println("keine Ergebnisse");
+                        restaurantsAusgeben(suchergebnisse_Genre);
                     }
                 }
                 else
                 {
                     System.out.println("Restaurant wird gesucht");
                     Restaurant[] suchergebnis_restaurant = new Restaurant[]{(Restaurant) restaurants.RestaurantSuchen(gesRestaurant)};
-                    if(suchergebnis_restaurant != null)
+                    if(suchergebnis_restaurant[0] == null)
                     {
-                        restaurantsAusgeben(suchergebnis_restaurant);
+                        Ui.KeineSuchergebnisse();
                     }
                     else
                     {
-                        System.out.println("keine Ergebnisse");
+                        restaurantsAusgeben(suchergebnis_restaurant);
                     }
                 }
             }
@@ -255,6 +257,16 @@ public class WoOh
             lieferzeiten[i] = Lieferdaten.LieferzeitBerechnen(suchergebnisse_restaurants[i].dauerGeben(),user.getKoordinaten(),suchergebnisse_restaurants[i].getKoordinaten());
         }
         JComponent[] components = Ui.restaurantsAusgeben(suchergebnisse_restaurants,lieferzeiten);
+
+        for(int i = 0;i < components.length;i++)
+        {
+            ((JButton) components[i]).addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    speisekarteAusgeben(suchergebnisse_restaurants[0]);
+                }
+            });
+        }
     }
 
 
@@ -277,8 +289,19 @@ public class WoOh
             index++;
         }
 
-
+        Ui.info_panel_setzen("Speisekarte von " + restaurant.getName() + ":");
         JComponent[] components = Ui.gerichteAusgeben(suchergebnis,lieferzeiten,false);
+
+        for(int i = 0;i < components.length;i++)
+        {
+            Datenelement[] gerichtDaten = new Datenelement[]{speisekarte[i],restaurant};
+            ((JButton)components[i]).addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gericht_warenkorbhinzufügen(gerichtDaten);
+                }
+            });
+        }
     }
 
     public void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)

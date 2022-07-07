@@ -22,5 +22,7 @@ public class Bestellung
         }
         neuesArray[gerichte.length] = neuesGericht;
         gerichte = neuesArray;
+
+        System.out.println(neuesGericht.getName() + " wurde dem Warenkorb hinzugefügt");
     }
 }
