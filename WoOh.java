@@ -265,7 +265,7 @@ public class WoOh
 
     public static void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)
     {
-        Bestellung bestellung = new Bestellung(gerichtDaten[0],gerichtDaten[1]);
+        //Bestellung bestellung = new Bestellung(gerichtDaten[0],gerichtDaten[1]);
     }
 
     public static void Warenkorb()

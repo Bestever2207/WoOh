@@ -18,6 +18,6 @@ public class Bestellung
         koords = restaurant.getKoordinaten();
         uhrzeit = Calendar.getInstance().getTime();
 
-        datum = Calendar.getInstance()
+        //datum = Calendar.getInstance();
     }
 }
