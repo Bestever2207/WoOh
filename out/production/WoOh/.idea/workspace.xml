@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="lieferzeiten fixed + Bestellung(warenkorb hinzufügen)">
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +211,42 @@
       <option name="project" value="LOCAL" />
       <updated>1657143266613</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="datenbank anders">
+      <created>1657198560443</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1657198560443</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Warenkorb hinzufügen">
+      <created>1657202143450</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1657202143450</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Speisekarte anzeigen">
+      <created>1657202516957</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1657202516957</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Speisekarte anzeigen + warenkorb hinzufügen funktioniert">
+      <created>1657205536840</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1657205536840</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler">
+      <created>1657234665504</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1657234665504</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -244,7 +279,12 @@
     <MESSAGE value="adresse falsch" />
     <MESSAGE value="lieferzeiten" />
     <MESSAGE value="lieferzeiten fixed + Bestellung(warenkorb hinzufügen)" />
-    <option name="LAST_COMMIT_MESSAGE" value="lieferzeiten fixed + Bestellung(warenkorb hinzufügen)" />
+    <MESSAGE value="datenbank anders" />
+    <MESSAGE value="Warenkorb hinzufügen" />
+    <MESSAGE value="Speisekarte anzeigen" />
+    <MESSAGE value="Speisekarte anzeigen + warenkorb hinzufügen funktioniert" />
+    <MESSAGE value="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

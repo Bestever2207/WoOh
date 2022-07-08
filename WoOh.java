@@ -106,13 +106,16 @@ public class WoOh
                 else
                 {
                     System.out.println("Gericht wird gesucht");
+
+                    Ui.info_panel_setzen("Suche nach: " + "\"" + gesGericht + "\"");
+
                     Datenelement[][][] suchergebnisse = restaurants.GerichtSuchen(gesGericht);
                     if(suchergebnisse.length == 0)
                     {
                         Ui.KeineSuchergebnisse();
                     }
                     else {
-                        gerichteAusgeben(suchergebnisse);
+                        gerichteAusgeben(suchergebnisse,gesGericht);
                     }
                 }
             }
@@ -123,6 +126,8 @@ public class WoOh
             public void actionPerformed(ActionEvent e) {
                 String gesRestaurant = restaurants_in.getText();
 
+                Ui.info_panel_setzen("Suche nach: " + "\"" + gesRestaurant + "\"");
+
                 if(gesRestaurant.isBlank())
                 {
                     Ui.KeineSuchergebnisse();
@@ -132,13 +137,14 @@ public class WoOh
                     System.out.println("Genre wird gesucht");
                     Restaurant[] suchergebnisse_Genre = restaurants.GenreSuchen(gesRestaurant);
 
+
                     if(suchergebnisse_Genre.length == 0)
                     {
                         Ui.KeineSuchergebnisse();
                     }
                     else
                     {
-                        restaurantsAusgeben(suchergebnisse_Genre);
+                        restaurantsAusgeben(suchergebnisse_Genre,gesRestaurant);
                     }
                 }
                 else
@@ -151,7 +157,7 @@ public class WoOh
                     }
                     else
                     {
-                        restaurantsAusgeben(suchergebnis_restaurant);
+                        restaurantsAusgeben(suchergebnis_restaurant,gesRestaurant);
                     }
                 }
             }
@@ -193,7 +199,7 @@ public class WoOh
     }
 
         
-    public void gerichteAusgeben(Datenelement[][][] suchergebnisse_gerichte)
+    public void gerichteAusgeben(Datenelement[][][] suchergebnisse_gerichte,String gesGericht)
     {
         int anzahl_ergebnisse = 0;
         for(int i = 0;i < suchergebnisse_gerichte.length;i++)
@@ -217,6 +223,7 @@ public class WoOh
         System.out.println(suchergebnisse_gerichte[1][1][0].getName());
 
         JComponent[] components = Ui.gerichteAusgeben(suchergebnisse_gerichte,lieferzeiten,true);
+
         index = 0;
         for(int r = 0; r < suchergebnisse_gerichte.length;r++)
         {
@@ -248,7 +255,7 @@ public class WoOh
         }
     }
 
-    public void restaurantsAusgeben(Restaurant[] suchergebnisse_restaurants)
+    public void restaurantsAusgeben(Restaurant[] suchergebnisse_restaurants,String gesRestaurant)
     {
         double[] lieferzeiten = new double[suchergebnisse_restaurants.length];
 
@@ -289,8 +296,9 @@ public class WoOh
             index++;
         }
 
-        Ui.info_panel_setzen("Speisekarte von " + restaurant.getName() + ":");
+
         JComponent[] components = Ui.gerichteAusgeben(suchergebnis,lieferzeiten,false);
+        Ui.info_panel_setzen("Speisekarte von " + "\"" + restaurant.getName() + "\"");
 
         for(int i = 0;i < components.length;i++)
         {

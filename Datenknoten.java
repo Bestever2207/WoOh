@@ -73,14 +73,14 @@ public class Datenknoten extends Baumelement
         {
             result = new Restaurant[liste1.length + liste2.length + 1];
             System.arraycopy(liste1,0,result,0,liste1.length);
-            System.arraycopy(liste1,0,result,liste1.length,liste2.length);
+            System.arraycopy(liste2,0,result,liste1.length,liste2.length);
             result[result.length - 1] = (Restaurant)inhalt;
         }
         else
         {
             result = new Restaurant[liste1.length + liste2.length];
             System.arraycopy(liste1,0,result,0,liste1.length);
-            System.arraycopy(liste1,0,result,liste1.length,liste2.length);
+            System.arraycopy(liste2,0,result,liste1.length,liste2.length);
         }
         return result;
     }

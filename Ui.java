@@ -13,7 +13,7 @@ public class Ui {
     static ImageIcon LOGO_IMG = new ImageIcon("img/logo4.png");
     static JScrollPane SCROLLPANE;
     static JPanel SCROLLPANE_INHALT;
-    static JPanel INFO_PANEL;
+    static JLabel INFO_LABEL;
     
     public static void start()
     {
@@ -26,9 +26,11 @@ public class Ui {
         PANEL.setLayout(null);
         PANEL.setBackground(Color.WHITE);
         FRAME.add(PANEL);
+        ImageIcon logo = new ImageIcon("img/logo4.png");
+        FRAME.setIconImage(logo.getImage());
         FRAME.setVisible(true);
 
-        INFO_PANEL = new JPanel();
+
 
     }
 
@@ -137,7 +139,7 @@ public class Ui {
         PANEL.add(name_tx);
 
 
-        JButton suchen_btn = new JButton("Suchen");
+        JButton suchen_btn = new JButton("Weiter");
         suchen_btn.setFont(new Font("Open Sans",Font.PLAIN, 32));
         suchen_btn.setBackground(Color.decode("#D4AF37"));
         suchen_btn.setBounds(571,624,279,83);
@@ -214,6 +216,8 @@ public class Ui {
     public static JComponent[] mainScreen()
     {
         PANEL.removeAll();
+        INFO_LABEL = new JLabel();
+        PANEL.add(INFO_LABEL);
 
         JComponent[] jComponent = new JComponent[8];
 
@@ -371,6 +375,8 @@ public class Ui {
             return;
         }
         SCROLLPANE.setViewportView(SCROLLPANE_INHALT);
+
+
     }
 
     public static JComponent[] restaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
@@ -534,11 +540,11 @@ public class Ui {
                 einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41, 41, Image.SCALE_SMOOTH));
 
                 JLabel einkaufstasche = new JLabel(einkaufstasche_icon);
-                einkaufstasche.setBounds(893, 35, 41, 41);
+                einkaufstasche.setBounds(963, 35, 41, 41);
                 einkaufstasche.setBackground(Color.decode("#D4AF37"));
 
                 JLabel preis = new JLabel("" + datenelements[0][s].preisGeben() + "€");
-                preis.setBounds(963, 35, 129, 41);
+                preis.setBounds(1013, 35, 129, 41);
                 preis.setFont(new Font("Open Sans", Font.PLAIN, 32));
                 preis.setBackground(Color.decode("#ffffff"));
 
@@ -561,11 +567,11 @@ public class Ui {
                 durchschnittszeit.setBackground(Color.decode("#ffffff"));
                 durchschnittszeit.setFont(new Font("Open Sans", Font.PLAIN, 24));
 
-                ImageIcon plus_icon = new ImageIcon("img/plus.png");
-                plus_icon.setImage(plus_icon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+                ImageIcon plus_icon = new ImageIcon("img/plus2.png");
+                plus_icon.setImage(plus_icon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
 
                 JButton plus = new JButton(plus_icon);
-                plus.setBounds(1058, 20, 40, 40);
+                plus.setBounds(1013, 100, 70, 70);
                 plus.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
                 plus.setBackground(Color.decode("#ffffff"));
 
@@ -645,19 +651,17 @@ public class Ui {
     }
     public static void info_panel_setzen(String info)
     {
-        JLabel label = new JLabel(info);
-        label.setBounds(152, 238, 700, 40);
-        label.setBackground(Color.decode("#ffffff"));
-        label.setFont(new Font("Open Sans", Font.PLAIN, 30));
-        label.setVisible(true);
+        INFO_LABEL.setText(info);
+        INFO_LABEL.setBounds(152, 238, 700, 40);
+        INFO_LABEL.setBackground(Color.decode("#ffffff"));
+        INFO_LABEL.setFont(new Font("Open Sans", Font.PLAIN, 30));
+        INFO_LABEL.setVisible(true);
 
         //INFO_PANEL.add(label);
 
-        PANEL.add(label);
 
-        INFO_PANEL.validate();
-        INFO_PANEL.repaint();
-        INFO_PANEL.revalidate();
+
+
 
         PANEL.validate();
         PANEL.repaint();
