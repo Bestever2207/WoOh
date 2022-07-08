@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Warenkorb new Panel" />
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Warenkorb new Panel">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bestellung.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bestellung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CsvReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/CsvReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CsvReaderMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/CsvReaderMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datenknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datenknoten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entfernung.java" beforeDir="false" afterPath="$PROJECT_DIR$/Entfernung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gericht.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gericht.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lieferdaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lieferdaten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Liferant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lieferant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainBaum.java" beforeDir="false" afterPath="$PROJECT_DIR$/MainBaum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Restaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,18 +50,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lucas/IdeaProjects/WoOh/img&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/lucas/IdeaProjects/WoOh/img",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lucas\IdeaProjects\WoOh\img" />

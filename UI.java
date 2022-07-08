@@ -2,18 +2,17 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
-
-public class Ui {
+public class UI {
+    
     static JFrame FRAME;
-
+    static JLabel INFO_LABEL;
     static JLayeredPane PANEL;
-
-    static Font FONT1 = new Font("Open Sans",Font.PLAIN, 26);
-    static Font FONT2 = new Font("Open Sans",Font.PLAIN, 24);
-    static ImageIcon LOGO_IMG = new ImageIcon("img/logo4.png");
     static JScrollPane SCROLLPANE;
     static JPanel SCROLLPANE_INHALT;
-    static JLabel INFO_LABEL;
+    static final Font FONT_PLAIN_26 = new Font("Open Sans",Font.PLAIN, 26);
+    static final Font FONT_PLAIN_24 = new Font("Open Sans",Font.PLAIN, 24);
+    static final ImageIcon LOGO_IMG = new ImageIcon("img/logo4.png");
+
     
     public static void start()
     {
@@ -29,15 +28,10 @@ public class Ui {
         ImageIcon logo = new ImageIcon("img/logo4.png");
         FRAME.setIconImage(logo.getImage());
         FRAME.setVisible(true);
-
-
-
     }
 
     public static void loading_screen()
     {
-
-
         ImageIcon logo_img = new ImageIcon("img/logo4.png");
         logo_img.setImage(logo_img.getImage().getScaledInstance(388,388,Image.SCALE_SMOOTH));
         JLabel logo = new JLabel(logo_img);
@@ -66,14 +60,14 @@ public class Ui {
 
         JTextField strasse_in = new JTextField("Düsseldorfer Str");
         strasse_in.setBounds(458,228,381,69);
-        strasse_in.setFont(FONT1);
+        strasse_in.setFont(FONT_PLAIN_26);
         strasse_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
         PANEL.add(strasse_in);
         components[0] = strasse_in;
 
         JLabel strasse_tx = new JLabel("Straße");
-        strasse_tx.setFont(FONT2);
+        strasse_tx.setFont(FONT_PLAIN_24);
         strasse_tx.setBounds(458,192,147,36);
 
         PANEL.add(strasse_tx);
@@ -81,14 +75,14 @@ public class Ui {
 
         JTextField nummer_in = new JTextField("17");
         nummer_in.setBounds(862,228,101,69);
-        nummer_in.setFont(FONT1);
+        nummer_in.setFont(FONT_PLAIN_26);
         nummer_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
         PANEL.add(nummer_in);
         components[1] = nummer_in;
 
         JLabel nummer_tx = new JLabel("Nr.");
-        nummer_tx.setFont(FONT2);
+        nummer_tx.setFont(FONT_PLAIN_24);
         nummer_tx.setBounds(862,192,101,36);
 
         PANEL.add(nummer_tx);
@@ -96,14 +90,14 @@ public class Ui {
 
         JTextField stadt_in = new JTextField("Nürnberg");
         stadt_in.setBounds(458,341,279,69);
-        stadt_in.setFont(FONT1);
+        stadt_in.setFont(FONT_PLAIN_26);
         stadt_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
         PANEL.add(stadt_in);
         components[2] = stadt_in;
 
         JLabel stadt_tx = new JLabel("Stadt");
-        stadt_tx.setFont(FONT2);
+        stadt_tx.setFont(FONT_PLAIN_24);
         stadt_tx.setBounds(458,305,75,36);
 
         PANEL.add(stadt_tx);
@@ -111,14 +105,14 @@ public class Ui {
 
         JTextField plz_in = new JTextField("90425");
         plz_in.setBounds(795,341,168,69);
-        plz_in.setFont(FONT1);
+        plz_in.setFont(FONT_PLAIN_26);
         plz_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
         PANEL.add(plz_in);
         components[3] = plz_in;
 
         JLabel plz_tx = new JLabel("PLZ");
-        plz_tx.setFont(FONT2);
+        plz_tx.setFont(FONT_PLAIN_24);
         plz_tx.setBounds(795,305,75,36);
 
         PANEL.add(plz_tx);
@@ -126,14 +120,14 @@ public class Ui {
 
         JTextField name_in = new JTextField("Lucas Horn");
         name_in.setBounds(458,500,505,69);
-        name_in.setFont(FONT1);
+        name_in.setFont(FONT_PLAIN_26);
         name_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
         PANEL.add(name_in);
         components[4] = name_in;
 
         JLabel name_tx = new JLabel("Name");
-        name_tx.setFont(FONT2);
+        name_tx.setFont(FONT_PLAIN_24);
         name_tx.setBounds(458,464,74,36);
 
         PANEL.add(name_tx);
@@ -167,7 +161,7 @@ public class Ui {
 
         JLabel label_falsch = new JLabel("Achte darauf dass die Adresse eindeutig und jedes Feld ausgefüllt ist!",SwingConstants.CENTER);
         label_falsch.setBounds(298,784,826,53);
-        label_falsch.setFont(FONT1);
+        label_falsch.setFont(FONT_PLAIN_26);
         label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
         label_falsch.setVisible(true);
         label_falsch.setHorizontalAlignment(SwingConstants.CENTER);
@@ -193,7 +187,7 @@ public class Ui {
         
         JLabel label_falsch = new JLabel("<html>Achte darauf dass<br>die Adresse eindeutig <br>und jedes Feld ausgefüllt ist<html>");
         label_falsch.setBounds(800,400,200,200);
-        label_falsch.setFont(FONT1);
+        label_falsch.setFont(FONT_PLAIN_26);
         label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
         label_falsch.setVisible(true);
 
@@ -236,7 +230,7 @@ public class Ui {
 
         JTextField gerichte_in = new JTextField();
         gerichte_in.setBounds(236,25,595,65);
-        gerichte_in.setFont(FONT1);
+        gerichte_in.setFont(FONT_PLAIN_26);
         gerichte_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
         PANEL.add(gerichte_in,1);
 
@@ -244,7 +238,7 @@ public class Ui {
 
         JTextField restaurants_in = new JTextField();
         restaurants_in.setBounds(236,120,595,65);
-        restaurants_in.setFont(FONT1);
+        restaurants_in.setFont(FONT_PLAIN_26);
         restaurants_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
         PANEL.add(restaurants_in,1);
 
@@ -525,14 +519,14 @@ public class Ui {
                 name.setBounds(35, 35, 901, 41);
 
                 String[] beilagen = datenelements[0][s].getBeilagen();
-                String alle_beilagen = "Beilagen: ";
+                StringBuilder alle_beilagen = new StringBuilder("Beilagen: ");
 
                 for (int i = 0; i < beilagen.length - 1; i++) {
-                    alle_beilagen = alle_beilagen + beilagen[i] + ", ";
+                    alle_beilagen.append(beilagen[i]).append(", ");
                 }
-                alle_beilagen = alle_beilagen + beilagen[beilagen.length - 1];
+                alle_beilagen.append(beilagen[beilagen.length - 1]);
 
-                JLabel beilagen_label = new JLabel(alle_beilagen);
+                JLabel beilagen_label = new JLabel(alle_beilagen.toString());
                 beilagen_label.setFont(new Font("Open Sans", Font.PLAIN, 24));
                 beilagen_label.setBounds(35, 88, 901, 30);
 
@@ -557,7 +551,7 @@ public class Ui {
 
                 int lieferzeit_index;
                 if (activ_btn) {
-                    lieferzeit_index = Math.round(index / 2);
+                    lieferzeit_index = Math.round(index / 2.0f);
                 } else {
                     lieferzeit_index = index;
                 }

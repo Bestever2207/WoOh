@@ -1,14 +1,10 @@
 
 public class User
 {
-    public static void main() {
-    }
-    private String adresse;
-    private double[] koordinaten;
-    private String name;
+    private final String adresse;
+    private final double[] koordinaten;
+    private final String name;
     private double guthaben;
-
-
 
     User(String adresse, double[] koordinaten, String name) {
         this.adresse = adresse;

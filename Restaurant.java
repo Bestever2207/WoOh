@@ -1,13 +1,13 @@
 
 public class Restaurant extends Datenelement
 {
-    private String name;
-    private double preisspanne;
-    private double durchschnittdauer; //nur Zubereitung
-    private Baum speisekarte;
-    private String genre;
-    private String adresse;
-    private double[] koordinaten;
+    private final String name;
+    private final double preisspanne;
+    private final double durchschnittdauer; //nur Zubereitung
+    private final Baum speisekarte;
+    private final String genre;
+    private final String adresse;
+    private final double[] koordinaten;
 
     public String getAdresse() {
         return adresse;

@@ -1,12 +1,12 @@
 
 public class Gericht extends Datenelement
 {
-    private String name;
-    private double preis;
-    private double dauer;
-    private String[] beilagen;
+    private final String name;
+    private final double preis;
+    private final double dauer;
+    private final String[] beilagen;
 
-    public Gericht(String name,double preis,double dauer,String[] beilagen)
+    public Gericht(String name, double preis, double dauer, String[] beilagen)
     {
         this.name = name;
         this.preis = preis;
@@ -40,7 +40,7 @@ public class Gericht extends Datenelement
     }
     public boolean istGleich(Datenelement dat)
     {
-        return name.compareTo((String) dat.wertGeben()) == 0;
+        return name.compareTo((String)dat.wertGeben()) == 0;
     }
     public Object wertGeben()
     {
