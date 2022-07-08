@@ -2,17 +2,12 @@ import java.io.File;
 
 public class MainBaum
 {
-    private Baum restaurants;
     public MainBaum()
     {
-        restaurants = CsvReader.RestaurantsGeben(new File("Restaurants.csv"));
+        Baum restaurants = CsvReader.RestaurantsGeben(new File("Restaurants.csv"));
         Restaurant[] rest = restaurants.GenreSuchen("italienisch");
-        for(int i = 0;i < rest.length;i++)
-        {
-            System.out.println(rest[i].getName());
+        for (Restaurant restaurant : rest) {
+            System.out.println(restaurant.getName());
         }
-
-
-
     }
 }

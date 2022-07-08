@@ -1,17 +1,11 @@
 import java.io.*;
-import java.util.Scanner;
-import java.io.BufferedReader;
 
-import java.util.List;
-import java.util.Scanner;
-import java.util.Vector;
 public class CsvReader
 {
     public static Baum RestaurantsGeben(File file)
     {
         Baum restaurants = new Baum();
-        String line = "";
-
+        String line;
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -29,9 +23,9 @@ public class CsvReader
                     else {
                         beilagen = new String[]{"keine"};
                     }
-                    speisekarte.sortiertEinfuegen(new Gericht(speise[0],Double.parseDouble(speise[1]),Double.parseDouble(speise[2]),beilagen));
+                    speisekarte.sortiertEinfuegen(new Gericht(speise[0], Double.parseDouble(speise[1]), Double.parseDouble(speise[2]), beilagen));
                 }
-                restaurants.sortiertEinfuegen(new Restaurant(token[0],speisekarte,token[1],token[2]));
+                restaurants.sortiertEinfuegen(new Restaurant(token[0], speisekarte, token[1], token[2]));
             }
         }
         catch (IOException e)

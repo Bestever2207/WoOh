@@ -3,7 +3,7 @@ public class Datenknoten extends Baumelement
 {
     private Baumelement naechsterL;
     private Baumelement naechsterR;
-    private Datenelement inhalt;
+    private final Datenelement inhalt;
 
     public Datenknoten(Baumelement naechsterL, Baumelement naechsterR, Datenelement inhalt)
     {
@@ -29,13 +29,12 @@ public class Datenknoten extends Baumelement
         if(inhalt.istKleiner(dat))
         {
             naechsterR = naechsterR.sortiertEinfuegen(dat);
-            return this;
         }
         else
         {
             naechsterL = naechsterL.sortiertEinfuegen(dat);
-            return this;
         }
+        return this;
     }
     public Datenelement nameSuchen(String s)
     {
@@ -95,24 +94,16 @@ public class Datenknoten extends Baumelement
             result = new Datenelement[liste1.length + liste2.length + 1][2][50];
             Restaurant[] restaurant = {(Restaurant) inhalt};
             Datenelement[][][] suchergebnisse = {{gerichte,restaurant}};
-            for (int i = 0; i < liste1.length; i++) {
-                result[i] = liste1[i];
-            }
-            for (int i = 0; i < liste2.length; i++) {
-                result[i + liste1.length] = liste2[i];
-            }
+            System.arraycopy(liste1, 0, result, 0, liste1.length);
+            System.arraycopy(liste2, 0, result, liste1.length, liste2.length);
             result[liste1.length + liste2.length] = suchergebnisse[0];
 
         }
         else
         {
             result = new Datenelement[liste1.length + liste2.length][2][50];
-            for (int i = 0; i < liste1.length; i++) {
-                result[i] = liste1[i];
-            }
-            for (int i = 0; i < liste2.length; i++) {
-                result[i + liste1.length] = liste2[i];
-            }
+            System.arraycopy(liste1, 0, result, 0, liste1.length);
+            System.arraycopy(liste2, 0, result, liste1.length, liste2.length);
         }
         return result;
     }
@@ -121,7 +112,7 @@ public class Datenknoten extends Baumelement
         Gericht[] result;
         Gericht[] liste1 = naechsterL.GerichtinspeisekarteSuchen(gesGericht);
         Gericht[] liste2 = naechsterR.GerichtinspeisekarteSuchen(gesGericht);
-        if(((Gericht)inhalt).getName().contains(gesGericht))
+        if(inhalt.getName().contains(gesGericht))
         {
             result = new Gericht[liste1.length + liste2.length + 1];
             System.arraycopy(liste1,0,result,0,liste1.length);

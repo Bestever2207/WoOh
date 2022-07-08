@@ -6,7 +6,6 @@ import java.io.File;
 public class WoOh
 {
     private User user;
-
     private Baum restaurants;
     private Bestellung warenkorb;
     private Bestellung[] bestellhistorie;
@@ -14,8 +13,8 @@ public class WoOh
 
     public WoOh()
     {
-        Ui.start();
-        Ui.loading_screen();
+        UI.start();
+        UI.loading_screen();
         RestaurantsEinfuegen();
         Warenkorb_erstellen();
 
@@ -32,7 +31,7 @@ public class WoOh
 
     public void KoordsSetzen()
     {
-        JComponent[] userDaten_in = Ui.KoordsScreen();
+        JComponent[] userDaten_in = UI.KoordsScreen();
         JComponent[] userDaten_false = new JComponent[4];
         JButton suchen_btn = (JButton) userDaten_in[5];
 
@@ -56,7 +55,7 @@ public class WoOh
                 
                 if(ist_falsch)
                 {
-                    Ui.koordsScreenFalsch(userDaten_false);    
+                    UI.koordsScreenFalsch(userDaten_false);
                 }
                 
                 
@@ -83,7 +82,7 @@ public class WoOh
 
     public void mainScreen()
     {
-        JComponent[] jComponent = Ui.mainScreen();
+        JComponent[] jComponent = UI.mainScreen();
 
         JTextField gerichte_in = (JTextField)jComponent[0];
         JTextField restaurants_in = (JTextField)jComponent[1];
@@ -100,19 +99,19 @@ public class WoOh
                 String gesGericht = gerichte_in.getText();
                 if(gesGericht.isBlank())
                 {
-                    Ui.KeineSuchergebnisse();
+                    UI.KeineSuchergebnisse();
                     
                 }
                 else
                 {
                     System.out.println("Gericht wird gesucht");
 
-                    Ui.info_panel_setzen("Suche nach: " + "\"" + gesGericht + "\"");
+                    UI.info_panel_setzen("Suche nach: " + "\"" + gesGericht + "\"");
 
                     Datenelement[][][] suchergebnisse = restaurants.GerichtSuchen(gesGericht);
                     if(suchergebnisse.length == 0)
                     {
-                        Ui.KeineSuchergebnisse();
+                        UI.KeineSuchergebnisse();
                     }
                     else {
                         gerichteAusgeben(suchergebnisse,gesGericht);
@@ -126,11 +125,11 @@ public class WoOh
             public void actionPerformed(ActionEvent e) {
                 String gesRestaurant = restaurants_in.getText();
 
-                Ui.info_panel_setzen("Suche nach: " + "\"" + gesRestaurant + "\"");
+                UI.info_panel_setzen("Suche nach: " + "\"" + gesRestaurant + "\"");
 
                 if(gesRestaurant.isBlank())
                 {
-                    Ui.KeineSuchergebnisse();
+                    UI.KeineSuchergebnisse();
                 }
                 else if (istEssensrichtung(gesRestaurant))
                 {
@@ -140,7 +139,7 @@ public class WoOh
 
                     if(suchergebnisse_Genre.length == 0)
                     {
-                        Ui.KeineSuchergebnisse();
+                        UI.KeineSuchergebnisse();
                     }
                     else
                     {
@@ -153,7 +152,7 @@ public class WoOh
                     Restaurant[] suchergebnis_restaurant = new Restaurant[]{(Restaurant) restaurants.RestaurantSuchen(gesRestaurant)};
                     if(suchergebnis_restaurant[0] == null)
                     {
-                        Ui.KeineSuchergebnisse();
+                        UI.KeineSuchergebnisse();
                     }
                     else
                     {
@@ -187,24 +186,20 @@ public class WoOh
 
     public boolean istEssensrichtung(String input)
     {
-        boolean istEssensr = false;
-        for(int i = 0; i < essensrichtungen.length; i++)
-        {
-            if(essensrichtungen[i].equals(input))
-            {
-                istEssensr = true;
+        for (String s : essensrichtungen) {
+            if (s.equals(input)) {
+                return true;
             }
         }
-        return istEssensr;
+        return false;
     }
 
         
     public void gerichteAusgeben(Datenelement[][][] suchergebnisse_gerichte,String gesGericht)
     {
         int anzahl_ergebnisse = 0;
-        for(int i = 0;i < suchergebnisse_gerichte.length;i++)
-        {
-            anzahl_ergebnisse += suchergebnisse_gerichte[i][0].length;
+        for (Datenelement[][] datenelements : suchergebnisse_gerichte) {
+            anzahl_ergebnisse += datenelements[0].length;
             //for(int e = 0; e < suchergebnisse_gerichte[r][0])
         }
         int[] lieferzeiten = new int[anzahl_ergebnisse];
@@ -222,15 +217,13 @@ public class WoOh
         System.out.println(suchergebnisse_gerichte[0][1][0].getName());
         System.out.println(suchergebnisse_gerichte[1][1][0].getName());
 
-        JComponent[] components = Ui.gerichteAusgeben(suchergebnisse_gerichte,lieferzeiten,true);
+        JComponent[] components = UI.gerichteAusgeben(suchergebnisse_gerichte,lieferzeiten,true);
 
         index = 0;
-        for(int r = 0; r < suchergebnisse_gerichte.length;r++)
-        {
-            for(int s = 0;s < suchergebnisse_gerichte[r][0].length;s++)
-            {
+        for (Datenelement[][] datenelements : suchergebnisse_gerichte) {
+            for (int s = 0; s < datenelements[0].length; s++) {
                 JButton main_btn = (JButton) components[index];
-                Datenelement restaurant = suchergebnisse_gerichte[r][1][0];
+                Datenelement restaurant = datenelements[1][0];
                 main_btn.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -241,13 +234,12 @@ public class WoOh
                 index++;
 
                 JButton btn_plus = (JButton) components[index];
-                Datenelement[] gerichtDaten = new Datenelement[]{suchergebnisse_gerichte[r][0][s],restaurant};
+                Datenelement[] gerichtDaten = new Datenelement[]{datenelements[0][s], restaurant};
 
                 btn_plus.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-
-                        gericht_warenkorbhinzufügen(gerichtDaten);
+                        gericht_warenkorbhinzufuegen(gerichtDaten);
                     }
                 });
                 index++;
@@ -263,11 +255,10 @@ public class WoOh
         {
             lieferzeiten[i] = Lieferdaten.LieferzeitBerechnen(suchergebnisse_restaurants[i].dauerGeben(),user.getKoordinaten(),suchergebnisse_restaurants[i].getKoordinaten());
         }
-        JComponent[] components = Ui.restaurantsAusgeben(suchergebnisse_restaurants,lieferzeiten);
+        JComponent[] components = UI.restaurantsAusgeben(suchergebnisse_restaurants,lieferzeiten);
 
-        for(int i = 0;i < components.length;i++)
-        {
-            ((JButton) components[i]).addActionListener(new ActionListener() {
+        for (JComponent component : components) {
+            ((JButton) component).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     speisekarteAusgeben(suchergebnisse_restaurants[0]);
@@ -297,8 +288,8 @@ public class WoOh
         }
 
 
-        JComponent[] components = Ui.gerichteAusgeben(suchergebnis,lieferzeiten,false);
-        Ui.info_panel_setzen("Speisekarte von " + "\"" + restaurant.getName() + "\"");
+        JComponent[] components = UI.gerichteAusgeben(suchergebnis,lieferzeiten,false);
+        UI.info_panel_setzen("Speisekarte von " + "\"" + restaurant.getName() + "\"");
 
         for(int i = 0;i < components.length;i++)
         {
@@ -306,13 +297,13 @@ public class WoOh
             ((JButton)components[i]).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gericht_warenkorbhinzufügen(gerichtDaten);
+                    gericht_warenkorbhinzufuegen(gerichtDaten);
                 }
             });
         }
     }
 
-    public void gericht_warenkorbhinzufügen(Datenelement[] gerichtDaten)
+    public void gericht_warenkorbhinzufuegen(Datenelement[] gerichtDaten)
     {
         warenkorb.gerichthinzufuegen((Gericht) gerichtDaten[0]);
     }
@@ -323,7 +314,7 @@ public class WoOh
     }
     public void Warenkorb_anzeigen()
     {
-        Ui.Warenkorb();
+        UI.Warenkorb();
     }
     public void Bestellhistorie()
     {
