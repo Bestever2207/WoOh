@@ -333,7 +333,7 @@ public class Ui {
 
 
 
-    public static void scrollpane_erstellen(int height)
+    public static void scrollpane_erstellen(int x,int y,int width,int height)
     {
 
         if(SCROLLPANE != null) {
@@ -346,7 +346,7 @@ public class Ui {
         SCROLLPANE_INHALT = new JPanel();
 
         BoxLayout bl = new BoxLayout(SCROLLPANE_INHALT, BoxLayout.Y_AXIS);
-        SCROLLPANE_INHALT.setPreferredSize(new Dimension(1133, height));
+        SCROLLPANE_INHALT.setPreferredSize(new Dimension(width, height));
         SCROLLPANE_INHALT.setLayout(bl);
         SCROLLPANE_INHALT.setBackground(Color.decode("#ffffff"));
         SCROLLPANE_INHALT.setVisible(true);
@@ -356,7 +356,7 @@ public class Ui {
         {
             SCROLLPANE = new JScrollPane(SCROLLPANE_INHALT, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-            SCROLLPANE.setBounds(152, 305, 1133, Math.min(height, 500));
+            SCROLLPANE.setBounds(x, y, width, Math.min(height, 500));
             SCROLLPANE.getViewport().setBackground(Color.decode("#ffffff"));
             SCROLLPANE.setForeground(Color.decode("#ffffff"));
             SCROLLPANE.setBorder(null);
@@ -386,7 +386,7 @@ public class Ui {
 
         JComponent[] components = new JComponent[anzahl_suchergebnisse];
 
-        scrollpane_erstellen(height);
+        scrollpane_erstellen(152, 305, 1133,height);
 
         System.out.println("restaurantsAusgeben ausgeführt");
 
@@ -480,7 +480,7 @@ public class Ui {
 
         int height = 15 + anzahl_suchergebnisse * (15 + 187);
 
-        scrollpane_erstellen(height);
+        scrollpane_erstellen(152, 305, 1133,height);
         JComponent[] components;
 
         if(activ_btn) {
@@ -624,7 +624,7 @@ public class Ui {
 
     public static void KeineSuchergebnisse()
     {
-        scrollpane_erstellen(500);
+        scrollpane_erstellen(152, 305, 1133,500);
 
         JLayeredPane keine_ergebnisse_btn = new JLayeredPane();
 
@@ -673,7 +673,25 @@ public class Ui {
     }
     public static void Warenkorb()
     {
+        PANEL.removeAll();
+        scrollpane_erstellen(1,1,1,1);
 
+        JLabel obere_Leiste = new JLabel();
+        obere_Leiste.setBackground(Color.decode("#D4AF37"));
+        obere_Leiste.setBounds(0,0,1422,110);
+        obere_Leiste.setOpaque(true);
+        PANEL.add(obere_Leiste,1);
+
+        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
+        JLabel logo = new JLabel(LOGO_IMG);
+        logo.setBackground(Color.decode("#D4AF37"));
+        logo.setBounds(25,25,60,60);
+        logo.setOpaque(true);
+        PANEL.add(logo,0);
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
     }
     public static void Bestellhistorie()
     {

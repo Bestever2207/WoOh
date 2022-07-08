@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler">
-      <change afterPath="$PROJECT_DIR$/img/plus2.png" afterDir="false" />
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Suche funktioniert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datenknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datenknoten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Restaurants.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Restaurants.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Restaurants.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Restaurants.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Datenknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Datenknoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Restaurants.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Restaurants.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Restaurants.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Restaurants.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657234665504</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Suche funktioniert">
+      <created>1657284830129</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1657284830130</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -300,7 +298,8 @@
     <MESSAGE value="Speisekarte anzeigen" />
     <MESSAGE value="Speisekarte anzeigen + warenkorb hinzufügen funktioniert" />
     <MESSAGE value="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler" />
+    <MESSAGE value="Suche funktioniert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Suche funktioniert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -323,7 +323,7 @@ public class WoOh
     }
     public void Warenkorb_anzeigen()
     {
-
+        Ui.Warenkorb();
     }
     public void Bestellhistorie()
     {
