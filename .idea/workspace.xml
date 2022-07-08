@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Suche funktioniert">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Datenknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Datenknoten.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Restaurants.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Restaurants.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Restaurants.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Restaurants.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" afterDir="false" />
-    </list>
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Warenkorb new Panel" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -260,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657284830130</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Warenkorb new Panel">
+      <created>1657286142437</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1657286142437</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -299,7 +297,8 @@
     <MESSAGE value="Speisekarte anzeigen + warenkorb hinzufügen funktioniert" />
     <MESSAGE value="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler" />
     <MESSAGE value="Suche funktioniert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Suche funktioniert" />
+    <MESSAGE value="Warenkorb new Panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Warenkorb new Panel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
