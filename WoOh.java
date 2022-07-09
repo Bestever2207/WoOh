@@ -9,7 +9,7 @@ public class WoOh
     private Baum restaurants;
     private Bestellung warenkorb;
     private Bestellung[] bestellhistorie;
-    private final String[] essensrichtungen = {"asiatisch","italienisch","kroatisch"};
+    private final String[] essensrichtungen = {"asiatisch","italienisch","kroatisch","amerikanisch"};
 
     public WoOh()
     {

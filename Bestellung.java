@@ -28,4 +28,7 @@ public class Bestellung
         return gerichte_anzahl;
     }
 
+    public Gericht[] getGerichte() {
+        return gerichte;
+    }
 }

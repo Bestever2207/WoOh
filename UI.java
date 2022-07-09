@@ -2,6 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
+
 public class UI {
     
     static JFrame FRAME;
@@ -495,7 +496,7 @@ public class UI {
                 einkaufstasche.setBackground(Color.decode("#D4AF37"));
 
                 JLabel preis = new JLabel("" + datenelements[0][s].preisGeben() + "€");
-                preis.setBounds(1013, 35, 129, 41);
+                preis.setBounds(895, 15, 122, 70);
                 preis.setFont(new Font("Open Sans", Font.PLAIN, 32));
                 preis.setBackground(Color.decode("#ffffff"));
 
@@ -519,12 +520,12 @@ public class UI {
                 durchschnittszeit.setBackground(Color.decode("#ffffff"));
                 durchschnittszeit.setFont(new Font("Open Sans", Font.PLAIN, 24));
 
-                ImageIcon plus_icon = new ImageIcon("img/plus2.png");
-                plus_icon.setImage(plus_icon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
+                ImageIcon plus_icon = new ImageIcon("img/plus4.png");
+                plus_icon.setImage(plus_icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 
                 JButton plus = new JButton(plus_icon);
-                plus.setBounds(1013, 100, 70, 70);
-                plus.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
+                plus.setBounds(1033, 15, 70, 70);
+                plus.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
                 plus.setBackground(Color.decode("#ffffff"));
 
                 components[index] = plus;
@@ -638,8 +639,53 @@ public class UI {
         }
         scrollpane_erstellen(30, 265, 920, height);
         SCROLLPANE.setBorder(BorderFactory.createLineBorder(Color.decode("#010101")));
+        Gericht[] gerichte = warenkorb.getGerichte();
+
+        if(warenkorb.getGerichte_anzahl() != 0)
+        {
+            for(int i = 0;i < gerichte.length;i++) {
+                JLayeredPane btn_panel = new JLayeredPane();
+
+                JLabel name = new JLabel(gerichte[i].getName());
+                name.setFont(new Font("Open Sans", Font.PLAIN, 32));
+                name.setBounds(35, 35, 901, 41);
+
+                String[] beilagen = gerichte[i].getBeilagen();
+                StringBuilder alle_beilagen = new StringBuilder("Beilagen: ");
+
+                for (int z = 0; z < beilagen.length - 1; z++) {
+                    alle_beilagen.append(beilagen[z]).append(", ");
+                }
+                alle_beilagen.append(beilagen[beilagen.length - 1]);
+
+                JLabel beilagen_label = new JLabel(alle_beilagen.toString());
+                beilagen_label.setFont(new Font("Open Sans", Font.PLAIN, 24));
+                beilagen_label.setBounds(35, 88, 901, 30);
 
 
+                JLabel preis = new JLabel("" + gerichte[i].preisGeben() + "€");
+                preis.setBounds(1013, 35, 129, 41);
+                preis.setFont(new Font("Open Sans", Font.PLAIN, 32));
+                preis.setBackground(Color.decode("#ffffff"));
+
+
+                ImageIcon plus_icon = new ImageIcon("img/plus2.png");
+                plus_icon.setImage(plus_icon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
+
+                JButton plus = new JButton(plus_icon);
+                plus.setBounds(1013, 100, 70, 70);
+                plus.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
+                plus.setBackground(Color.decode("#ffffff"));
+
+                btn_panel.add(name, JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(beilagen_label, JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(preis, JLayeredPane.PALETTE_LAYER);
+
+                btn_panel.add(plus, JLayeredPane.PALETTE_LAYER);
+
+                SCROLLPANE_INHALT.add(btn_panel);
+            }
+        }
 
 
         PANEL.validate();
