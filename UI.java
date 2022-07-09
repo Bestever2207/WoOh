@@ -588,27 +588,65 @@ public class UI {
     {
 
     }
-    public static void Warenkorb()
+    public static JComponent[] Warenkorb(Bestellung warenkorb)
     {
         PANEL.removeAll();
-        scrollpane_erstellen(1,1,1,1);
+
+        JComponent[] components = new JComponent[5];
+        //scrollpane_erstellen(1,1,1,1);
 
         JLabel obere_Leiste = new JLabel();
         obere_Leiste.setBackground(Color.decode("#D4AF37"));
         obere_Leiste.setBounds(0,0,1422,110);
         obere_Leiste.setOpaque(true);
-        PANEL.add(obere_Leiste,1);
+        PANEL.add(obere_Leiste,JLayeredPane.DEFAULT_LAYER);
 
         LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
         JLabel logo = new JLabel(LOGO_IMG);
         logo.setBackground(Color.decode("#D4AF37"));
         logo.setBounds(25,25,60,60);
         logo.setOpaque(true);
-        PANEL.add(logo,0);
+        PANEL.add(logo,JLayeredPane.PALETTE_LAYER);
+
+        JLabel title = new JLabel("Warenkorb");
+        title.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        title.setForeground(Color.decode("#ffffff"));
+        title.setBackground(Color.decode("#D4AF37"));
+        title.setBounds(150,20,700,70);
+        //title.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+        //title.setAlignmentY(JLabel.CENTER_ALIGNMENT);
+        title.setOpaque(true);
+        PANEL.add(title,JLayeredPane.PALETTE_LAYER);
+
+        ImageIcon pfeil = new ImageIcon("img/pfeil3.png");
+        pfeil.setImage(pfeil.getImage().getScaledInstance(99, 53, Image.SCALE_SMOOTH));
+
+        JButton zurueck = new JButton(pfeil);
+        zurueck.setBounds(30,131,99,53);
+        zurueck.setBackground(Color.decode("#ffffff"));
+        zurueck.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
+        PANEL.add(zurueck);
+
+        components[0] = zurueck;
+
+        int height;
+        if(warenkorb.getGerichte_anzahl() == 0) {
+            height = 500;
+        }
+        else {
+            height = 15 + warenkorb.getGerichte_anzahl() * (15 + 187);
+        }
+        scrollpane_erstellen(30, 265, 920, height);
+        SCROLLPANE.setBorder(BorderFactory.createLineBorder(Color.decode("#010101")));
+
+
+
 
         PANEL.validate();
         PANEL.repaint();
         PANEL.revalidate();
+
+        return  components;
     }
     public static void Bestellhistorie()
     {

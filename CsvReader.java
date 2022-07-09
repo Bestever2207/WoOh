@@ -9,9 +9,9 @@ public class CsvReader
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            while ((line = reader.readLine()) != null)   //loops through every line until null found
+            while ((line = reader.readLine()) != null)
             {
-                String[] token = line.split(";");    // separate every token by comma
+                String[] token = line.split(";");
                 Baum speisekarte = new Baum();
                 for(int i = 3;i < token.length;i++)
                 {

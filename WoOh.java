@@ -205,7 +205,7 @@ public class WoOh
         int[] lieferzeiten = new int[anzahl_ergebnisse];
 
         int index = 0;
-        for(int r = 0;r < anzahl_ergebnisse;r++)
+        for(int r = 0;r < suchergebnisse_gerichte.length;r++)
         {
             for(int s = 0; s < suchergebnisse_gerichte[r][0].length;s++)
             {
@@ -314,7 +314,16 @@ public class WoOh
     }
     public void Warenkorb_anzeigen()
     {
-        UI.Warenkorb();
+        JComponent[] components = UI.Warenkorb(warenkorb);
+
+        ((JButton)components[0]).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainScreen();
+            }
+        });
+
+
     }
     public void Bestellhistorie()
     {
