@@ -173,38 +173,12 @@ public class UI {
 
         panel_falsch.add(label_falsch);
         panel_falsch.setVisible(true);
-        //panel_falsch.setPreferredSize(new Dimension(826,53));
 
         PANEL.add(panel_falsch);
 
         PANEL.validate();
         PANEL.repaint();
         PANEL.revalidate();
-       /* JPanel panel_falsch = new JPanel();
-        
-        panel_falsch.setLayout(null);
-        panel_falsch.setBackground(Color.WHITE);
-        
-        JLabel label_falsch = new JLabel("<html>Achte darauf dass<br>die Adresse eindeutig <br>und jedes Feld ausgefüllt ist<html>");
-        label_falsch.setBounds(800,400,200,200);
-        label_falsch.setFont(FONT_PLAIN_26);
-        label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
-        label_falsch.setVisible(true);
-
-        panel_falsch.setLayout(new BorderLayout());
-        panel_falsch.add(label_falsch,BorderLayout.EAST);
-        panel_falsch.setVisible(true);
-        
-        panel_falsch.validate();
-        panel_falsch.repaint();
-        panel_falsch.revalidate();
-        
-        PANEL.add(panel_falsch);
-        
-        
-        PANEL.validate();
-        PANEL.repaint();
-        PANEL.revalidate();*/
     }
 
     public static JComponent[] mainScreen()
@@ -315,9 +289,6 @@ public class UI {
 
         jComponent[7] = jComboBox;
 
-
-
-        //JScrollPane scrollpane = new JScrollPane(container);
         PANEL.validate();
         PANEL.repaint();
         PANEL.revalidate();
@@ -450,21 +421,7 @@ public class UI {
 
             System.out.println(SCROLLPANE_INHALT);
         }
-        /*SCROLLPANE_INHALT.setVisible(true);
-        SCROLLPANE_INHALT.validate();
-        SCROLLPANE_INHALT.repaint();
-        SCROLLPANE_INHALT.revalidate();
 
-        System.out.println(SCROLLPANE_INHALT);
-
-        SCROLLPANE.setVisible(true);
-        SCROLLPANE.validate();
-        SCROLLPANE.repaint();
-        SCROLLPANE.revalidate();
-
-        PANEL.validate();
-        PANEL.repaint();
-        PANEL.revalidate();*/
         return components;
     }
 
@@ -551,8 +508,9 @@ public class UI {
 
                 int lieferzeit_index;
                 if (activ_btn) {
-                    lieferzeit_index = Math.round(index / 2.0f);
-                } else {
+                    lieferzeit_index = Math.round(index / 2);
+                }
+                else {
                     lieferzeit_index = index;
                 }
 
@@ -585,33 +543,12 @@ public class UI {
                 System.out.println("Gericht wird erstellt");
                 SCROLLPANE_INHALT.add(btn_panel);
 
-                //System.out.println(SCROLLPANE_INHALT.getComponent(0));
-
                 SCROLLPANE_INHALT.validate();
                 SCROLLPANE_INHALT.repaint();
                 SCROLLPANE_INHALT.revalidate();
                 index++;
             }
         }
-        /*SCROLLPANE_INHALT.validate();
-        SCROLLPANE_INHALT.repaint();
-        SCROLLPANE_INHALT.revalidate();*/
-
-        //System.out.println(SCROLLPANE_INHALT.getComponent(0));
-        //System.out.println(SCROLLPANE_INHALT.getComponent(1));
-        //System.out.println(SCROLLPANE_INHALT.getComponent(2));
-
-        /*SCROLLPANE.validate();
-        SCROLLPANE.repaint();
-        SCROLLPANE.revalidate();
-
-        PANEL.validate();
-        PANEL.repaint();
-        PANEL.revalidate();
-
-        FRAME.validate();
-        FRAME.repaint();
-        FRAME.revalidate();*/
 
         return components;
     }
@@ -621,14 +558,6 @@ public class UI {
         scrollpane_erstellen(152, 305, 1133,500);
 
         JLayeredPane keine_ergebnisse_btn = new JLayeredPane();
-
-        /*JLabel btn = new JLabel();
-        btn.setBackground(Color.decode("#ffffff"));
-        btn.setBounds(15, 15, 1088, 187);
-        btn.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-        btn.setVisible(true);
-        btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
-        keine_ergebnisse_btn.add(btn, JLayeredPane.DEFAULT_LAYER);*/
 
         JLabel label = new JLabel("Keine Suchergebnisse",SwingConstants.CENTER);
         label.setBounds(15, 15, 1000, 50);
@@ -650,12 +579,6 @@ public class UI {
         INFO_LABEL.setBackground(Color.decode("#ffffff"));
         INFO_LABEL.setFont(new Font("Open Sans", Font.PLAIN, 30));
         INFO_LABEL.setVisible(true);
-
-        //INFO_PANEL.add(label);
-
-
-
-
 
         PANEL.validate();
         PANEL.repaint();
