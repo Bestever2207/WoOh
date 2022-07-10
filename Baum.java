@@ -16,7 +16,7 @@ public class Baum
 
     public Datenelement RestaurantSuchen(String name)
     {
-        return wurzel.nameSuchen(name);
+        return wurzel.nameSuchen(name.toLowerCase());
     }
     public double preisspanneBerechnen()
     {
@@ -32,11 +32,11 @@ public class Baum
     }
     public Restaurant[] GenreSuchen(String gesGenre)
     {
-        return wurzel.genreSuchen(gesGenre);
+        return wurzel.genreSuchen(gesGenre.toLowerCase());
     }
     public Datenelement[][][] GerichtSuchen(String gesGericht)
     {
-        return wurzel.gerichtSuchen(gesGericht);
+        return wurzel.gerichtSuchen(gesGericht.toLowerCase());
     }
     public Gericht[] GerichtinspeisekarteSuchen(String gesGericht)
     {

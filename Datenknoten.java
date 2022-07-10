@@ -39,7 +39,7 @@ public class Datenknoten extends Baumelement
     public Datenelement nameSuchen(String s)
     {
         Datenelement dat = new Restaurant(s,new Baum(),"s","s");
-        if((inhalt.wertGeben()).equals(s))
+        if(((String)inhalt.wertGeben()).toLowerCase().equals(s))
         {
             return inhalt;
         }
@@ -68,7 +68,7 @@ public class Datenknoten extends Baumelement
         Restaurant[] result;
         Restaurant[] liste1 = naechsterL.genreSuchen(gesGenre);
         Restaurant[] liste2 = naechsterR.genreSuchen(gesGenre);
-        if(((Restaurant)inhalt).getGenre().equals(gesGenre))
+        if(((Restaurant)inhalt).getGenre().toLowerCase().equals(gesGenre))
         {
             result = new Restaurant[liste1.length + liste2.length + 1];
             System.arraycopy(liste1,0,result,0,liste1.length);
@@ -112,7 +112,7 @@ public class Datenknoten extends Baumelement
         Gericht[] result;
         Gericht[] liste1 = naechsterL.GerichtinspeisekarteSuchen(gesGericht);
         Gericht[] liste2 = naechsterR.GerichtinspeisekarteSuchen(gesGericht);
-        if(inhalt.getName().contains(gesGericht))
+        if(inhalt.getName().toLowerCase().contains(gesGericht))
         {
             result = new Gericht[liste1.length + liste2.length + 1];
             System.arraycopy(liste1,0,result,0,liste1.length);

@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="csv reader update">
-      <change afterPath="$PROJECT_DIR$/img/plus3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/plus4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bestellung.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bestellung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Restaurants.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Restaurants.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Baum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Baum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datenknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datenknoten.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/Bestellung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Bestellung.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Restaurants.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Restaurants.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/package.bluej" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -340,6 +332,24 @@
           <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/UI.java</url>
+          <line>591</line>
+          <properties class="UI" method="Warenkorb">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/WoOh.java</url>
+          <line>314</line>
+          <properties class="WoOh" method="Warenkorb_anzeigen">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
