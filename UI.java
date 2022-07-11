@@ -307,9 +307,10 @@ public class UI {
             SCROLLPANE_INHALT.removeAll();
             System.out.println(SCROLLPANE_INHALT.getComponents().length);
         }
+        else {
+            SCROLLPANE_INHALT = new JPanel();
+        }
 
-
-        SCROLLPANE_INHALT = new JPanel();
 
         BoxLayout bl = new BoxLayout(SCROLLPANE_INHALT, BoxLayout.Y_AXIS);
         SCROLLPANE_INHALT.setPreferredSize(new Dimension(width, height));
@@ -338,7 +339,7 @@ public class UI {
             });
 
             PANEL.add(SCROLLPANE);
-            return;
+
         }
         SCROLLPANE.setViewportView(SCROLLPANE_INHALT);
 
@@ -626,6 +627,7 @@ public class UI {
         zurueck.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
         PANEL.add(zurueck);
 
+
         components[0] = zurueck;
 
         int height;
@@ -636,7 +638,7 @@ public class UI {
             height = 15 + warenkorb.getGerichte_anzahl() * (15 + 187);
         }
         scrollpane_erstellen(30, 265, 920, height);
-        //SCROLLPANE.setBorder(BorderFactory.createLineBorder(Color.decode("#010101")));
+        SCROLLPANE.setBorder(BorderFactory.createLineBorder(Color.decode("#010101")));
         Gericht[] gerichte = warenkorb.getGerichte();
 
         if(warenkorb.getGerichte_anzahl() != 0)

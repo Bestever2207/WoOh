@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="csv reader update">
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="toLowerCase für Suche">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Restaurants.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Restaurants.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Restaurants.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Restaurants.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/package.bluej" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +279,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657399209571</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="toLowerCase für Suche">
+      <created>1657456479827</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1657456479828</updated>
+    </task>
+    <task id="LOCAL-00029" summary="toLowerCase für Suche">
+      <created>1657456612411</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1657456612411</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -322,7 +335,8 @@
     <MESSAGE value="Warenkorb new Panel" />
     <MESSAGE value="funktioniert 3.0" />
     <MESSAGE value="csv reader update" />
-    <option name="LAST_COMMIT_MESSAGE" value="csv reader update" />
+    <MESSAGE value="toLowerCase für Suche" />
+    <option name="LAST_COMMIT_MESSAGE" value="toLowerCase für Suche" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -331,15 +345,6 @@
           <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/CsvReader.java</url>
-          <line>4</line>
-          <properties class="CsvReader" method="RestaurantsGeben">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

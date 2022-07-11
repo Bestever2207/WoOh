@@ -187,7 +187,7 @@ public class WoOh
     public boolean istEssensrichtung(String input)
     {
         for (String s : essensrichtungen) {
-            if (s.equals(input)) {
+            if (s.toLowerCase().equals(input.toLowerCase())) {
                 return true;
             }
         }
@@ -332,6 +332,7 @@ public class WoOh
     public void Guthaben()
     {
 
+        UI.Guthaben();
     }
 
 }
