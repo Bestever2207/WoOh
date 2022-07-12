@@ -327,12 +327,42 @@ public class WoOh
     }
     public void Bestellhistorie()
     {
+        JComponent[] components = UI.Bestellhistorie();
 
+        ((JButton)components[0]).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainScreen();
+            }
+        });
     }
     public void Guthaben()
     {
+        JComponent[] components = UI.Guthaben(user.getGuthaben());
 
-        UI.Guthaben();
+        ((JButton)components[0]).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainScreen();
+            }
+        });
+
+        ((JButton)components[1]).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String betrag = ((JTextField)components[2]).getText();
+
+                try{
+                    double betrag_zahl = Double.parseDouble(betrag);
+                    user.GuthabenAufladen(betrag_zahl);
+                    Guthaben();
+                }
+                catch (NumberFormatException r)
+                {
+                    System.out.println("keine Zahlen eingegeben");
+                }
+
+            }
+        });
     }
-
 }

@@ -10,6 +10,7 @@ public class User
         this.adresse = adresse;
         this.koordinaten = koordinaten;
         this.name = name;
+        guthaben = 100;
     }
     public void GuthabenAufladen(double neuesGuthaben)
     {
@@ -22,6 +23,10 @@ public class User
 
     public String getAdresse() {
         return adresse;
+    }
+
+    public double getGuthaben() {
+        return guthaben;
     }
 
     public double[] getKoordinaten() {

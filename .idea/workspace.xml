@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="toLowerCase für Suche">
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="scrollpane erscheingt im zweiten menü nicht">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -293,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657456612411</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="scrollpane erscheingt im zweiten menü nicht">
+      <created>1657563747940</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1657563747940</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -311,7 +319,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="koordsScreen in Ui" />
     <MESSAGE value="Koordssetzen" />
     <MESSAGE value="changed mainScreen and koordsScreen in Ui" />
     <MESSAGE value="mainScreen" />
@@ -336,7 +343,8 @@
     <MESSAGE value="funktioniert 3.0" />
     <MESSAGE value="csv reader update" />
     <MESSAGE value="toLowerCase für Suche" />
-    <option name="LAST_COMMIT_MESSAGE" value="toLowerCase für Suche" />
+    <MESSAGE value="scrollpane erscheingt im zweiten menü nicht" />
+    <option name="LAST_COMMIT_MESSAGE" value="scrollpane erscheingt im zweiten menü nicht" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

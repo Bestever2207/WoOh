@@ -592,43 +592,7 @@ public class UI {
     }
     public static JComponent[] Warenkorb(Bestellung warenkorb)
     {
-        PANEL.removeAll();
-
-        JComponent[] components = new JComponent[5];
-
-        JLabel obere_Leiste = new JLabel();
-        obere_Leiste.setBackground(Color.decode("#D4AF37"));
-        obere_Leiste.setBounds(0,0,1422,110);
-        obere_Leiste.setOpaque(true);
-        PANEL.add(obere_Leiste,JLayeredPane.DEFAULT_LAYER);
-
-        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
-        JLabel logo = new JLabel(LOGO_IMG);
-        logo.setBackground(Color.decode("#D4AF37"));
-        logo.setBounds(25,25,60,60);
-        logo.setOpaque(true);
-        PANEL.add(logo,JLayeredPane.PALETTE_LAYER);
-
-        JLabel title = new JLabel("Warenkorb");
-        title.setFont(new Font("Open Sans", Font.PLAIN, 40));
-        title.setForeground(Color.decode("#ffffff"));
-        title.setBackground(Color.decode("#D4AF37"));
-        title.setBounds(150,20,700,70);
-
-        title.setOpaque(true);
-        PANEL.add(title,JLayeredPane.PALETTE_LAYER);
-
-        ImageIcon pfeil = new ImageIcon("img/pfeil3.png");
-        pfeil.setImage(pfeil.getImage().getScaledInstance(99, 53, Image.SCALE_SMOOTH));
-
-        JButton zurueck = new JButton(pfeil);
-        zurueck.setBounds(30,131,99,53);
-        zurueck.setBackground(Color.decode("#ffffff"));
-        zurueck.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
-        PANEL.add(zurueck);
-
-
-        components[0] = zurueck;
+        JComponent[] components = layout_veraendern("Warenkorb");
 
         int height;
         if(warenkorb.getGerichte_anzahl() == 0) {
@@ -704,13 +668,95 @@ public class UI {
 
         return  components;
     }
-    public static void Bestellhistorie()
+    public static JComponent[] Bestellhistorie()
     {
+        JComponent[] components = layout_veraendern("Bestellhistorie");
 
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
+
+        return components;
     }
-    public static void Guthaben()
+    public static JComponent[] Guthaben(double akt_kontostand)
     {
+        JComponent[] components = new JComponent[3];
+        components[0] = layout_veraendern("Guthaben")[0];
 
+        JLabel text = new JLabel("Dein Kontostand:");
+        text.setBounds(331, 250, 337, 92);
+        text.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        text.setBackground(Color.decode("#ffffff"));
+        PANEL.add(text);
+
+        JLabel geldstand = new JLabel(String.valueOf(akt_kontostand) + "€");
+        geldstand.setBounds(711, 250, 349, 92);
+        geldstand.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        geldstand.setBackground(Color.decode("#ffffff"));
+        PANEL.add(geldstand);
+
+        JButton aufladen = new JButton("Aufladen");
+        aufladen.setBounds(332, 500, 274, 92);
+        aufladen.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        aufladen.setBackground(Color.decode("#ffffff"));
+        PANEL.add(aufladen);
+        components[1] = aufladen;
+
+        JTextField betrag = new JTextField();
+        betrag.setBounds(711, 500, 274, 92);
+        betrag.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        betrag.setBackground(Color.decode("#ffffff"));
+        PANEL.add(betrag);
+        components[2] = betrag;
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
+
+        return components;
+    }
+
+    public static JComponent[] layout_veraendern(String title_text)
+    {
+        PANEL.removeAll();
+
+        JComponent[] components = new JComponent[5];
+
+        JLabel obere_Leiste = new JLabel();
+        obere_Leiste.setBackground(Color.decode("#D4AF37"));
+        obere_Leiste.setBounds(0,0,1422,110);
+        obere_Leiste.setOpaque(true);
+        PANEL.add(obere_Leiste,JLayeredPane.DEFAULT_LAYER);
+
+        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
+        JLabel logo = new JLabel(LOGO_IMG);
+        logo.setBackground(Color.decode("#D4AF37"));
+        logo.setBounds(25,25,60,60);
+        logo.setOpaque(true);
+        PANEL.add(logo,JLayeredPane.PALETTE_LAYER);
+
+        JLabel title = new JLabel(title_text);
+        title.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        title.setForeground(Color.decode("#ffffff"));
+        title.setBackground(Color.decode("#D4AF37"));
+        title.setBounds(150,20,700,70);
+
+        title.setOpaque(true);
+        PANEL.add(title,JLayeredPane.PALETTE_LAYER);
+
+        ImageIcon pfeil = new ImageIcon("img/pfeil3.png");
+        pfeil.setImage(pfeil.getImage().getScaledInstance(99, 53, Image.SCALE_SMOOTH));
+
+        JButton zurueck = new JButton(pfeil);
+        zurueck.setBounds(30,131,99,53);
+        zurueck.setBackground(Color.decode("#ffffff"));
+        zurueck.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
+        PANEL.add(zurueck);
+
+
+        components[0] = zurueck;
+
+        return components;
     }
     public static void extra()
     {
