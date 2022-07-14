@@ -32,7 +32,7 @@ public class WoOh
     public void KoordsSetzen()
     {
         JComponent[] userDaten_in = UI.KoordsScreen();
-        JComponent[] userDaten_false = new JComponent[4];
+        JComponent[] userDaten_false = new JComponent[5];
         JButton suchen_btn = (JButton) userDaten_in[5];
 
         String[] userDaten = new String[5];
@@ -41,6 +41,11 @@ public class WoOh
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean ist_falsch = false;
+                double[] koordinaten;
+
+                String adresse = ((JTextField)userDaten_in[0]).getText() + " " + ((JTextField)userDaten_in[1]).getText() + " " + ((JTextField)userDaten_in[2]).getText() + " " + ((JTextField)userDaten_in[3]).getText();
+                koordinaten = Entfernung.KoordsErmitteln(adresse);
+
                 for(int i = 0;i < 5;i++)
                 {
                     if(((JTextField)userDaten_in[i]).getText().isBlank())
@@ -48,25 +53,22 @@ public class WoOh
                         userDaten_false[i] = userDaten_in[i];
                         ist_falsch = true;
                     }
-                    
-                    userDaten[i] = ((JTextField)userDaten_in[i]).getText();
+
                 }
-                
-                
+                if(koordinaten == null && !ist_falsch)
+                {
+                    for(int i = 0;i < 4;i++)
+                    {
+                        userDaten_false[i] = userDaten_in[i];
+                        ist_falsch = true;
+                    }
+                }
+
+
+
                 if(ist_falsch)
                 {
                     UI.koordsScreenFalsch(userDaten_false);
-                }
-                
-                
-                String adresse = userDaten[0] + " " + userDaten[1] + " " + userDaten[2] + " " + userDaten[3];
-
-                double[] koordinaten;
-
-                koordinaten = Entfernung.KoordsErmitteln(adresse);
-                if(koordinaten == null)
-                {
-
                 }
                 else
                 {
@@ -202,7 +204,7 @@ public class WoOh
             anzahl_ergebnisse += datenelements[0].length;
             //for(int e = 0; e < suchergebnisse_gerichte[r][0])
         }
-        int[] lieferzeiten = new int[anzahl_ergebnisse];
+        double[] lieferzeiten = new double[anzahl_ergebnisse];
 
         int index = 0;
         for(int r = 0;r < suchergebnisse_gerichte.length;r++)
@@ -235,11 +237,11 @@ public class WoOh
 
                 JButton btn_plus = (JButton) components[index];
                 Datenelement[] gerichtDaten = new Datenelement[]{datenelements[0][s], restaurant};
-
+                double lieferzeit = lieferzeiten[index/2];
                 btn_plus.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        gericht_warenkorbhinzufuegen(gerichtDaten);
+                        gericht_warenkorbhinzufuegen(gerichtDaten,lieferzeit);
                     }
                 });
                 index++;
@@ -276,7 +278,7 @@ public class WoOh
 
         int anzahl_ergebnisse = speisekarte.length;
 
-        int[] lieferzeiten = new int[anzahl_ergebnisse];
+        double[] lieferzeiten = new double[anzahl_ergebnisse];
 
         int index = 0;
 
@@ -294,18 +296,19 @@ public class WoOh
         for(int i = 0;i < components.length;i++)
         {
             Datenelement[] gerichtDaten = new Datenelement[]{speisekarte[i],restaurant};
+            double lieferzeit = lieferzeiten[i];
             ((JButton)components[i]).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gericht_warenkorbhinzufuegen(gerichtDaten);
+                    gericht_warenkorbhinzufuegen(gerichtDaten,lieferzeit);
                 }
             });
         }
     }
 
-    public void gericht_warenkorbhinzufuegen(Datenelement[] gerichtDaten)
+    public void gericht_warenkorbhinzufuegen(Datenelement[] gerichtDaten, double lieferzeit)
     {
-        warenkorb.gerichthinzufuegen((Gericht) gerichtDaten[0]);
+        warenkorb.gerichthinzufuegen((Gericht) gerichtDaten[0],lieferzeit);
     }
 
     public void Warenkorb_erstellen()
@@ -320,6 +323,22 @@ public class WoOh
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainScreen();
+            }
+        });
+
+        ((JButton)components[1]).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(warenkorb.getPreis() <= user.getGuthaben())
+                {
+                    user.GuthabenAbziehen(warenkorb.getPreis());
+                    Warenkorb_erstellen();
+                    Warenkorb_anzeigen();
+                }
+                else
+                {
+                    UI.kein_geld();
+                }
             }
         });
 
@@ -360,6 +379,7 @@ public class WoOh
                 catch (NumberFormatException r)
                 {
                     System.out.println("keine Zahlen eingegeben");
+                    UI.falsches_format();
                 }
 
             }

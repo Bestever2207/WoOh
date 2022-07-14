@@ -10,7 +10,7 @@ public class User
         this.adresse = adresse;
         this.koordinaten = koordinaten;
         this.name = name;
-        guthaben = 100;
+        guthaben = 0;
     }
     public void GuthabenAufladen(double neuesGuthaben)
     {

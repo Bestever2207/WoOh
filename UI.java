@@ -12,6 +12,7 @@ public class UI {
     static JPanel SCROLLPANE_INHALT;
     static final Font FONT_PLAIN_26 = new Font("Open Sans",Font.PLAIN, 26);
     static final Font FONT_PLAIN_24 = new Font("Open Sans",Font.PLAIN, 24);
+    static final Font FONT_PLAIN_40 = new Font("Open Sans",Font.PLAIN, 40);
     static final ImageIcon LOGO_IMG = new ImageIcon("img/logo4.png");
 
     
@@ -42,7 +43,7 @@ public class UI {
         JLabel text = new JLabel("Die beste Lieferapp Deutschlands!",SwingConstants.CENTER);
         text.setBounds(339,566,743,72);
         text.setBackground(Color.decode("#ffffff"));
-        text.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        text.setFont(FONT_PLAIN_40);
 
         PANEL.add(text);
     }
@@ -153,7 +154,7 @@ public class UI {
 
     public static void koordsScreenFalsch(JComponent[] userDaten_falsch)
     {
-        for(int i = 0;i < 4;i++)
+        for(int i = 0;i < 5;i++)
         {
             if(userDaten_falsch[i] != null) {
                 userDaten_falsch[i].setBorder(BorderFactory.createLineBorder(Color.decode("#ff0000")));
@@ -161,21 +162,13 @@ public class UI {
         }
 
         JLabel label_falsch = new JLabel("Achte darauf dass die Adresse eindeutig und jedes Feld ausgefüllt ist!",SwingConstants.CENTER);
-        label_falsch.setBounds(298,784,826,53);
+        label_falsch.setBounds(298,740,826,53);
         label_falsch.setFont(FONT_PLAIN_26);
         label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
         label_falsch.setVisible(true);
         label_falsch.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JLayeredPane panel_falsch = new JLayeredPane();
-
-        panel_falsch.setLayout(null);
-        panel_falsch.setBackground(Color.BLACK);
-
-        panel_falsch.add(label_falsch);
-        panel_falsch.setVisible(true);
-
-        PANEL.add(panel_falsch);
+        PANEL.add(label_falsch);
 
         PANEL.validate();
         PANEL.repaint();
@@ -203,7 +196,8 @@ public class UI {
         logo.setOpaque(true);
         PANEL.add(logo,0);
 
-        JTextField gerichte_in = new JTextField();
+        JTextField gerichte_in = new JTextField("Gerichte");
+        gerichte_in.selectAll();
         gerichte_in.setBounds(236,25,595,65);
         gerichte_in.setFont(FONT_PLAIN_26);
         gerichte_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
@@ -211,7 +205,8 @@ public class UI {
 
         jComponent[0] = gerichte_in;
 
-        JTextField restaurants_in = new JTextField();
+        JTextField restaurants_in = new JTextField("Restaurants und Genres");
+        restaurants_in.selectAll();
         restaurants_in.setBounds(236,120,595,65);
         restaurants_in.setFont(FONT_PLAIN_26);
         restaurants_in.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
@@ -276,13 +271,13 @@ public class UI {
 
 
         JLabel sortieren = new JLabel("Sortieren nach");
-        sortieren.setFont(new Font("Open Sans",Font.PLAIN, 24));
+        sortieren.setFont(FONT_PLAIN_24);
         sortieren.setBounds(1050,238,187,40);
         PANEL.add(sortieren,0);
 
         String[] optionen = {"","Preis","Dauer"};
         JComboBox<String> jComboBox = new JComboBox<>(optionen);
-        jComboBox.setFont(new Font("Open Sans",Font.PLAIN, 24));
+        jComboBox.setFont(FONT_PLAIN_24);
         jComboBox.setForeground(Color.black);
         jComboBox.setBackground(Color.white);
         jComboBox.setBounds(1229, 234, 148, 47);
@@ -376,7 +371,7 @@ public class UI {
             name.setBounds(35,35,901,41);
 
             JLabel essensrichtung = new JLabel(suchergebnisse[i].getGenre());
-            essensrichtung.setFont(new Font("Open Sans",Font.PLAIN, 24));
+            essensrichtung.setFont(FONT_PLAIN_24);
             essensrichtung.setBounds(35,94,901,18);
 
             ImageIcon einkaufstasche_icon = new ImageIcon("img/Einkaufstasche.png");
@@ -402,7 +397,7 @@ public class UI {
             JLabel durchschnittszeit = new JLabel("ca." + Math.round(lieferzeiten[i]) + " min");
             durchschnittszeit.setBounds(82,139,901,24);
             durchschnittszeit.setBackground(Color.decode("#ffffff"));
-            durchschnittszeit.setFont(new Font("Open Sans",Font.PLAIN, 24));
+            durchschnittszeit.setFont(FONT_PLAIN_24);
 
 
             btn_panel.add(name,JLayeredPane.PALETTE_LAYER);
@@ -427,7 +422,7 @@ public class UI {
         return components;
     }
 
-    public static JComponent[] gerichteAusgeben(Datenelement[][][] suchergebnisse,int[] lieferzeiten,boolean activ_btn)
+    public static JComponent[] gerichteAusgeben(Datenelement[][][] suchergebnisse,double[] lieferzeiten,boolean activ_btn)
     {
         int anzahl_suchergebnisse = lieferzeiten.length;
 
@@ -486,7 +481,7 @@ public class UI {
                 alle_beilagen.append(beilagen[beilagen.length - 1]);
 
                 JLabel beilagen_label = new JLabel(alle_beilagen.toString());
-                beilagen_label.setFont(new Font("Open Sans", Font.PLAIN, 24));
+                beilagen_label.setFont(FONT_PLAIN_24);
                 beilagen_label.setBounds(35, 88, 901, 30);
 
                 ImageIcon einkaufstasche_icon = new ImageIcon("img/Einkaufstasche.png");
@@ -519,7 +514,7 @@ public class UI {
                 JLabel durchschnittszeit = new JLabel("ca." + Math.round(lieferzeiten[lieferzeit_index]) + " min" + "     " + "\t" + datenelements[1][0].getName());
                 durchschnittszeit.setBounds(82, 131, 1000, 40);
                 durchschnittszeit.setBackground(Color.decode("#ffffff"));
-                durchschnittszeit.setFont(new Font("Open Sans", Font.PLAIN, 24));
+                durchschnittszeit.setFont(FONT_PLAIN_24);
 
                 ImageIcon plus_icon = new ImageIcon("img/plus4.png");
                 plus_icon.setImage(plus_icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
@@ -586,13 +581,12 @@ public class UI {
         PANEL.repaint();
         PANEL.revalidate();
     }
-    public static void bestellScreen()
-    {
 
-    }
     public static JComponent[] Warenkorb(Bestellung warenkorb)
     {
-        JComponent[] components = layout_veraendern("Warenkorb");
+        JComponent[] components = new JComponent[2];
+        components[0] = layout_veraendern("Warenkorb")[0];
+
 
         int height;
         if(warenkorb.getGerichte_anzahl() == 0) {
@@ -631,7 +625,7 @@ public class UI {
                 alle_beilagen.append(beilagen[beilagen.length - 1]);
 
                 JLabel beilagen_label = new JLabel(alle_beilagen.toString());
-                beilagen_label.setFont(new Font("Open Sans", Font.PLAIN, 24));
+                beilagen_label.setFont(FONT_PLAIN_24);
                 beilagen_label.setBounds(35, 88, 901, 30);
 
 
@@ -658,6 +652,56 @@ public class UI {
             }
         }
 
+        JLabel zwischensumme = new JLabel("Zwischensumme");
+        zwischensumme.setBounds(1000, 382, 215, 40);
+        zwischensumme.setFont(FONT_PLAIN_24);
+        zwischensumme.setBackground(Color.decode("#ffffff"));
+        PANEL.add(zwischensumme);
+
+        JLabel lieferkosten = new JLabel("Lieferkosten");
+        lieferkosten.setBounds(1000, 417, 157, 52);
+        lieferkosten.setFont(FONT_PLAIN_24);
+        lieferkosten.setBackground(Color.decode("#ffffff"));
+        PANEL.add(lieferkosten);
+
+        JLabel total = new JLabel("Total");
+        total.setBounds(1000, 491, 69, 51);
+        total.setFont(new Font("Open Sans",Font.BOLD, 24));
+        total.setBackground(Color.decode("#ffffff"));
+        PANEL.add(total);
+
+        JLabel zwischensumme_zahl = new JLabel(warenkorb.getPreis() + "€");
+        zwischensumme_zahl.setBounds(1259, 382, 116, 40);
+        zwischensumme_zahl.setFont(FONT_PLAIN_24);
+        zwischensumme_zahl.setBackground(Color.decode("#ffffff"));
+        PANEL.add(zwischensumme_zahl);
+
+        JLabel lieferkosten_zahl = new JLabel("0.0€");
+        lieferkosten_zahl.setBounds(1259, 417, 106, 52);
+        lieferkosten_zahl.setFont(FONT_PLAIN_24);
+        lieferkosten_zahl.setBackground(Color.decode("#ffffff"));
+        PANEL.add(lieferkosten_zahl);
+
+        JLabel total_zahl = new JLabel(warenkorb.getPreis() + "€");
+        total_zahl.setBounds(1259, 491, 79, 51);
+        total_zahl.setFont(new Font("Open Sans",Font.BOLD, 24));
+        total_zahl.setBackground(Color.decode("#ffffff"));
+        PANEL.add(total_zahl);
+
+        JLabel zeit = new JLabel("In " + warenkorb.getDauer() + " min. bei dir!");
+        zeit.setBounds(1000, 282, 333, 58);
+        zeit.setFont(FONT_PLAIN_24);
+        zeit.setBackground(Color.decode("#ffffff"));
+        PANEL.add(zeit);
+
+        JButton bestellen = new JButton("Bestellen");
+        bestellen.setBounds(1035,576,316,80);
+        bestellen.setFont(FONT_PLAIN_40);
+        bestellen.setBackground(Color.decode("#ffffff"));
+        PANEL.add(bestellen);
+
+        components[1] = bestellen;
+
         SCROLLPANE_INHALT.validate();
         SCROLLPANE_INHALT.repaint();
         SCROLLPANE_INHALT.revalidate();
@@ -667,6 +711,22 @@ public class UI {
         PANEL.revalidate();
 
         return  components;
+    }
+
+    public static void kein_geld()
+    {
+        JLabel label_falsch = new JLabel("Dein Kontostand ist zu niedrig!",SwingConstants.CENTER);
+        label_falsch.setBounds(991,712,402,53);
+        label_falsch.setFont(FONT_PLAIN_26);
+        label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+        label_falsch.setVisible(true);
+        label_falsch.setHorizontalAlignment(SwingConstants.CENTER);
+
+        PANEL.add(label_falsch);
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
     }
     public static JComponent[] Bestellhistorie()
     {
@@ -684,27 +744,27 @@ public class UI {
         components[0] = layout_veraendern("Guthaben")[0];
 
         JLabel text = new JLabel("Dein Kontostand:");
-        text.setBounds(331, 250, 337, 92);
-        text.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        text.setBounds(346, 270, 337, 92);
+        text.setFont(FONT_PLAIN_40);
         text.setBackground(Color.decode("#ffffff"));
         PANEL.add(text);
 
         JLabel geldstand = new JLabel(String.valueOf(akt_kontostand) + "€");
-        geldstand.setBounds(711, 250, 349, 92);
-        geldstand.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        geldstand.setBounds(726, 270, 349, 92);
+        geldstand.setFont(FONT_PLAIN_40);
         geldstand.setBackground(Color.decode("#ffffff"));
         PANEL.add(geldstand);
 
         JButton aufladen = new JButton("Aufladen");
-        aufladen.setBounds(332, 500, 274, 92);
-        aufladen.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        aufladen.setBounds(720, 472, 270, 92);
+        aufladen.setFont(FONT_PLAIN_40);
         aufladen.setBackground(Color.decode("#ffffff"));
         PANEL.add(aufladen);
         components[1] = aufladen;
 
         JTextField betrag = new JTextField();
-        betrag.setBounds(711, 500, 274, 92);
-        betrag.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        betrag.setBounds(372, 472, 274, 92);
+        betrag.setFont(FONT_PLAIN_40);
         betrag.setBackground(Color.decode("#ffffff"));
         PANEL.add(betrag);
         components[2] = betrag;
@@ -714,6 +774,22 @@ public class UI {
         PANEL.revalidate();
 
         return components;
+    }
+
+    public static void falsches_format()
+    {
+        JLabel label_falsch = new JLabel("Achte darauf dass der Betrag im Format XX.XX eingegeben wurde!",SwingConstants.CENTER);
+        label_falsch.setBounds(273,656,826,53);
+        label_falsch.setFont(FONT_PLAIN_26);
+        label_falsch.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+        label_falsch.setVisible(true);
+        label_falsch.setHorizontalAlignment(SwingConstants.CENTER);
+
+        PANEL.add(label_falsch);
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
     }
 
     public static JComponent[] layout_veraendern(String title_text)
@@ -736,7 +812,7 @@ public class UI {
         PANEL.add(logo,JLayeredPane.PALETTE_LAYER);
 
         JLabel title = new JLabel(title_text);
-        title.setFont(new Font("Open Sans", Font.PLAIN, 40));
+        title.setFont(FONT_PLAIN_40);
         title.setForeground(Color.decode("#ffffff"));
         title.setBackground(Color.decode("#D4AF37"));
         title.setBounds(150,20,700,70);
