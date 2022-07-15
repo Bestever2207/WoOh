@@ -7,8 +7,8 @@ public class Bestellung
     private Gericht[] gerichte;
     private int gerichte_anzahl = 0;
     private double preis;
+    private double dauer = 0.0;
     private double[] lieferzeiten;
-    //private DateTimeFormatter dtf;
     private Restaurant restaurant;
     private String adresse;
     private double[] koords;
@@ -49,9 +49,17 @@ public class Bestellung
         return preis;
     }
 
+    public String getUhrzeit() {
+        return uhrzeit;
+    }
+
+    public String getDatum() {
+        return datum;
+    }
+
     public double getDauer()
     {
-        double dauer = 0.0;
+
         for(int i = 0; i < gerichte_anzahl;i++)
         {
             if(lieferzeiten[i] > dauer)

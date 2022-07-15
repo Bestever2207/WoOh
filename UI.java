@@ -747,53 +747,52 @@ public class UI {
 
             for(int i = 0;i < bestellhistorie.length;i++)
             {
-                /*
                 JLayeredPane btn_panel = new JLayeredPane();
 
-                JLabel btn = new JLabel();
-                btn.setBackground(Color.decode("#ffffff"));
-                btn.setBounds(15, 15, 1088, 187);
-                btn.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-                btn.setVisible(true);
-                btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
-                btn_panel.add(btn, JLayeredPane.DEFAULT_LAYER);
+                JLabel label = new JLabel();
 
+                label.setBackground(Color.decode("#ffffff"));
+                label.setBounds(15,15,1088,187);
+                label.setAlignmentX(JButton.CENTER_ALIGNMENT);
+                label.setVisible(true);
+                label.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
-                JLabel name = new JLabel(datenelements[0][s].getName());
-                name.setFont(new Font("Open Sans", Font.PLAIN, 32));
-                name.setBounds(35, 35, 901, 41);
+                JLabel datum = new JLabel(bestellhistorie[i].getDatum());
+                datum.setFont(new Font("Open Sans",Font.PLAIN, 32));
+                datum.setBounds(35,35,901,41);
 
-                String[] beilagen = datenelements[0][s].getBeilagen();
-                StringBuilder alle_beilagen = new StringBuilder("Beilagen: ");
+                /*
+                JLabel essensrichtung = new JLabel(bestellhistorie[i].getGenre());
 
-                for (int i = 0; i < beilagen.length - 1; i++) {
-                    alle_beilagen.append(beilagen[i]).append(", ");
-                }
-                alle_beilagen.append(beilagen[beilagen.length - 1]);
+                essensrichtung.setFont(FONT_PLAIN_24);
+                essensrichtung.setBounds(35,94,901,18);
+
+                 */
 
                 ImageIcon einkaufstasche_icon = new ImageIcon("img/Einkaufstasche.png");
-                einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41, 41, Image.SCALE_SMOOTH));
+                einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41,41,Image.SCALE_SMOOTH));
 
                 JLabel einkaufstasche = new JLabel(einkaufstasche_icon);
-                einkaufstasche.setBounds(963, 35, 41, 41);
+                einkaufstasche.setBounds(963,35,41,41);
                 einkaufstasche.setBackground(Color.decode("#D4AF37"));
 
-                JLabel preis = new JLabel("" + datenelements[0][s].preisGeben() + "€");
-                preis.setBounds(895, 15, 122, 70);
-                preis.setFont(new Font("Open Sans", Font.PLAIN, 32));
+                JLabel preis = new JLabel("" + bestellhistorie[i].getPreis() + "€");
+                preis.setBounds(1013,35,129,41);
+                preis.setFont(new Font("Open Sans",Font.PLAIN, 32));
                 preis.setBackground(Color.decode("#ffffff"));
 
                 ImageIcon zeit_icon = new ImageIcon("img/zeit.png");
-                zeit_icon.setImage(zeit_icon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+                zeit_icon.setImage(zeit_icon.getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH));
 
-                JLabel zeit = new JLabel(zeit_icon);
-                zeit.setBounds(27, 131, 40, 40);
+                JLabel uhrzeit = new JLabel(zeit_icon);
+                uhrzeit.setBounds(27,131,40,40);
+                uhrzeit.setBackground(Color.decode("#ffffff"));
+
+
+                JLabel zeit = new JLabel("ca." + bestellhistorie[i].getDauer() + " min");
+                zeit.setBounds(82,139,901,24);
                 zeit.setBackground(Color.decode("#ffffff"));
-
-                JLabel durchschnittszeit = new JLabel("ca." + Math.round(lieferzeiten[lieferzeit_index]) + " min" + "     " + "\t" + datenelements[1][0].getName());
-                durchschnittszeit.setBounds(82, 131, 1000, 40);
-                durchschnittszeit.setBackground(Color.decode("#ffffff"));
-                durchschnittszeit.setFont(FONT_PLAIN_24);
+                zeit.setFont(FONT_PLAIN_24);
 
                 ImageIcon plus_icon = new ImageIcon("img/plus4.png");
                 plus_icon.setImage(plus_icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
@@ -803,27 +802,26 @@ public class UI {
                 plus.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
                 plus.setBackground(Color.decode("#ffffff"));
 
-                components[index] = plus;
+                components[i] = plus;
 
-                btn_panel.add(name, JLayeredPane.PALETTE_LAYER);
-                btn_panel.add(einkaufstasche, JLayeredPane.PALETTE_LAYER);
-                btn_panel.add(preis, JLayeredPane.PALETTE_LAYER);
 
-                btn_panel.add(zeit, JLayeredPane.PALETTE_LAYER);
-                btn_panel.add(durchschnittszeit, JLayeredPane.PALETTE_LAYER);
-                btn_panel.add(plus, JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(datum,JLayeredPane.PALETTE_LAYER);
+                //btn_panel.add(essensrichtung,JLayeredPane.PALETTE_LAYER);
 
+                btn_panel.add(einkaufstasche,JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(preis,JLayeredPane.PALETTE_LAYER);
+
+                btn_panel.add(uhrzeit,JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(zeit,JLayeredPane.PALETTE_LAYER);
+
+                btn_panel.add(label,JLayeredPane.DEFAULT_LAYER);
                 btn_panel.setVisible(true);
 
-                System.out.println("Gericht wird erstellt");
+                components[i] = plus;
+
                 SCROLLPANE_INHALT.add(btn_panel);
 
-                SCROLLPANE_INHALT.validate();
-                SCROLLPANE_INHALT.repaint();
-                SCROLLPANE_INHALT.revalidate();
-                index++;
-
-             */
+                System.out.println(SCROLLPANE_INHALT);
             }
         }
 
