@@ -1,16 +1,19 @@
 import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Bestellung
 {
-    Gericht[] gerichte;
-    int gerichte_anzahl = 0;
-    double preis;
-    double[] lieferzeiten;
-    Restaurant restaurant;
-    String adresse;
-    double[] koords;
-    Date uhrzeit;
-    Date datum;
+    private Gericht[] gerichte;
+    private int gerichte_anzahl = 0;
+    private double preis;
+    private double[] lieferzeiten;
+    //private DateTimeFormatter dtf;
+    private Restaurant restaurant;
+    private String adresse;
+    private double[] koords;
+    private String uhrzeit;
+    private String datum;
     public Bestellung()
     {
         gerichte = new Gericht[0];
@@ -58,5 +61,17 @@ public class Bestellung
         }
 
         return dauer;
+    }
+    public void akt_zeit_speichern()
+    {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        String[] daten = dtf.format(LocalDateTime.now()).split(" ");
+
+        uhrzeit = daten[1];
+
+        String[] datum_array = daten[0].split("/");
+        datum = datum_array[2] + "." + datum_array[1] + "." + datum_array[0];
+
+        System.out.println(uhrzeit + "    " + datum);
     }
 }

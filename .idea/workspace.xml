@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Guthaben + Bestellhistorie">
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="Warenkorb + bestellen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bestellung.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bestellung.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Bestellung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Bestellung.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$3.class" afterDir="false" />
@@ -323,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657641037098</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Warenkorb + bestellen">
+      <created>1657811536236</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1657811536236</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -341,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed mainScreen and koordsScreen in Ui" />
     <MESSAGE value="mainScreen" />
     <MESSAGE value="scrollpanel" />
     <MESSAGE value="restaurants ausgeben" />
@@ -366,7 +371,8 @@
     <MESSAGE value="toLowerCase für Suche" />
     <MESSAGE value="scrollpane erscheingt im zweiten menü nicht" />
     <MESSAGE value="Guthaben + Bestellhistorie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Guthaben + Bestellhistorie" />
+    <MESSAGE value="Warenkorb + bestellen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Warenkorb + bestellen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

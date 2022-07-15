@@ -15,6 +15,8 @@ public class WoOh
     {
         UI.start();
         UI.loading_screen();
+
+        bestellhistorie = new Bestellung[0];
         RestaurantsEinfuegen();
         Warenkorb_erstellen();
 
@@ -332,6 +334,14 @@ public class WoOh
                 if(warenkorb.getPreis() <= user.getGuthaben())
                 {
                     user.GuthabenAbziehen(warenkorb.getPreis());
+
+                    warenkorb.akt_zeit_speichern();
+
+                    Bestellung[] neuesArray_bestellhistorie = new Bestellung[bestellhistorie.length + 1];
+                    System.arraycopy(bestellhistorie, 0, neuesArray_bestellhistorie, 0, bestellhistorie.length);
+                    neuesArray_bestellhistorie[bestellhistorie.length] = warenkorb;
+                    bestellhistorie = neuesArray_bestellhistorie;
+
                     Warenkorb_erstellen();
                     Warenkorb_anzeigen();
                 }
@@ -346,7 +356,7 @@ public class WoOh
     }
     public void Bestellhistorie()
     {
-        JComponent[] components = UI.Bestellhistorie();
+        JComponent[] components = UI.Bestellhistorie(bestellhistorie);
 
         ((JButton)components[0]).addActionListener(new ActionListener() {
             @Override
