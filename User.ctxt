@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=User
+comment1.params=adresse\ koordinaten\ name
+comment1.target=User(java.lang.String,\ double[],\ java.lang.String)
+comment2.params=neuesGuthaben
+comment2.target=void\ GuthabenAufladen(double)
+comment3.params=preis
+comment3.target=void\ GuthabenAbziehen(double)
+comment4.params=
+comment4.target=java.lang.String\ getAdresse()
+comment5.params=
+comment5.target=double\ getGuthaben()
+comment6.params=
+comment6.target=double[]\ getKoordinaten()
+comment7.params=
+comment7.target=java.lang.String\ getName()
+numComments=8

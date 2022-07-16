@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Lieferdaten
+comment1.params=zubereitdauer\ koordsUser\ koordsRestaurant
+comment1.target=int\ LieferzeitBerechnen(double,\ double[],\ double[])
+numComments=2

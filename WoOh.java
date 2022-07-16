@@ -374,6 +374,17 @@ public class WoOh
                 mainScreen();
             }
         });
+
+        for(int i = 1;i < bestellhistorie.length;i++)
+        {
+            int finalI = i;
+            ((JButton)components[i]).addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    warenkorb.bestellung_hinzufuegen(bestellhistorie[finalI - 1]);
+                }
+            });
+        }
     }
     public void Guthaben()
     {

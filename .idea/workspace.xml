@@ -1,19 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="bestellhistorie 2.0">
-      <change afterPath="$PROJECT_DIR$/img/minus.png" afterDir="false" />
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="funktioniert 3.0">
+      <change afterPath="$PROJECT_DIR$/Abschluss.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Abschluss.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Baum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Baum.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Baumelement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Baumelement.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bestellung.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bestellung.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CsvReader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CsvReader.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CsvReaderMain.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CsvReaderMain.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datenelement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datenelement.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datenknoten.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Datenknoten.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entfernung.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entfernung.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gericht.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gericht.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lieferant.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lieferant.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lieferdaten.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lieferdaten.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MainBaum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MainBaum.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Restaurant.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Restaurant.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.ctxt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$11.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$12.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$13.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$14.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$15.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$16.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoOh.ctxt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bestellung.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bestellung.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoOh.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoOh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/Bestellung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Bestellung.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/WoOh.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WoOh/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WoOh/package.bluej" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,25 +90,28 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2BAJnclPtzryQy6u55caFlbyMDn" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lucas/IdeaProjects/WoOh/img&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/lucas/IdeaProjects/WoOh/img",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lucas\IdeaProjects\WoOh\img" />
@@ -346,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657898268836</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="funktioniert 3.0">
+      <created>1657962571724</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1657962571724</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -364,6 +422,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="gerichte ausgeben" />
     <MESSAGE value="gerichte 2tes mal ausgeben fehler" />
     <MESSAGE value="gerichte 2tes mal ausgeben fehler v2" />
@@ -380,7 +439,6 @@
     <MESSAGE value="Warenkorb hinzufügen + Kleinigkeiten + KoordsScreenFalsch Fehler" />
     <MESSAGE value="Suche funktioniert" />
     <MESSAGE value="Warenkorb new Panel" />
-    <MESSAGE value="funktioniert 3.0" />
     <MESSAGE value="csv reader update" />
     <MESSAGE value="toLowerCase für Suche" />
     <MESSAGE value="scrollpane erscheingt im zweiten menü nicht" />
@@ -389,7 +447,8 @@
     <MESSAGE value="scrollpane bug fixed" />
     <MESSAGE value="bestellhistorie" />
     <MESSAGE value="bestellhistorie 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="bestellhistorie 2.0" />
+    <MESSAGE value="funktioniert 3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="funktioniert 3.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -398,15 +457,6 @@
           <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/WoOh.java</url>
-          <line>318</line>
-          <properties class="WoOh" method="Warenkorb_anzeigen">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

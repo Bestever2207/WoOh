@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Abschluss
+comment1.params=
+comment1.target=Baumelement\ getNaechsterL()
+comment10.params=gesGericht
+comment10.target=Datenelement[][][]\ gerichtSuchen(java.lang.String)
+comment11.params=gesGericht
+comment11.target=Gericht[]\ GerichtinspeisekarteSuchen(java.lang.String)
+comment2.params=
+comment2.target=Baumelement\ getNaechsterR()
+comment3.params=
+comment3.target=Datenelement\ getInhalt()
+comment4.params=dat
+comment4.target=Baumelement\ sortiertEinfuegen(Datenelement)
+comment5.params=s
+comment5.target=Datenelement\ nameSuchen(java.lang.String)
+comment6.params=
+comment6.target=double\ preisGeben()
+comment7.params=
+comment7.target=double\ dauerGeben()
+comment8.params=
+comment8.target=int\ anzDatenknoten()
+comment9.params=gesGenre
+comment9.target=Restaurant[]\ genreSuchen(java.lang.String)
+numComments=12

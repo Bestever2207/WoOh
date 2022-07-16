@@ -817,7 +817,7 @@ public class UI {
                 plus.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
                 plus.setBackground(Color.decode("#ffffff"));
 
-                components[i] = plus;
+                components[i + 1] = plus;
 
 
                 btn_panel.add(datum,JLayeredPane.PALETTE_LAYER);
@@ -831,8 +831,6 @@ public class UI {
 
                 btn_panel.add(label,JLayeredPane.DEFAULT_LAYER);
                 btn_panel.setVisible(true);
-
-                components[i] = plus;
 
                 SCROLLPANE_INHALT.add(btn_panel);
 

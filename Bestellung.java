@@ -88,6 +88,10 @@ public class Bestellung
         System.out.println(uhrzeit + "    " + datum);
     }
 
+    public double[] getLieferzeiten() {
+        return lieferzeiten;
+    }
+
     public void gericht_entfernen(int zu_loeschendes_element)
     {
         Gericht[] neues_Array_gerichte = new Gericht[gerichte.length - 1];
@@ -104,5 +108,28 @@ public class Bestellung
         gerichte = neues_Array_gerichte;
 
         gerichte_anzahl--;
+    }
+
+    public void bestellung_hinzufuegen(Bestellung bestellung)
+    {
+        if(gerichte_anzahl == 0)
+        {
+            gerichte = bestellung.getGerichte();
+            gerichte_anzahl = bestellung.getGerichte_anzahl();
+            lieferzeiten = bestellung.getLieferzeiten();
+        }
+        else {
+            Gericht[] neuesArray_gerichte = new Gericht[gerichte_anzahl + bestellung.getGerichte_anzahl()];
+            System.arraycopy(gerichte, 0, neuesArray_gerichte, 0, gerichte.length);
+            System.arraycopy(bestellung.getGerichte(), 0, neuesArray_gerichte, gerichte.length, bestellung.getGerichte_anzahl());
+            gerichte = neuesArray_gerichte;
+
+            gerichte_anzahl += bestellung.getGerichte_anzahl();
+
+            double[] neuesArray_lieferzeit = new double[lieferzeiten.length + bestellung.getLieferzeiten().length];
+            System.arraycopy(lieferzeiten, 0, neuesArray_lieferzeit, 0, lieferzeiten.length);
+            System.arraycopy(bestellung.getLieferzeiten(), 0, neuesArray_lieferzeit, lieferzeiten.length, bestellung.getLieferzeiten().length);
+            lieferzeiten = neuesArray_lieferzeit;
+        }
     }
 }

@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Datenknoten
+comment1.params=naechsterL\ naechsterR\ inhalt
+comment1.target=Datenknoten(Baumelement,\ Baumelement,\ Datenelement)
+comment10.params=gesGenre
+comment10.target=Restaurant[]\ genreSuchen(java.lang.String)
+comment11.params=gesGericht
+comment11.target=Datenelement[][][]\ gerichtSuchen(java.lang.String)
+comment12.params=gesGericht
+comment12.target=Gericht[]\ GerichtinspeisekarteSuchen(java.lang.String)
+comment2.params=
+comment2.target=Baumelement\ getNaechsterL()
+comment3.params=
+comment3.target=Baumelement\ getNaechsterR()
+comment4.params=
+comment4.target=Datenelement\ getInhalt()
+comment5.params=dat
+comment5.target=Baumelement\ sortiertEinfuegen(Datenelement)
+comment6.params=s
+comment6.target=Datenelement\ nameSuchen(java.lang.String)
+comment7.params=
+comment7.target=double\ preisGeben()
+comment8.params=
+comment8.target=double\ dauerGeben()
+comment9.params=
+comment9.target=int\ anzDatenknoten()
+numComments=13

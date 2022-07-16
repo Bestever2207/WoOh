@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Entfernung
+comment1.params=adresse
+comment1.target=double[]\ KoordsErmitteln(java.lang.String)
+comment2.params=koordsUser\ koordsRestaurant
+comment2.target=double\ entfernungBerechnen(double[],\ double[])
+numComments=3

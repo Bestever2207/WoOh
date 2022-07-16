@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Bestellung
+comment1.params=
+comment1.target=Bestellung()
+comment10.params=zu_loeschendes_element
+comment10.target=void\ gericht_entfernen(int)
+comment2.params=neuesGericht\ lieferzeit
+comment2.target=void\ gerichthinzufuegen(Gericht,\ double)
+comment3.params=
+comment3.target=int\ getGerichte_anzahl()
+comment4.params=
+comment4.target=Gericht[]\ getGerichte()
+comment5.params=
+comment5.target=double\ getPreis()
+comment6.params=
+comment6.target=java.lang.String\ getUhrzeit()
+comment7.params=
+comment7.target=java.lang.String\ getDatum()
+comment8.params=
+comment8.target=double\ getDauer()
+comment9.params=
+comment9.target=void\ akt_zeit_speichern()
+numComments=11

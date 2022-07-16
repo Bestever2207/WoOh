@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Baum
+comment1.params=
+comment1.target=Baum()
+comment2.params=dat
+comment2.target=void\ sortiertEinfuegen(Datenelement)
+comment3.params=name
+comment3.target=Datenelement\ RestaurantSuchen(java.lang.String)
+comment4.params=
+comment4.target=double\ preisspanneBerechnen()
+comment5.params=
+comment5.target=double\ durchschnittdauerBerechnen()
+comment6.params=
+comment6.target=int\ AnzahlDatenknoten()
+comment7.params=gesGenre
+comment7.target=Restaurant[]\ GenreSuchen(java.lang.String)
+comment8.params=gesGericht
+comment8.target=Datenelement[][][]\ GerichtSuchen(java.lang.String)
+comment9.params=gesGericht
+comment9.target=Gericht[]\ GerichtinspeisekarteSuchen(java.lang.String)
+numComments=10
