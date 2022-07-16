@@ -11,7 +11,7 @@ public class Entfernung {
     //}
     //static String adresse = "Düsseldorfer Str. 17 90425 Nürnberg";
 
-    public static double[] KoordsErmitteln(String adresse)
+    public static double[] koords_ermitteln(String adresse)
     {
         adresse = adresse.replace("ü","ue");
         adresse = adresse.replace("ö","oe");
@@ -60,7 +60,7 @@ public class Entfernung {
             return null;
         }
     }
-    public static double entfernungBerechnen(double[] koordsUser, double[] koordsRestaurant)
+    public static double entfernung_berechnen(double[] koordsUser, double[] koordsRestaurant)
     {
         double entfernung;
         double dx = 71.5 * (koordsUser[1] - koordsRestaurant[1]);

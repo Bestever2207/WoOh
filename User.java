@@ -12,11 +12,11 @@ public class User
         this.name = name;
         guthaben = 0;
     }
-    public void GuthabenAufladen(double neuesGuthaben)
+    public void guthaben_aufladen(double neuesGuthaben)
     {
         guthaben = guthaben + neuesGuthaben;
     }
-    public void GuthabenAbziehen(double preis)
+    public void guthaben_abziehen(double preis)
     {
         guthaben = guthaben - preis;
     }

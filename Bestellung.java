@@ -1,4 +1,3 @@
-import java.util.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -26,7 +25,7 @@ public class Bestellung
         restaurants = new Restaurant[0];
     }
 
-    public void gerichthinzufuegen(Datenelement[] gericht_daten, double lieferzeit)
+    public void gericht_hinzufuegen(Datenelement[] gericht_daten, double lieferzeit)
     {
         Gericht neuesGericht = (Gericht)gericht_daten[0];
         Restaurant neuesRestaurant = (Restaurant)gericht_daten[1];

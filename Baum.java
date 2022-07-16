@@ -9,37 +9,37 @@ public class Baum
         wurzel = new Abschluss();
     }
     
-    public void sortiertEinfuegen(Datenelement dat)
+    public void sortiert_einfuegen(Datenelement dat)
     {
-        wurzel = wurzel.sortiertEinfuegen(dat);
+        wurzel = wurzel.sortiert_einfuegen(dat);
     }
 
-    public Datenelement RestaurantSuchen(String name)
+    public Datenelement restaurant_suchen(String name)
     {
-        return wurzel.nameSuchen(name.toLowerCase());
+        return wurzel.name_suchen(name.toLowerCase());
     }
-    public double preisspanneBerechnen()
+    public double preisspanne_berechnen()
     {
-        return wurzel.preisGeben()/ AnzahlDatenknoten();
+        return wurzel.preis_geben()/ anz_datenknoten();
     }
-    public double durchschnittdauerBerechnen()
+    public double durchschnittsdauer_berechnen()
     {
-        return wurzel.dauerGeben()/ AnzahlDatenknoten();
+        return wurzel.dauer_geben()/ anz_datenknoten();
     }
-    public int AnzahlDatenknoten()
+    public int anz_datenknoten()
     {
-        return wurzel.anzDatenknoten();
+        return wurzel.anz_datenknoten();
     }
-    public Restaurant[] GenreSuchen(String gesGenre)
+    public Restaurant[] genre_suchen(String gesGenre)
     {
-        return wurzel.genreSuchen(gesGenre.toLowerCase());
+        return wurzel.genre_suchen(gesGenre.toLowerCase());
     }
-    public Datenelement[][][] GerichtSuchen(String gesGericht)
+    public Datenelement[][][] gericht_suchen(String gesGericht)
     {
-        return wurzel.gerichtSuchen(gesGericht.toLowerCase());
+        return wurzel.gericht_suchen(gesGericht.toLowerCase());
     }
-    public Gericht[] GerichtinspeisekarteSuchen(String gesGericht)
+    public Gericht[] gericht_in_speisekarte_suchen(String gesGericht)
     {
-        return wurzel.GerichtinspeisekarteSuchen(gesGericht);
+        return wurzel.gericht_in_speisekarte_suchen(gesGericht);
     }
 }

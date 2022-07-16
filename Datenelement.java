@@ -1,15 +1,14 @@
 
 public abstract class Datenelement
 {
-    public abstract void DatenAusgeben();
-    public abstract boolean istKleiner(Datenelement dat);
-    public abstract boolean istGleich(Datenelement dat);
-    public abstract Object wertGeben();
-    public abstract double preisGeben();
-    public abstract double dauerGeben();
+    public abstract boolean ist_kleiner(Datenelement dat);
+    public abstract boolean ist_gleich(Datenelement dat);
+    public abstract Object wert_geben();
+    public abstract double preis_geben();
+    public abstract double dauer_geben();
     public abstract String getName();
     public abstract String[] getBeilagen();
-    public abstract Gericht[] GerichtinspeisekarteSuchen(String gesGericht);
+    public abstract Gericht[] gericht_in_speisekarte_suchen(String gesGericht);
     public abstract double[] getKoordinaten();
 
 }

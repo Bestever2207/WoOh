@@ -23,14 +23,14 @@ public class Restaurant extends Datenelement
         this.speisekarte = speisekarte;
         this.genre = genre;
         this.adresse = adresse;
-        this.koordinaten = Entfernung.KoordsErmitteln(adresse);
-        this.preisspanne = preisspanneBerechnen();
-        this.durchschnittdauer = durchschnittdauerBerchnen();
+        this.koordinaten = Entfernung.koords_ermitteln(adresse);
+        this.preisspanne = preisspanne_berechnen();
+        this.durchschnittdauer = durchschnittsdauer_berchnen();
     }
 
-    public Gericht[] GerichtSuchen(String gesGericht)
+    public Gericht[] gericht_suchen(String gesGericht)
     {
-        return speisekarte.GerichtinspeisekarteSuchen(gesGericht);
+        return speisekarte.gericht_in_speisekarte_suchen(gesGericht);
     }
     public String getGenre() {
         return genre;
@@ -60,37 +60,36 @@ public class Restaurant extends Datenelement
     {
         return speisekarte;
     }
-    public void DatenAusgeben()
-    {}
-    public double durchschnittdauerBerchnen()
+
+    public double durchschnittsdauer_berchnen()
     {
-        return speisekarte.durchschnittdauerBerechnen();
+        return speisekarte.durchschnittsdauer_berechnen();
     }
-    public double preisspanneBerechnen()
+    public double preisspanne_berechnen()
     {
-        return speisekarte.preisspanneBerechnen();
+        return speisekarte.preisspanne_berechnen();
     }
-    public boolean istKleiner(Datenelement dat)
+    public boolean ist_kleiner(Datenelement dat)
     {
-        return name.compareTo((String)dat.wertGeben()) < 0;
+        return name.compareTo((String)dat.wert_geben()) < 0;
     }
-    public boolean istGleich(Datenelement dat)
+    public boolean ist_gleich(Datenelement dat)
     {
-        return name.compareTo((String) dat.wertGeben()) == 0;
+        return name.compareTo((String) dat.wert_geben()) == 0;
     }
-    public Gericht[] GerichtinspeisekarteSuchen(String gesGericht)
+    public Gericht[] gericht_in_speisekarte_suchen(String gesGericht)
     {
-        return speisekarte.GerichtinspeisekarteSuchen(gesGericht);
+        return speisekarte.gericht_in_speisekarte_suchen(gesGericht);
     }
-    public Object wertGeben()
+    public Object wert_geben()
     {
         return name;
     }
-    public double preisGeben()
+    public double preis_geben()
     {
         return preisspanne;
     }
-    public double dauerGeben()
+    public double dauer_geben()
     {
         return durchschnittdauer;
     }

@@ -24,50 +24,50 @@ public class Datenknoten extends Baumelement
         return inhalt;
     }
 
-    public Baumelement sortiertEinfuegen(Datenelement dat)
+    public Baumelement sortiert_einfuegen(Datenelement dat)
     {
-        if(inhalt.istKleiner(dat))
+        if(inhalt.ist_kleiner(dat))
         {
-            naechsterR = naechsterR.sortiertEinfuegen(dat);
+            naechsterR = naechsterR.sortiert_einfuegen(dat);
         }
         else
         {
-            naechsterL = naechsterL.sortiertEinfuegen(dat);
+            naechsterL = naechsterL.sortiert_einfuegen(dat);
         }
         return this;
     }
-    public Datenelement nameSuchen(String s)
+    public Datenelement name_suchen(String s)
     {
         Datenelement dat = new Restaurant(s,new Baum(),"s","s");
-        if(((String)inhalt.wertGeben()).toLowerCase().equals(s))
+        if(((String)inhalt.wert_geben()).toLowerCase().equals(s))
         {
             return inhalt;
         }
-        else if(inhalt.istKleiner(dat))
+        else if(inhalt.ist_kleiner(dat))
         {
-            return naechsterL.nameSuchen(s);
+            return naechsterL.name_suchen(s);
         }
-        return naechsterR.nameSuchen(s);
+        return naechsterR.name_suchen(s);
 
 
     }
-    public double preisGeben()
+    public double preis_geben()
     {
-        return naechsterL.preisGeben() + naechsterR.preisGeben() + inhalt.preisGeben();
+        return naechsterL.preis_geben() + naechsterR.preis_geben() + inhalt.preis_geben();
     }
-    public double dauerGeben()
+    public double dauer_geben()
     {
-        return naechsterL.dauerGeben() + naechsterR.dauerGeben() + inhalt.dauerGeben();
+        return naechsterL.dauer_geben() + naechsterR.dauer_geben() + inhalt.dauer_geben();
     }
-    public int anzDatenknoten()
+    public int anz_datenknoten()
     {
-        return naechsterL.anzDatenknoten() + naechsterR.anzDatenknoten() + 1;
+        return naechsterL.anz_datenknoten() + naechsterR.anz_datenknoten() + 1;
     }
-    public Restaurant[] genreSuchen(String gesGenre)
+    public Restaurant[] genre_suchen(String gesGenre)
     {
         Restaurant[] result;
-        Restaurant[] liste1 = naechsterL.genreSuchen(gesGenre);
-        Restaurant[] liste2 = naechsterR.genreSuchen(gesGenre);
+        Restaurant[] liste1 = naechsterL.genre_suchen(gesGenre);
+        Restaurant[] liste2 = naechsterR.genre_suchen(gesGenre);
         if(((Restaurant)inhalt).getGenre().toLowerCase().equals(gesGenre))
         {
             result = new Restaurant[liste1.length + liste2.length + 1];
@@ -83,12 +83,12 @@ public class Datenknoten extends Baumelement
         }
         return result;
     }
-    public Datenelement[][][] gerichtSuchen(String gesGericht)
+    public Datenelement[][][] gericht_suchen(String gesGericht)
     {
         Datenelement[][][] result;
-        Datenelement[][][] liste1 = naechsterL.gerichtSuchen(gesGericht);
-        Datenelement[][][] liste2 = naechsterR.gerichtSuchen(gesGericht);
-        Gericht[] gerichte = inhalt.GerichtinspeisekarteSuchen(gesGericht);
+        Datenelement[][][] liste1 = naechsterL.gericht_suchen(gesGericht);
+        Datenelement[][][] liste2 = naechsterR.gericht_suchen(gesGericht);
+        Gericht[] gerichte = inhalt.gericht_in_speisekarte_suchen(gesGericht);
         if(gerichte.length > 0)
         {
             result = new Datenelement[liste1.length + liste2.length + 1][2][50];
@@ -107,11 +107,11 @@ public class Datenknoten extends Baumelement
         }
         return result;
     }
-    public Gericht[] GerichtinspeisekarteSuchen(String gesGericht)
+    public Gericht[] gericht_in_speisekarte_suchen(String gesGericht)
     {
         Gericht[] result;
-        Gericht[] liste1 = naechsterL.GerichtinspeisekarteSuchen(gesGericht);
-        Gericht[] liste2 = naechsterR.GerichtinspeisekarteSuchen(gesGericht);
+        Gericht[] liste1 = naechsterL.gericht_in_speisekarte_suchen(gesGericht);
+        Gericht[] liste2 = naechsterR.gericht_in_speisekarte_suchen(gesGericht);
         if(inhalt.getName().toLowerCase().contains(gesGericht))
         {
             result = new Gericht[liste1.length + liste2.length + 1];

@@ -2,7 +2,7 @@ import java.io.*;
 
 public class CsvReader
 {
-    public static Baum RestaurantsGeben(File file)
+    public static Baum restaurants_geben(File file)
     {
         Baum restaurants = new Baum();
         String line;
@@ -23,9 +23,9 @@ public class CsvReader
                     else {
                         beilagen = new String[]{"keine"};
                     }
-                    speisekarte.sortiertEinfuegen(new Gericht(speise[0], Double.parseDouble(speise[1]), Double.parseDouble(speise[2]), beilagen));
+                    speisekarte.sortiert_einfuegen(new Gericht(speise[0], Double.parseDouble(speise[1]), Double.parseDouble(speise[2]), beilagen));
                 }
-                restaurants.sortiertEinfuegen(new Restaurant(token[0], speisekarte, token[1], token[2]));
+                restaurants.sortiert_einfuegen(new Restaurant(token[0], speisekarte, token[1], token[2]));
             }
         }
         catch (IOException e)

@@ -17,23 +17,22 @@ public class WoOh
         UI.loading_screen();
 
         bestellhistorie = new Bestellung[0];
-        RestaurantsEinfuegen();
-        Warenkorb_erstellen();
+        restaurants_einfuegen();
+        warenkorb_erstellen();
 
-        KoordsSetzen();
+        koords_setzen();
 
-        //mainScreen();
 
     }
-    public void RestaurantsEinfuegen()
+    public void restaurants_einfuegen()
     {
-        restaurants = CsvReader.RestaurantsGeben(new File("Restaurants.csv"));
+        restaurants = CsvReader.restaurants_geben(new File("Restaurants.csv"));
     }
 
 
-    public void KoordsSetzen()
+    public void koords_setzen()
     {
-        JComponent[] userDaten_in = UI.KoordsScreen();
+        JComponent[] userDaten_in = UI.koords_screen();
         JComponent[] userDaten_false = new JComponent[5];
         JButton suchen_btn = (JButton) userDaten_in[5];
 
@@ -46,7 +45,7 @@ public class WoOh
                 double[] koordinaten;
 
                 String adresse = ((JTextField)userDaten_in[0]).getText() + " " + ((JTextField)userDaten_in[1]).getText() + " " + ((JTextField)userDaten_in[2]).getText() + " " + ((JTextField)userDaten_in[3]).getText();
-                koordinaten = Entfernung.KoordsErmitteln(adresse);
+                koordinaten = Entfernung.koords_ermitteln(adresse);
 
                 for(int i = 0;i < 5;i++)
                 {
@@ -70,13 +69,13 @@ public class WoOh
 
                 if(ist_falsch)
                 {
-                    UI.koordsScreenFalsch(userDaten_false);
+                    UI.koords_screen_falsch(userDaten_false);
                 }
                 else
                 {
                     System.out.println(koordinaten[0] + " " + koordinaten[1]);
                     user = new User(adresse, koordinaten, userDaten[4]);
-                    mainScreen();
+                    main_screen();
                 }
             }
         });
@@ -84,9 +83,9 @@ public class WoOh
     }
 
 
-    public void mainScreen()
+    public void main_screen()
     {
-        JComponent[] jComponent = UI.mainScreen();
+        JComponent[] jComponent = UI.main_screen();
 
         JTextField gerichte_in = (JTextField)jComponent[0];
         JTextField restaurants_in = (JTextField)jComponent[1];
@@ -103,7 +102,7 @@ public class WoOh
                 String gesGericht = gerichte_in.getText();
                 if(gesGericht.isBlank())
                 {
-                    UI.KeineSuchergebnisse();
+                    UI.keine_suchergebnisse();
                     
                 }
                 else
@@ -112,13 +111,13 @@ public class WoOh
 
                     UI.info_panel_setzen("Suche nach: " + "\"" + gesGericht + "\"");
 
-                    Datenelement[][][] suchergebnisse = restaurants.GerichtSuchen(gesGericht);
+                    Datenelement[][][] suchergebnisse = restaurants.gericht_suchen(gesGericht);
                     if(suchergebnisse.length == 0)
                     {
-                        UI.KeineSuchergebnisse();
+                        UI.keine_suchergebnisse();
                     }
                     else {
-                        gerichteAusgeben(suchergebnisse,gesGericht);
+                        gerichte_ausgeben(suchergebnisse,gesGericht);
                     }
                 }
             }
@@ -133,34 +132,34 @@ public class WoOh
 
                 if(gesRestaurant.isBlank())
                 {
-                    UI.KeineSuchergebnisse();
+                    UI.keine_suchergebnisse();
                 }
-                else if (istEssensrichtung(gesRestaurant))
+                else if (ist_essensrichtung(gesRestaurant))
                 {
                     System.out.println("Genre wird gesucht");
-                    Restaurant[] suchergebnisse_Genre = restaurants.GenreSuchen(gesRestaurant);
+                    Restaurant[] suchergebnisse_Genre = restaurants.genre_suchen(gesRestaurant);
 
 
                     if(suchergebnisse_Genre.length == 0)
                     {
-                        UI.KeineSuchergebnisse();
+                        UI.keine_suchergebnisse();
                     }
                     else
                     {
-                        restaurantsAusgeben(suchergebnisse_Genre,gesRestaurant);
+                        restaurants_ausgeben(suchergebnisse_Genre,gesRestaurant);
                     }
                 }
                 else
                 {
                     System.out.println("Restaurant wird gesucht");
-                    Restaurant[] suchergebnis_restaurant = new Restaurant[]{(Restaurant) restaurants.RestaurantSuchen(gesRestaurant)};
+                    Restaurant[] suchergebnis_restaurant = new Restaurant[]{(Restaurant) restaurants.restaurant_suchen(gesRestaurant)};
                     if(suchergebnis_restaurant[0] == null)
                     {
-                        UI.KeineSuchergebnisse();
+                        UI.keine_suchergebnisse();
                     }
                     else
                     {
-                        restaurantsAusgeben(suchergebnis_restaurant,gesRestaurant);
+                        restaurants_ausgeben(suchergebnis_restaurant,gesRestaurant);
                     }
                 }
             }
@@ -169,29 +168,29 @@ public class WoOh
         geld_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Guthaben();
+                guthaben();
             }
         });
 
         warenkorb_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Warenkorb_anzeigen();
+                warenkorb_anzeigen();
             }
         });
 
         bestellhistorie_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Bestellhistorie();
+                bestellhistorie();
             }
         });
     }
 
-    public boolean istEssensrichtung(String input)
+    public boolean ist_essensrichtung(String input)
     {
         for (String s : essensrichtungen) {
-            if (s.toLowerCase().equals(input.toLowerCase())) {
+            if (s.equalsIgnoreCase(input)) {
                 return true;
             }
         }
@@ -199,7 +198,7 @@ public class WoOh
     }
 
         
-    public void gerichteAusgeben(Datenelement[][][] suchergebnisse_gerichte,String gesGericht)
+    public void gerichte_ausgeben(Datenelement[][][] suchergebnisse_gerichte, String gesGericht)
     {
         int anzahl_ergebnisse = 0;
         for (Datenelement[][] datenelements : suchergebnisse_gerichte) {
@@ -209,18 +208,16 @@ public class WoOh
         double[] lieferzeiten = new double[anzahl_ergebnisse];
 
         int index = 0;
-        for(int r = 0;r < suchergebnisse_gerichte.length;r++)
-        {
-            for(int s = 0; s < suchergebnisse_gerichte[r][0].length;s++)
-            {
-                lieferzeiten[index] = Lieferdaten.LieferzeitBerechnen(suchergebnisse_gerichte[r][0][s].dauerGeben(), user.getKoordinaten(), suchergebnisse_gerichte[r][1][0].getKoordinaten());
+        for (Datenelement[][] value : suchergebnisse_gerichte) {
+            for (int s = 0; s < value[0].length; s++) {
+                lieferzeiten[index] = Lieferdaten.lieferzeit_berechnen(value[0][s].dauer_geben(), user.getKoordinaten(), value[1][0].getKoordinaten());
                 index++;
             }
         }
 
 
 
-        JComponent[] components = UI.gerichteAusgeben(suchergebnisse_gerichte,lieferzeiten,true);
+        JComponent[] components = UI.gerichte_ausgeben(suchergebnisse_gerichte,lieferzeiten,true);
 
         index = 0;
         for (Datenelement[][] datenelements : suchergebnisse_gerichte) {
@@ -230,7 +227,7 @@ public class WoOh
                 main_btn.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        speisekarteAusgeben(restaurant);
+                        speisekarte_ausgeben(restaurant);
                     }
                 });
 
@@ -242,7 +239,7 @@ public class WoOh
                 btn_plus.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        gericht_warenkorbhinzufuegen(gerichtDaten,lieferzeit);
+                        gericht_warenkorb_hinzufuegen(gerichtDaten,lieferzeit);
                     }
                 });
                 index++;
@@ -250,21 +247,21 @@ public class WoOh
         }
     }
 
-    public void restaurantsAusgeben(Restaurant[] suchergebnisse_restaurants,String gesRestaurant)
+    public void restaurants_ausgeben(Restaurant[] suchergebnisse_restaurants, String gesRestaurant)
     {
         double[] lieferzeiten = new double[suchergebnisse_restaurants.length];
 
         for(int i = 0;i < suchergebnisse_restaurants.length;i++)
         {
-            lieferzeiten[i] = Lieferdaten.LieferzeitBerechnen(suchergebnisse_restaurants[i].dauerGeben(),user.getKoordinaten(),suchergebnisse_restaurants[i].getKoordinaten());
+            lieferzeiten[i] = Lieferdaten.lieferzeit_berechnen(suchergebnisse_restaurants[i].dauer_geben(),user.getKoordinaten(),suchergebnisse_restaurants[i].getKoordinaten());
         }
-        JComponent[] components = UI.restaurantsAusgeben(suchergebnisse_restaurants,lieferzeiten);
+        JComponent[] components = UI.restaurants_ausgeben(suchergebnisse_restaurants,lieferzeiten);
 
         for (JComponent component : components) {
             ((JButton) component).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    speisekarteAusgeben(suchergebnisse_restaurants[0]);
+                    speisekarte_ausgeben(suchergebnisse_restaurants[0]);
                 }
             });
         }
@@ -272,9 +269,9 @@ public class WoOh
 
 
 
-    public void speisekarteAusgeben(Datenelement restaurant)
+    public void speisekarte_ausgeben(Datenelement restaurant)
     {
-        Gericht[] speisekarte = restaurant.GerichtinspeisekarteSuchen("");
+        Gericht[] speisekarte = restaurant.gericht_in_speisekarte_suchen("");
         Datenelement[][][] suchergebnis = new Datenelement[][][]{new Datenelement[][]{speisekarte,new Restaurant[]{(Restaurant) restaurant}}};
 
         int anzahl_ergebnisse = speisekarte.length;
@@ -286,12 +283,12 @@ public class WoOh
 
         for(int s = 0; s < suchergebnis[0][0].length;s++)
         {
-            lieferzeiten[index] = Lieferdaten.LieferzeitBerechnen(suchergebnis[0][0][s].dauerGeben(), user.getKoordinaten(), suchergebnis[0][1][0].getKoordinaten());
+            lieferzeiten[index] = Lieferdaten.lieferzeit_berechnen(suchergebnis[0][0][s].dauer_geben(), user.getKoordinaten(), suchergebnis[0][1][0].getKoordinaten());
             index++;
         }
 
 
-        JComponent[] components = UI.gerichteAusgeben(suchergebnis,lieferzeiten,false);
+        JComponent[] components = UI.gerichte_ausgeben(suchergebnis,lieferzeiten,false);
         UI.info_panel_setzen("Speisekarte von " + "\"" + restaurant.getName() + "\"");
 
         for(int i = 0;i < components.length;i++)
@@ -301,29 +298,29 @@ public class WoOh
             ((JButton)components[i]).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    gericht_warenkorbhinzufuegen(gerichtDaten,lieferzeit);
+                    gericht_warenkorb_hinzufuegen(gerichtDaten,lieferzeit);
                 }
             });
         }
     }
 
-    public void gericht_warenkorbhinzufuegen(Datenelement[] gerichtDaten, double lieferzeit)
+    public void gericht_warenkorb_hinzufuegen(Datenelement[] gerichtDaten, double lieferzeit)
     {
-        warenkorb.gerichthinzufuegen(gerichtDaten,lieferzeit);
+        warenkorb.gericht_hinzufuegen(gerichtDaten,lieferzeit);
     }
 
-    public void Warenkorb_erstellen()
+    public void warenkorb_erstellen()
     {
         warenkorb = new Bestellung();
     }
-    public void Warenkorb_anzeigen()
+    public void warenkorb_anzeigen()
     {
-        JComponent[] components = UI.Warenkorb(warenkorb);
+        JComponent[] components = UI.warenkorb_screen(warenkorb);
 
         ((JButton)components[0]).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainScreen();
+                main_screen();
             }
         });
 
@@ -332,7 +329,7 @@ public class WoOh
             public void actionPerformed(ActionEvent e) {
                 if(warenkorb.getPreis() <= user.getGuthaben())
                 {
-                    user.GuthabenAbziehen(warenkorb.getPreis());
+                    user.guthaben_abziehen(warenkorb.getPreis());
 
                     warenkorb.akt_zeit_speichern();
 
@@ -341,8 +338,8 @@ public class WoOh
                     neuesArray_bestellhistorie[bestellhistorie.length] = warenkorb;
                     bestellhistorie = neuesArray_bestellhistorie;
 
-                    Warenkorb_erstellen();
-                    Warenkorb_anzeigen();
+                    warenkorb_erstellen();
+                    warenkorb_anzeigen();
                 }
                 else
                 {
@@ -358,20 +355,20 @@ public class WoOh
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     warenkorb.gericht_entfernen(finalI - 2);
-                    Warenkorb_anzeigen();
+                    warenkorb_anzeigen();
                 }
             });
         }
 
     }
-    public void Bestellhistorie()
+    public void bestellhistorie()
     {
-        JComponent[] components = UI.Bestellhistorie(bestellhistorie);
+        JComponent[] components = UI.bestellhistorie_screen(bestellhistorie);
 
         ((JButton)components[0]).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainScreen();
+                main_screen();
             }
         });
 
@@ -386,14 +383,14 @@ public class WoOh
             });
         }
     }
-    public void Guthaben()
+    public void guthaben()
     {
-        JComponent[] components = UI.Guthaben(user.getGuthaben());
+        JComponent[] components = UI.guthaben_screen(user.getGuthaben());
 
         ((JButton)components[0]).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainScreen();
+                main_screen();
             }
         });
 
@@ -404,8 +401,8 @@ public class WoOh
 
                 try{
                     double betrag_zahl = Double.parseDouble(betrag);
-                    user.GuthabenAufladen(betrag_zahl);
-                    Guthaben();
+                    user.guthaben_aufladen(betrag_zahl);
+                    guthaben();
                 }
                 catch (NumberFormatException r)
                 {

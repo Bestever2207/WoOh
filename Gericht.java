@@ -32,21 +32,20 @@ public class Gericht extends Datenelement
     {
         return beilagen;
     }
-    public void DatenAusgeben()
-    {}
-    public boolean istKleiner(Datenelement dat)
+
+    public boolean ist_kleiner(Datenelement dat)
     {
-        return name.compareTo((String)dat.wertGeben()) < 0;
+        return name.compareTo((String)dat.wert_geben()) < 0;
     }
-    public boolean istGleich(Datenelement dat)
+    public boolean ist_gleich(Datenelement dat)
     {
-        return name.compareTo((String)dat.wertGeben()) == 0;
+        return name.compareTo((String)dat.wert_geben()) == 0;
     }
-    public Object wertGeben()
+    public Object wert_geben()
     {
         return name;
     }
-    public Gericht[] GerichtinspeisekarteSuchen(String gesGericht)
+    public Gericht[] gericht_in_speisekarte_suchen(String gesGericht)
     {
         return null;
     }
@@ -55,11 +54,11 @@ public class Gericht extends Datenelement
         return null;
     }
 
-    public double preisGeben()
+    public double preis_geben()
     {
         return preis;
     }
-    public double dauerGeben()
+    public double dauer_geben()
     {
         return dauer;
     }

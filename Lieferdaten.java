@@ -1,8 +1,8 @@
 
 public class Lieferdaten {
-    public static int LieferzeitBerechnen(double zubereitdauer,double[] koordsUser,double[] koordsRestaurant)
+    public static int lieferzeit_berechnen(double zubereitdauer, double[] koordsUser, double[] koordsRestaurant)
     {
-        double entfernung = Entfernung.entfernungBerechnen(koordsUser, koordsRestaurant);
+        double entfernung = Entfernung.entfernung_berechnen(koordsUser, koordsRestaurant);
         System.out.println(zubereitdauer);
         System.out.println(entfernung);
         

@@ -13,35 +13,35 @@ public class Abschluss extends Baumelement
     {
         return null;
     }
-    public Baumelement sortiertEinfuegen(Datenelement dat)
+    public Baumelement sortiert_einfuegen(Datenelement dat)
     {
         return new Datenknoten(this,this,dat);
     }
-    public Datenelement nameSuchen(String s)
+    public Datenelement name_suchen(String s)
     {
         return null;
     }
-    public double preisGeben()
+    public double preis_geben()
     {
         return 0;
     }
-    public double dauerGeben()
+    public double dauer_geben()
     {
         return 0;
     }
-    public int anzDatenknoten()
+    public int anz_datenknoten()
     {
         return 0;
     }
-    public Restaurant[] genreSuchen(String gesGenre)
+    public Restaurant[] genre_suchen(String gesGenre)
     {
         return new Restaurant[0];
     }
-    public Datenelement[][][] gerichtSuchen(String gesGericht)
+    public Datenelement[][][] gericht_suchen(String gesGericht)
     {
         return new Datenelement[0][0][0];
     }
-    public Gericht[] GerichtinspeisekarteSuchen(String gesGericht)
+    public Gericht[] gericht_in_speisekarte_suchen(String gesGericht)
     {
         return new Gericht[0];
     }
