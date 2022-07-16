@@ -9,8 +9,6 @@ public class Bestellung
     private double dauer = 0.0;
     private double[] lieferzeiten;
     private Restaurant[] restaurants;
-    private String adresse;
-    private double[] koords;
     private String uhrzeit;
     private String datum;
 
@@ -47,7 +45,6 @@ public class Bestellung
 
         gerichte_anzahl++;
         preis += neuesGericht.getPreis();
-        System.out.println(neuesGericht.getName() + " wurde dem Warenkorb hinzugefügt");
     }
 
     public int getGerichte_anzahl() {
@@ -99,8 +96,6 @@ public class Bestellung
 
         String[] datum_array = daten[0].split("/");
         datum = datum_array[2] + "." + datum_array[1] + "." + datum_array[0];
-
-        System.out.println(uhrzeit + "    " + datum);
     }
 
     public double[] getLieferzeiten() {
@@ -123,28 +118,5 @@ public class Bestellung
         gerichte = neues_Array_gerichte;
 
         gerichte_anzahl--;
-    }
-
-    public void bestellung_hinzufuegen(Bestellung bestellung)
-    {
-        if(gerichte_anzahl == 0)
-        {
-            gerichte = bestellung.getGerichte();
-            gerichte_anzahl = bestellung.getGerichte_anzahl();
-            lieferzeiten = bestellung.getLieferzeiten();
-        }
-        else {
-            Gericht[] neuesArray_gerichte = new Gericht[gerichte_anzahl + bestellung.getGerichte_anzahl()];
-            System.arraycopy(gerichte, 0, neuesArray_gerichte, 0, gerichte.length);
-            System.arraycopy(bestellung.getGerichte(), 0, neuesArray_gerichte, gerichte.length, bestellung.getGerichte_anzahl());
-            gerichte = neuesArray_gerichte;
-
-            gerichte_anzahl += bestellung.getGerichte_anzahl();
-
-            double[] neuesArray_lieferzeit = new double[lieferzeiten.length + bestellung.getLieferzeiten().length];
-            System.arraycopy(lieferzeiten, 0, neuesArray_lieferzeit, 0, lieferzeiten.length);
-            System.arraycopy(bestellung.getLieferzeiten(), 0, neuesArray_lieferzeit, lieferzeiten.length, bestellung.getLieferzeiten().length);
-            lieferzeiten = neuesArray_lieferzeit;
-        }
     }
 }

@@ -25,6 +25,7 @@ public class CsvReader
                     }
                     speisekarte.sortiert_einfuegen(new Gericht(speise[0], Double.parseDouble(speise[1]), Double.parseDouble(speise[2]), beilagen));
                 }
+
                 restaurants.sortiert_einfuegen(new Restaurant(token[0], speisekarte, token[1], token[2]));
             }
         }

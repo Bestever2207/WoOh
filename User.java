@@ -14,7 +14,7 @@ public class User
     }
     public void guthaben_aufladen(double neuesGuthaben)
     {
-        guthaben = guthaben + neuesGuthaben;
+        guthaben = guthaben + Math.round(neuesGuthaben);
     }
     public void guthaben_abziehen(double preis)
     {

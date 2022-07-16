@@ -46,19 +46,9 @@ public class Restaurant extends Datenelement
         return preisspanne;
     }
 
-    public double getDurchschnittdauer()
-    {
-        return durchschnittdauer;
-    }
-
     public String[] getBeilagen()
     {
         return null;
-    }
-
-    public Baum getSpeisekarte()
-    {
-        return speisekarte;
     }
 
     public double durchschnittsdauer_berchnen()

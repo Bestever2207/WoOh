@@ -8,20 +8,17 @@ public class UI {
     static JFrame FRAME;
     static JLabel INFO_LABEL;
     static JLayeredPane PANEL;
-    static JLayeredPane BESTELLUNGS_PANEL;
     static JScrollPane SCROLLPANE;
     static JPanel SCROLLPANE_INHALT;
     static final Font FONT_PLAIN_26 = new Font("Open Sans",Font.PLAIN, 26);
     static final Font FONT_PLAIN_24 = new Font("Open Sans",Font.PLAIN, 24);
     static final Font FONT_PLAIN_40 = new Font("Open Sans",Font.PLAIN, 40);
-    static final ImageIcon LOGO_IMG = new ImageIcon("img/logo4.png");
 
     
     public static void start()
     {
         FRAME = new JFrame("WoOh");
         FRAME.setSize(1422,900);
-        //frame.setIconImage();
         FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FRAME.getContentPane().setBackground( Color.decode("#ffffff") );
         PANEL = new JLayeredPane();
@@ -32,20 +29,15 @@ public class UI {
         FRAME.setIconImage(logo.getImage());
         FRAME.setVisible(true);
 
-        BESTELLUNGS_PANEL = new JLayeredPane();
-        BESTELLUNGS_PANEL.setLayout(null);
-        BESTELLUNGS_PANEL.setBackground(Color.WHITE);
-        JLabel hallo = new JLabel("hallo");
-        hallo.setBounds(15,300,40,60);
-        BESTELLUNGS_PANEL.add(hallo);
-        FRAME.add(BESTELLUNGS_PANEL);
+
     }
 
     public static void loading_screen()
     {
+        ImageIcon logo_img = new ImageIcon("img/logo4.png");
+        logo_img.setImage(logo_img.getImage().getScaledInstance(388,388,Image.SCALE_DEFAULT));
 
-        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(388,388,Image.SCALE_DEFAULT));
-        JLabel logo = new JLabel(LOGO_IMG);
+        JLabel logo = new JLabel(logo_img);
         logo.setBounds(517,62,388,388);
         PANEL.add(logo);
 
@@ -65,11 +57,12 @@ public class UI {
 
         ImageIcon logo_img = new ImageIcon("img/logo4.png");
         logo_img.setImage(logo_img.getImage().getScaledInstance(169,169,Image.SCALE_SMOOTH));
+
         JLabel logo = new JLabel(logo_img);
         logo.setBounds(25,25,169,169);
         PANEL.add(logo);
 
-        JTextField strasse_in = new JTextField("Düsseldorfer Str");
+        JTextField strasse_in = new JTextField();
         strasse_in.setBounds(458,228,381,69);
         strasse_in.setFont(FONT_PLAIN_26);
         strasse_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -84,7 +77,7 @@ public class UI {
         PANEL.add(strasse_tx);
 
 
-        JTextField nummer_in = new JTextField("17");
+        JTextField nummer_in = new JTextField();
         nummer_in.setBounds(862,228,101,69);
         nummer_in.setFont(FONT_PLAIN_26);
         nummer_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -99,7 +92,7 @@ public class UI {
         PANEL.add(nummer_tx);
 
 
-        JTextField stadt_in = new JTextField("Nürnberg");
+        JTextField stadt_in = new JTextField();
         stadt_in.setBounds(458,341,279,69);
         stadt_in.setFont(FONT_PLAIN_26);
         stadt_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -114,7 +107,7 @@ public class UI {
         PANEL.add(stadt_tx);
 
 
-        JTextField plz_in = new JTextField("90425");
+        JTextField plz_in = new JTextField();
         plz_in.setBounds(795,341,168,69);
         plz_in.setFont(FONT_PLAIN_26);
         plz_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -129,7 +122,7 @@ public class UI {
         PANEL.add(plz_tx);
 
 
-        JTextField name_in = new JTextField("Lucas Horn");
+        JTextField name_in = new JTextField();
         name_in.setBounds(458,500,505,69);
         name_in.setFont(FONT_PLAIN_26);
         name_in.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
@@ -190,7 +183,7 @@ public class UI {
         INFO_LABEL = new JLabel();
         PANEL.add(INFO_LABEL);
 
-        JComponent[] jComponent = new JComponent[8];
+        JComponent[] jComponent = new JComponent[7];
 
         JLabel obere_Leiste = new JLabel();
         obere_Leiste.setBackground(Color.decode("#D4AF37"));
@@ -198,8 +191,10 @@ public class UI {
         obere_Leiste.setOpaque(true);
         PANEL.add(obere_Leiste,1);
 
-        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(160,160,Image.SCALE_DEFAULT));
-        JLabel logo = new JLabel(LOGO_IMG);
+        ImageIcon logo_img = new ImageIcon("img/logo4.png");
+        logo_img.setImage(logo_img.getImage().getScaledInstance(160,160,Image.SCALE_DEFAULT));
+
+        JLabel logo = new JLabel(logo_img);
         logo.setBackground(Color.decode("#D4AF37"));
         logo.setBounds(25,25,160,160);
         logo.setOpaque(true);
@@ -284,15 +279,13 @@ public class UI {
         sortieren.setBounds(1050,238,187,40);
         PANEL.add(sortieren,0);
 
-        String[] optionen = {"","Preis","Dauer"};
+        String[] optionen = {"Relevanz"};
         JComboBox<String> jComboBox = new JComboBox<>(optionen);
         jComboBox.setFont(FONT_PLAIN_24);
         jComboBox.setForeground(Color.black);
         jComboBox.setBackground(Color.white);
         jComboBox.setBounds(1229, 234, 148, 47);
         PANEL.add(jComboBox,1);
-
-        jComponent[7] = jComboBox;
 
         PANEL.validate();
         PANEL.repaint();
@@ -370,7 +363,6 @@ public class UI {
 
         scrollpane_erstellen(152, 305, 1133,height, 500);
 
-        System.out.println("restaurantsAusgeben ausgeführt");
 
 
 
@@ -401,7 +393,7 @@ public class UI {
             einkaufstasche.setBounds(963,35,41,41);
             einkaufstasche.setBackground(Color.decode("#D4AF37"));
 
-            JLabel preis = new JLabel("" + suchergebnisse[i].getPreisspanne() + "€");
+            JLabel preis = new JLabel("" + ((double)Math.round(suchergebnisse[i].getPreisspanne() * 100)) / 100 + "€");
             preis.setBounds(1013,35,129,41);
             preis.setFont(new Font("Open Sans",Font.PLAIN, 32));
             preis.setBackground(Color.decode("#ffffff"));
@@ -436,7 +428,6 @@ public class UI {
 
             SCROLLPANE_INHALT.add(btn_panel);
 
-            System.out.println(SCROLLPANE_INHALT);
         }
 
         return components;
@@ -458,7 +449,6 @@ public class UI {
             components = new JComponent[anzahl_suchergebnisse];
         }
 
-        System.out.println("gerichteAusgeben ausgeführt");
 
         int index = 0;
 
@@ -557,7 +547,6 @@ public class UI {
 
                 btn_panel.setVisible(true);
 
-                System.out.println("Gericht wird erstellt");
                 SCROLLPANE_INHALT.add(btn_panel);
 
                 SCROLLPANE_INHALT.validate();
@@ -637,7 +626,7 @@ public class UI {
         total.setBackground(Color.decode("#ffffff"));
         PANEL.add(total);
 
-        JLabel zwischensumme_zahl = new JLabel(warenkorb.getPreis() + "€");
+        JLabel zwischensumme_zahl = new JLabel(((double)Math.round(warenkorb.getPreis() * 100)) / 100 + "€");
         zwischensumme_zahl.setBounds(1259, 382, 116, 40);
         zwischensumme_zahl.setFont(FONT_PLAIN_24);
         zwischensumme_zahl.setBackground(Color.decode("#ffffff"));
@@ -649,7 +638,7 @@ public class UI {
         lieferkosten_zahl.setBackground(Color.decode("#ffffff"));
         PANEL.add(lieferkosten_zahl);
 
-        JLabel total_zahl = new JLabel(warenkorb.getPreis() + "€");
+        JLabel total_zahl = new JLabel(((double)Math.round(warenkorb.getPreis() * 100)) / 100 + "€");
         total_zahl.setBounds(1259, 491, 79, 51);
         total_zahl.setFont(new Font("Open Sans",Font.BOLD, 24));
         total_zahl.setBackground(Color.decode("#ffffff"));
@@ -864,7 +853,6 @@ public class UI {
 
                 SCROLLPANE_INHALT.add(btn_panel);
 
-                System.out.println(SCROLLPANE_INHALT);
             }
         }
 
@@ -962,8 +950,9 @@ public class UI {
         obere_Leiste.setOpaque(true);
         PANEL.add(obere_Leiste,JLayeredPane.DEFAULT_LAYER);
 
-        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
-        JLabel logo = new JLabel(LOGO_IMG);
+        ImageIcon logo_img = new ImageIcon("img/logo4.png");
+        logo_img.setImage(logo_img.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
+        JLabel logo = new JLabel(logo_img);
         logo.setBackground(Color.decode("#D4AF37"));
         logo.setBounds(25,25,60,60);
         logo.setOpaque(true);

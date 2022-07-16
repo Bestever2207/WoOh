@@ -9,7 +9,7 @@ public class WoOh
     private Baum restaurants;
     private Bestellung warenkorb;
     private Bestellung[] bestellhistorie;
-    private final String[] essensrichtungen = {"asiatisch","italienisch","kroatisch","amerikanisch"};
+    private final String[] essensrichtungen = {"Amerikanisch", "Asiatisch", "Italienisch", "Indisch", "Asiatisch", "Türkisch"};
 
     public WoOh()
     {
@@ -73,7 +73,6 @@ public class WoOh
                 }
                 else
                 {
-                    System.out.println(koordinaten[0] + " " + koordinaten[1]);
                     user = new User(adresse, koordinaten, userDaten[4]);
                     main_screen();
                 }
@@ -94,7 +93,6 @@ public class WoOh
         JButton geld_btn = (JButton)jComponent[4];
         JButton bestellhistorie_btn = (JButton)jComponent[5];
         JButton warenkorb_btn = (JButton)jComponent[6];
-        JComboBox sortieren_nach = (JComboBox)jComponent[7];
 
         suchen_btn_gericht.addActionListener(new ActionListener() {
             @Override
@@ -107,7 +105,6 @@ public class WoOh
                 }
                 else
                 {
-                    System.out.println("Gericht wird gesucht");
 
                     UI.info_panel_setzen("Suche nach: " + "\"" + gesGericht + "\"");
 
@@ -136,7 +133,6 @@ public class WoOh
                 }
                 else if (ist_essensrichtung(gesRestaurant))
                 {
-                    System.out.println("Genre wird gesucht");
                     Restaurant[] suchergebnisse_Genre = restaurants.genre_suchen(gesRestaurant);
 
 
@@ -151,7 +147,6 @@ public class WoOh
                 }
                 else
                 {
-                    System.out.println("Restaurant wird gesucht");
                     Restaurant[] suchergebnis_restaurant = new Restaurant[]{(Restaurant) restaurants.restaurant_suchen(gesRestaurant)};
                     if(suchergebnis_restaurant[0] == null)
                     {
@@ -372,13 +367,16 @@ public class WoOh
             }
         });
 
-        for(int i = 1;i < bestellhistorie.length;i++)
+        for(int i = 0;i < bestellhistorie.length;i++)
         {
             int finalI = i;
-            ((JButton)components[i]).addActionListener(new ActionListener() {
+            ((JButton)components[i + 1]).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    warenkorb.bestellung_hinzufuegen(bestellhistorie[finalI - 1]);
+                    for(int z = 0;z < bestellhistorie[finalI].getGerichte_anzahl();z++) {
+                        gericht_warenkorb_hinzufuegen(new Datenelement[]{bestellhistorie[finalI].getGerichte()[z], bestellhistorie[finalI].getRestaurants()[z]}, bestellhistorie[finalI].getLieferzeiten()[z]);
+                    }
+                    warenkorb_anzeigen();
                 }
             });
         }
@@ -406,7 +404,6 @@ public class WoOh
                 }
                 catch (NumberFormatException r)
                 {
-                    System.out.println("keine Zahlen eingegeben");
                     UI.falsches_format();
                 }
 

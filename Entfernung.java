@@ -6,11 +6,6 @@ import java.net.MalformedURLException;
 
 public class Entfernung {
 
-    //public static void main(String[] args) {
-
-    //}
-    //static String adresse = "Düsseldorfer Str. 17 90425 Nürnberg";
-
     public static double[] koords_ermitteln(String adresse)
     {
         adresse = adresse.replace("ü","ue");
@@ -24,7 +19,6 @@ public class Entfernung {
         }
         try {
             URL url = new URL("https://api.myptv.com/geocoding/v1/locations/by-text?searchText=" + adresse.replace(" ", "%20") + "&apiKey=NzQwNWE4YmUwMTg3NDM0ZWI4NGE4ZWE4OTEzZTQ0ZmQ6NzllMzRiMDAtYzcxMS00NDVhLTkzNjItNWMwODdjYjc0Y2Mz");
-            System.out.println(url);
 
             try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream()))) {
                 String line;
@@ -66,7 +60,6 @@ public class Entfernung {
         double dx = 71.5 * (koordsUser[1] - koordsRestaurant[1]);
         double dy = 111.3 * (koordsUser[0] - koordsRestaurant[0]);
         entfernung = Math.sqrt(dx * dx + dy * dy);
-        System.out.println(entfernung);
         return entfernung;
     }
 }
