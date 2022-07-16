@@ -9,19 +9,28 @@ public class Bestellung
     private double preis;
     private double dauer = 0.0;
     private double[] lieferzeiten;
-    private Restaurant restaurant;
+    private Restaurant[] restaurants;
     private String adresse;
     private double[] koords;
     private String uhrzeit;
     private String datum;
+
+    public Restaurant[] getRestaurants() {
+        return restaurants;
+    }
+
     public Bestellung()
     {
         gerichte = new Gericht[0];
         lieferzeiten = new double[0];
+        restaurants = new Restaurant[0];
     }
 
-    public void gerichthinzufuegen(Gericht neuesGericht, double lieferzeit)
+    public void gerichthinzufuegen(Datenelement[] gericht_daten, double lieferzeit)
     {
+        Gericht neuesGericht = (Gericht)gericht_daten[0];
+        Restaurant neuesRestaurant = (Restaurant)gericht_daten[1];
+
         Gericht[] neuesArray_gerichte = new Gericht[gerichte.length + 1];
         System.arraycopy(gerichte, 0, neuesArray_gerichte, 0, gerichte.length);
         neuesArray_gerichte[gerichte.length] = neuesGericht;
@@ -31,6 +40,11 @@ public class Bestellung
         System.arraycopy(lieferzeiten, 0, neuesArray_lieferzeit, 0, lieferzeiten.length);
         neuesArray_lieferzeit[lieferzeiten.length] = lieferzeit;
         lieferzeiten = neuesArray_lieferzeit;
+
+        Restaurant[] neuesArray_restaurants = new Restaurant[restaurants.length + 1];
+        System.arraycopy(restaurants, 0, neuesArray_restaurants, 0, restaurants.length);
+        neuesArray_restaurants[restaurants.length] = neuesRestaurant;
+        restaurants = neuesArray_restaurants;
 
         gerichte_anzahl++;
         preis += neuesGericht.getPreis();
@@ -80,7 +94,9 @@ public class Bestellung
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String[] daten = dtf.format(LocalDateTime.now()).split(" ");
 
-        uhrzeit = daten[1];
+        String[] uhrzeit_array = daten[1].split(":");
+        uhrzeit = uhrzeit_array[0] + ":" + uhrzeit_array[1];
+
 
         String[] datum_array = daten[0].split("/");
         datum = datum_array[2] + "." + datum_array[1] + "." + datum_array[0];

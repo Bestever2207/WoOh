@@ -309,7 +309,7 @@ public class WoOh
 
     public void gericht_warenkorbhinzufuegen(Datenelement[] gerichtDaten, double lieferzeit)
     {
-        warenkorb.gerichthinzufuegen((Gericht) gerichtDaten[0],lieferzeit);
+        warenkorb.gerichthinzufuegen(gerichtDaten,lieferzeit);
     }
 
     public void Warenkorb_erstellen()

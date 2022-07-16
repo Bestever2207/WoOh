@@ -34,9 +34,9 @@ public class UI {
 
     public static void loading_screen()
     {
-        ImageIcon logo_img = new ImageIcon("img/logo4.png");
-        logo_img.setImage(logo_img.getImage().getScaledInstance(388,388,Image.SCALE_SMOOTH));
-        JLabel logo = new JLabel(logo_img);
+
+        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(388,388,Image.SCALE_DEFAULT));
+        JLabel logo = new JLabel(LOGO_IMG);
         logo.setBounds(517,62,388,388);
         PANEL.add(logo);
 
@@ -189,7 +189,7 @@ public class UI {
         obere_Leiste.setOpaque(true);
         PANEL.add(obere_Leiste,1);
 
-        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(160,160,Image.SCALE_SMOOTH));
+        LOGO_IMG.setImage(LOGO_IMG.getImage().getScaledInstance(160,160,Image.SCALE_DEFAULT));
         JLabel logo = new JLabel(LOGO_IMG);
         logo.setBackground(Color.decode("#D4AF37"));
         logo.setBounds(25,25,160,160);
@@ -696,11 +696,14 @@ public class UI {
                 einkaufstasche.setBounds(660, 35, 41, 41);
                 einkaufstasche.setBackground(Color.decode("#D4AF37"));
 
-
                 JLabel preis = new JLabel("" + gerichte[i].preisGeben() + "€");
                 preis.setBounds(710, 35, 129, 41);
                 preis.setFont(new Font("Open Sans", Font.PLAIN, 32));
                 preis.setBackground(Color.decode("#ffffff"));
+
+                JLabel restaurant_name = new JLabel("von " + warenkorb.getRestaurants()[i].getName());
+                beilagen_label.setFont(FONT_PLAIN_24);
+                beilagen_label.setBounds(35, 131, 600, 30);
 
                 ImageIcon minus_icon = new ImageIcon("img/minus.png");
                 minus_icon.setImage(minus_icon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
@@ -716,6 +719,7 @@ public class UI {
                 btn_panel.add(beilagen_label, JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(preis, JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(einkaufstasche, JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(restaurant_name, JLayeredPane.PALETTE_LAYER);
 
                 btn_panel.add(minus, JLayeredPane.PALETTE_LAYER);
 
@@ -780,7 +784,7 @@ public class UI {
                 label.setVisible(true);
                 label.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
-                JLabel datum = new JLabel(bestellhistorie[i].getDatum());
+                JLabel datum = new JLabel(bestellhistorie[i].getDatum() + " um " + bestellhistorie[i].getUhrzeit());
                 datum.setFont(new Font("Open Sans",Font.PLAIN, 32));
                 datum.setBounds(35,35,901,41);
 
@@ -788,26 +792,38 @@ public class UI {
                 einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41,41,Image.SCALE_SMOOTH));
 
                 JLabel einkaufstasche = new JLabel(einkaufstasche_icon);
-                einkaufstasche.setBounds(900, 30, 41, 41);
+                einkaufstasche.setBounds(870, 30, 41, 41);
                 einkaufstasche.setBackground(Color.decode("#D4AF37"));
 
                 JLabel preis = new JLabel("" + bestellhistorie[i].getPreis() + "€");
-                preis.setBounds(950, 15, 122, 70);
+                preis.setBounds(920, 15, 122, 70);
                 preis.setFont(new Font("Open Sans",Font.PLAIN, 32));
+                preis.setBackground(Color.decode("#ffffff"));
+
+                String gerichte_txt = bestellhistorie[i].getGerichte()[0].getName();
+
+                for(int t = 1;t < bestellhistorie[i].getGerichte_anzahl();t++)
+                {
+                    gerichte_txt = gerichte_txt + ", " + bestellhistorie[i].getGerichte()[t].getName();
+                }
+
+                JLabel gerichte = new JLabel(gerichte_txt);
+                preis.setBounds(35, 88, 600, 30);
+                preis.setFont(FONT_PLAIN_24);
                 preis.setBackground(Color.decode("#ffffff"));
 
                 ImageIcon zeit_icon = new ImageIcon("img/zeit.png");
                 zeit_icon.setImage(zeit_icon.getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH));
 
-                JLabel uhrzeit = new JLabel(zeit_icon);
-                uhrzeit.setBounds(27,131,40,40);
-                uhrzeit.setBackground(Color.decode("#ffffff"));
-
-
-                JLabel zeit = new JLabel("ca." + bestellhistorie[i].getDauer() + " min");
-                zeit.setBounds(82,139,901,24);
+                JLabel zeit = new JLabel(zeit_icon);
+                zeit.setBounds(27,131,40,40);
                 zeit.setBackground(Color.decode("#ffffff"));
-                zeit.setFont(FONT_PLAIN_24);
+
+
+                JLabel dauer = new JLabel("ca." + bestellhistorie[i].getDauer() + " min");
+                dauer.setBounds(82,139,901,24);
+                dauer.setBackground(Color.decode("#ffffff"));
+                dauer.setFont(FONT_PLAIN_24);
 
                 ImageIcon plus_icon = new ImageIcon("img/plus4.png");
                 plus_icon.setImage(plus_icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
@@ -826,10 +842,12 @@ public class UI {
                 btn_panel.add(einkaufstasche,JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(preis,JLayeredPane.PALETTE_LAYER);
 
-                btn_panel.add(uhrzeit,JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(zeit,JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(dauer,JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(gerichte,JLayeredPane.PALETTE_LAYER);
 
                 btn_panel.add(label,JLayeredPane.DEFAULT_LAYER);
+
                 btn_panel.setVisible(true);
 
                 SCROLLPANE_INHALT.add(btn_panel);
@@ -885,7 +903,7 @@ public class UI {
         JButton aufladen = new JButton("Aufladen");
         aufladen.setBounds(720, 472, 270, 92);
         aufladen.setFont(FONT_PLAIN_40);
-        aufladen.setBackground(Color.decode("#ffffff"));
+        aufladen.setBackground(Color.decode("#D4AF37"));
         PANEL.add(aufladen);
         components[1] = aufladen;
 
@@ -893,6 +911,7 @@ public class UI {
         betrag.setBounds(372, 472, 274, 92);
         betrag.setFont(FONT_PLAIN_40);
         betrag.setBackground(Color.decode("#ffffff"));
+        betrag.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
         PANEL.add(betrag);
         components[2] = betrag;
 
