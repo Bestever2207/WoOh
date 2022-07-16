@@ -46,6 +46,11 @@ public class Bestellung
     }
 
     public double getPreis() {
+        preis = 0;
+        for(int i = 0;i < gerichte_anzahl;i++)
+        {
+            preis += gerichte[i].getPreis();
+        }
         return preis;
     }
 
@@ -81,5 +86,23 @@ public class Bestellung
         datum = datum_array[2] + "." + datum_array[1] + "." + datum_array[0];
 
         System.out.println(uhrzeit + "    " + datum);
+    }
+
+    public void gericht_entfernen(int zu_loeschendes_element)
+    {
+        Gericht[] neues_Array_gerichte = new Gericht[gerichte.length - 1];
+        int index = 0;
+
+        for(int i = 0;i < gerichte.length;i++)
+        {
+            if(i != zu_loeschendes_element)
+            {
+                neues_Array_gerichte[index] = gerichte[i];
+                index++;
+            }
+        }
+        gerichte = neues_Array_gerichte;
+
+        gerichte_anzahl--;
     }
 }

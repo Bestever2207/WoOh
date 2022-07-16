@@ -218,8 +218,7 @@ public class WoOh
             }
         }
 
-        System.out.println(suchergebnisse_gerichte[0][1][0].getName());
-        System.out.println(suchergebnisse_gerichte[1][1][0].getName());
+
 
         JComponent[] components = UI.gerichteAusgeben(suchergebnisse_gerichte,lieferzeiten,true);
 
@@ -352,6 +351,17 @@ public class WoOh
             }
         });
 
+        for(int i = 2;i < components.length;i++)
+        {
+            int finalI = i;
+            ((JButton)components[i]).addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    warenkorb.gericht_entfernen(finalI - 2);
+                    Warenkorb_anzeigen();
+                }
+            });
+        }
 
     }
     public void Bestellhistorie()

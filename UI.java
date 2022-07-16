@@ -294,7 +294,7 @@ public class UI {
 
 
 
-    public static void scrollpane_erstellen(int x,int y,int width,int height, boolean hinzufuegen)
+    public static void scrollpane_erstellen(int x,int y,int width,int height)
     {
         if(SCROLLPANE == null)
         {
@@ -320,8 +320,9 @@ public class UI {
         SCROLLPANE.setBounds(x, y, width, Math.min(height, 500));
         SCROLLPANE.getViewport().setBackground(Color.decode("#ffffff"));
         SCROLLPANE.setForeground(Color.decode("#ffffff"));
-        SCROLLPANE.setBorder(null);
+        SCROLLPANE.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
         SCROLLPANE.setVisible(true);
+        SCROLLPANE.setVerticalScrollBarPolicy(SCROLLPANE.VERTICAL_SCROLLBAR_AS_NEEDED);
         SCROLLPANE.getVerticalScrollBar().setUnitIncrement(10);
         SCROLLPANE.getVerticalScrollBar().setBackground(Color.WHITE);
 
@@ -338,7 +339,17 @@ public class UI {
         {
             PANEL.add(SCROLLPANE);
         }
+        SCROLLPANE_INHALT.validate();
+        SCROLLPANE_INHALT.repaint();
+        SCROLLPANE_INHALT.revalidate();
 
+        SCROLLPANE.validate();
+        SCROLLPANE.repaint();
+        SCROLLPANE.revalidate();
+
+        PANEL.validate();
+        PANEL.repaint();
+        PANEL.revalidate();
     }
 
     public static JComponent[] restaurantsAusgeben(Restaurant[] suchergebnisse,double[] lieferzeiten)
@@ -348,7 +359,7 @@ public class UI {
 
         JComponent[] components = new JComponent[anzahl_suchergebnisse];
 
-        scrollpane_erstellen(152, 305, 1133,height,false);
+        scrollpane_erstellen(152, 305, 1133,height);
 
         System.out.println("restaurantsAusgeben ausgeführt");
 
@@ -428,7 +439,7 @@ public class UI {
 
         int height = 15 + anzahl_suchergebnisse * (15 + 187);
 
-        scrollpane_erstellen(152, 305, 1133,height,false);
+        scrollpane_erstellen(152, 305, 1133,height);
         JComponent[] components;
 
         if(activ_btn) {
@@ -488,11 +499,11 @@ public class UI {
                 einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41, 41, Image.SCALE_SMOOTH));
 
                 JLabel einkaufstasche = new JLabel(einkaufstasche_icon);
-                einkaufstasche.setBounds(900, 30, 41, 41);
+                einkaufstasche.setBounds(880, 30, 41, 41);
                 einkaufstasche.setBackground(Color.decode("#D4AF37"));
 
                 JLabel preis = new JLabel("" + datenelements[0][s].preisGeben() + "€");
-                preis.setBounds(950, 15, 122, 70);
+                preis.setBounds(930, 15, 122, 70);
                 preis.setFont(new Font("Open Sans", Font.PLAIN, 32));
                 preis.setBackground(Color.decode("#ffffff"));
 
@@ -552,7 +563,7 @@ public class UI {
 
     public static void KeineSuchergebnisse()
     {
-        scrollpane_erstellen(152, 305, 1133,500,false);
+        scrollpane_erstellen(152, 305, 1133,500);
 
         JLayeredPane keine_ergebnisse_btn = new JLayeredPane();
 
@@ -584,7 +595,7 @@ public class UI {
 
     public static JComponent[] Warenkorb(Bestellung warenkorb)
     {
-        JComponent[] components = new JComponent[2];
+        JComponent[] components = new JComponent[2 + warenkorb.getGerichte_anzahl()];
         components[0] = layout_veraendern("Warenkorb")[0];
 
 
@@ -595,62 +606,9 @@ public class UI {
         else {
             height = 15 + warenkorb.getGerichte_anzahl() * (15 + 187);
         }
-        scrollpane_erstellen(30, 265, 920, height,true);
+        scrollpane_erstellen(30, 265, 920, height);
         SCROLLPANE.setBorder(BorderFactory.createLineBorder(Color.decode("#010101")));
         Gericht[] gerichte = warenkorb.getGerichte();
-
-        if(warenkorb.getGerichte_anzahl() != 0)
-        {
-            for(int i = 0;i < gerichte.length;i++) {
-                JLayeredPane btn_panel = new JLayeredPane();
-
-                JLabel btn = new JLabel();
-                btn.setBackground(Color.decode("#ffffff"));
-                btn.setBounds(15, 15, 1088, 187);
-                btn.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-                btn.setVisible(true);
-                btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
-                btn_panel.add(btn, JLayeredPane.DEFAULT_LAYER);
-
-                JLabel name = new JLabel(gerichte[i].getName());
-                name.setFont(new Font("Open Sans", Font.PLAIN, 32));
-                name.setBounds(35, 35, 901, 41);
-
-                String[] beilagen = gerichte[i].getBeilagen();
-                StringBuilder alle_beilagen = new StringBuilder("Beilagen: ");
-
-                for (int z = 0; z < beilagen.length - 1; z++) {
-                    alle_beilagen.append(beilagen[z]).append(", ");
-                }
-                alle_beilagen.append(beilagen[beilagen.length - 1]);
-
-                JLabel beilagen_label = new JLabel(alle_beilagen.toString());
-                beilagen_label.setFont(FONT_PLAIN_24);
-                beilagen_label.setBounds(35, 88, 901, 30);
-
-
-                JLabel preis = new JLabel("" + gerichte[i].preisGeben() + "€");
-                preis.setBounds(1013, 35, 129, 41);
-                preis.setFont(new Font("Open Sans", Font.PLAIN, 32));
-                preis.setBackground(Color.decode("#ffffff"));
-
-                ImageIcon plus_icon = new ImageIcon("img/plus2.png");
-                plus_icon.setImage(plus_icon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
-
-                JButton plus = new JButton(plus_icon);
-                plus.setBounds(1013, 100, 70, 70);
-                plus.setBorder(BorderFactory.createLineBorder(Color.decode("#ffffff")));
-                plus.setBackground(Color.decode("#ffffff"));
-
-                btn_panel.add(name, JLayeredPane.PALETTE_LAYER);
-                btn_panel.add(beilagen_label, JLayeredPane.PALETTE_LAYER);
-                btn_panel.add(preis, JLayeredPane.PALETTE_LAYER);
-
-                btn_panel.add(plus, JLayeredPane.PALETTE_LAYER);
-
-                SCROLLPANE_INHALT.add(btn_panel);
-            }
-        }
 
         JLabel zwischensumme = new JLabel("Zwischensumme");
         zwischensumme.setBounds(1000, 382, 215, 40);
@@ -702,6 +660,71 @@ public class UI {
 
         components[1] = bestellen;
 
+        if(warenkorb.getGerichte_anzahl() != 0)
+        {
+            for(int i = 0;i < gerichte.length;i++) {
+                JLayeredPane btn_panel = new JLayeredPane();
+
+                JLabel btn = new JLabel();
+                btn.setBackground(Color.decode("#ffffff"));
+                btn.setBounds(15, 15, 860, 187);
+                btn.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+                btn.setVisible(true);
+                btn.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+                btn_panel.add(btn, JLayeredPane.DEFAULT_LAYER);
+
+                JLabel name = new JLabel(gerichte[i].getName());
+                name.setFont(new Font("Open Sans", Font.PLAIN, 32));
+                name.setBounds(35, 35, 901, 41);
+
+                String[] beilagen = gerichte[i].getBeilagen();
+                StringBuilder alle_beilagen = new StringBuilder("Beilagen: ");
+
+                for (int z = 0; z < beilagen.length - 1; z++) {
+                    alle_beilagen.append(beilagen[z]).append(", ");
+                }
+                alle_beilagen.append(beilagen[beilagen.length - 1]);
+
+                JLabel beilagen_label = new JLabel(alle_beilagen.toString());
+                beilagen_label.setFont(FONT_PLAIN_24);
+                beilagen_label.setBounds(35, 88, 901, 30);
+
+                ImageIcon einkaufstasche_icon = new ImageIcon("img/Einkaufstasche.png");
+                einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41, 41, Image.SCALE_SMOOTH));
+
+                JLabel einkaufstasche = new JLabel(einkaufstasche_icon);
+                einkaufstasche.setBounds(660, 35, 41, 41);
+                einkaufstasche.setBackground(Color.decode("#D4AF37"));
+
+
+                JLabel preis = new JLabel("" + gerichte[i].preisGeben() + "€");
+                preis.setBounds(710, 35, 129, 41);
+                preis.setFont(new Font("Open Sans", Font.PLAIN, 32));
+                preis.setBackground(Color.decode("#ffffff"));
+
+                ImageIcon minus_icon = new ImageIcon("img/minus.png");
+                minus_icon.setImage(minus_icon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH));
+
+                JButton minus = new JButton(minus_icon);
+                minus.setBounds(805, 15, 70, 70);
+                minus.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
+                minus.setBackground(Color.decode("#ffffff"));
+
+                components[i + 2] = minus;
+
+                btn_panel.add(name, JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(beilagen_label, JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(preis, JLayeredPane.PALETTE_LAYER);
+                btn_panel.add(einkaufstasche, JLayeredPane.PALETTE_LAYER);
+
+                btn_panel.add(minus, JLayeredPane.PALETTE_LAYER);
+
+                SCROLLPANE_INHALT.add(btn_panel);
+            }
+        }
+
+
+
         SCROLLPANE_INHALT.validate();
         SCROLLPANE_INHALT.repaint();
         SCROLLPANE_INHALT.revalidate();
@@ -710,7 +733,7 @@ public class UI {
         PANEL.repaint();
         PANEL.revalidate();
 
-        return  components;
+        return components;
     }
 
     public static void kein_geld()
@@ -743,7 +766,7 @@ public class UI {
 
             int height = 15 + bestellhistorie.length * (15 + 187);
 
-            scrollpane_erstellen(152, 305, 1133, height,true);
+            scrollpane_erstellen(152, 305, 1133, height);
 
             for(int i = 0;i < bestellhistorie.length;i++)
             {
@@ -761,23 +784,15 @@ public class UI {
                 datum.setFont(new Font("Open Sans",Font.PLAIN, 32));
                 datum.setBounds(35,35,901,41);
 
-                /*
-                JLabel essensrichtung = new JLabel(bestellhistorie[i].getGenre());
-
-                essensrichtung.setFont(FONT_PLAIN_24);
-                essensrichtung.setBounds(35,94,901,18);
-
-                 */
-
                 ImageIcon einkaufstasche_icon = new ImageIcon("img/Einkaufstasche.png");
                 einkaufstasche_icon.setImage(einkaufstasche_icon.getImage().getScaledInstance(41,41,Image.SCALE_SMOOTH));
 
                 JLabel einkaufstasche = new JLabel(einkaufstasche_icon);
-                einkaufstasche.setBounds(963,35,41,41);
+                einkaufstasche.setBounds(900, 30, 41, 41);
                 einkaufstasche.setBackground(Color.decode("#D4AF37"));
 
                 JLabel preis = new JLabel("" + bestellhistorie[i].getPreis() + "€");
-                preis.setBounds(1013,35,129,41);
+                preis.setBounds(950, 15, 122, 70);
                 preis.setFont(new Font("Open Sans",Font.PLAIN, 32));
                 preis.setBackground(Color.decode("#ffffff"));
 
@@ -806,8 +821,8 @@ public class UI {
 
 
                 btn_panel.add(datum,JLayeredPane.PALETTE_LAYER);
-                //btn_panel.add(essensrichtung,JLayeredPane.PALETTE_LAYER);
 
+                btn_panel.add(plus,JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(einkaufstasche,JLayeredPane.PALETTE_LAYER);
                 btn_panel.add(preis,JLayeredPane.PALETTE_LAYER);
 
@@ -835,7 +850,7 @@ public class UI {
 
     public static void keine_bestellungen()
     {
-        scrollpane_erstellen(152, 305, 1133,500,true);
+        scrollpane_erstellen(152, 305, 1133,500);
 
         JLayeredPane keine_bestellungen_btn = new JLayeredPane();
 
@@ -948,9 +963,6 @@ public class UI {
 
         return components;
     }
-    public static void extra()
-    {
 
-    }
 
 }

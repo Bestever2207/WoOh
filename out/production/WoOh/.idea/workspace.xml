@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="bestellhistorie" />
+    <list default="true" id="07011775-13af-414b-9998-56e5e6f5359c" name="Changes" comment="bestellhistorie 2.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -326,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657893957350</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="bestellhistorie 2.0">
+      <created>1657898268836</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1657898268836</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -344,7 +351,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="restaurants ausgeben" />
     <MESSAGE value="gerichte ausgeben" />
     <MESSAGE value="gerichte 2tes mal ausgeben fehler" />
     <MESSAGE value="gerichte 2tes mal ausgeben fehler v2" />
@@ -369,7 +375,8 @@
     <MESSAGE value="Warenkorb + bestellen" />
     <MESSAGE value="scrollpane bug fixed" />
     <MESSAGE value="bestellhistorie" />
-    <option name="LAST_COMMIT_MESSAGE" value="bestellhistorie" />
+    <MESSAGE value="bestellhistorie 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="bestellhistorie 2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
